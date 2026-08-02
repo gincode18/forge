@@ -20,7 +20,7 @@ Start the dashboard in a second terminal:
 
 ```bash
 cd frontend
-npm run dev
+pnpm dev
 ```
 
 The API is available at `http://localhost:8000`, with interactive API docs at
@@ -30,5 +30,5 @@ The API is available at `http://localhost:8000`, with interactive API docs at
 
 ```bash
 cd backend && uv run pytest && uv run ruff check .
-cd frontend && npm run lint && npm run build
+cd frontend && pnpm lint && pnpm build
 ```
