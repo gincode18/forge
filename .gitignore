@@ -1,0 +1,17 @@
+# Python
+backend/.venv/
+backend/.pytest_cache/
+backend/.ruff_cache/
+__pycache__/
+*.py[cod]
+
+# Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/.env*.local
+
+# Local Forge runtime state (will be introduced with SQLite)
+data/
+*.db
+*.sqlite
+*.sqlite3
