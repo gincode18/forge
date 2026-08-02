@@ -7,6 +7,12 @@ Local-first runtime and engineering platform for AI agents.
 - `backend/` — FastAPI service and future Forge runtime.
 - `frontend/` — Next.js dashboard using Shadcn UI.
 
+## Project documents
+
+- [`scope.md`](scope.md) — vision and project philosophy.
+- [`architecture.md`](architecture.md) — proposed UX and technical architecture.
+- [`plan.md`](plan.md) — phased implementation roadmap and current position.
+
 ## Run locally
 
 Start the API:
