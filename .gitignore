@@ -12,6 +12,7 @@ frontend/.env*.local
 
 # Local Forge runtime state (will be introduced with SQLite)
 data/
+backend/data/
 *.db
 *.sqlite
 *.sqlite3

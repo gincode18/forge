@@ -626,6 +626,8 @@ Significant decisions should be recorded under `docs/decisions/` when they are
 made. An architecture decision should describe context, the choice, alternatives,
 and consequences. Early decisions expected to need records include:
 
+- the runtime language (`0001-python-runtime.md`);
+
 - runtime concurrency and cancellation model;
 - database and migration library;
 - provider response normalization;

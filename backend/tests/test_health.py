@@ -1,11 +1,9 @@
 from fastapi.testclient import TestClient
 
-from main import app
 
-client = TestClient(app)
-
-
-def test_health_endpoint_returns_service_metadata() -> None:
+def test_health_endpoint_returns_service_and_database_metadata(
+    client: TestClient,
+) -> None:
     response = client.get("/api/v1/health")
 
     assert response.status_code == 200
@@ -13,4 +11,5 @@ def test_health_endpoint_returns_service_metadata() -> None:
         "status": "ok",
         "service": "forge-api",
         "version": "0.1.0",
+        "database": "ready",
     }

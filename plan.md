@@ -2,13 +2,15 @@
 
 ## Current position
 
-**Current phase: Phase 0 complete — vision, stack, and proposed architecture.**
+**Current phase: Phase 1 in progress — backend foundation and durable domain model.**
 
-**Next phase: Phase 1 — backend foundation and durable domain model.**
+**Current slice: SQLAlchemy persistence, agent versions, queued runs, and events.**
 
-The repository currently contains a FastAPI health service, a Next.js/Shadcn
-dashboard shell, `uv` for Python dependencies, and pnpm for frontend
-dependencies. No agent runtime has been implemented yet.
+The repository now contains a packaged FastAPI service, Alembic-managed SQLite
+persistence, durable agent definitions and immutable versions, queued run and
+event records, a Next.js/Shadcn dashboard shell, `uv` for Python dependencies,
+and pnpm for frontend dependencies. The execution runtime has not been
+implemented yet.
 
 This plan is organized around working vertical slices rather than dates. A phase
 is complete only when its exit criteria pass. We should not start several future
@@ -34,7 +36,7 @@ the current phase has at least one real implementation and the boundary matters.
 | Phase | Outcome | Status |
 | --- | --- | --- |
 | 0. Vision and foundation | Shared vision, local stack, repository, architecture | Complete |
-| 1. Domain and storage | Durable agent versions, runs, events, and clean modules | Next |
+| 1. Domain and storage | Durable agent versions, runs, events, and clean modules | In progress |
 | 2. End-to-end fake agent | Create and run a deterministic agent through the UI | Planned |
 | 3. Real model runtime | Provider adapter, streaming, planner loop, limits | Planned |
 | 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Planned |
@@ -80,15 +82,15 @@ Agree on what Forge is and establish a minimal local development environment.
 
 ### Build
 
-1. Move the backend into an installable `src/forge` package.
-2. Add typed application settings and a configurable Forge data directory.
-3. Add SQLAlchemy, SQLite, and a migration tool.
-4. Define domain types for `AgentDefinition`, `AgentVersion`, `Run`, `Step`, and
-   `Event`.
-5. Implement and test valid run-state transitions.
-6. Add repositories for agents, versions, runs, and events.
-7. Initialize SQLite on application startup and expose database readiness.
-8. Add structured error responses and request/run correlation IDs.
+1. [x] Move the backend into an installable `src/forge` package.
+2. [x] Add typed application settings and a configurable Forge data directory.
+3. [x] Add SQLAlchemy, SQLite, and Alembic migrations.
+4. [ ] Define domain types for `AgentDefinition`, `AgentVersion`, `Run`, `Step`,
+   and `Event` (`Step` remains).
+5. [x] Implement and test valid run-state transitions.
+6. [x] Add repositories for agents, versions, runs, and events.
+7. [x] Initialize SQLite on application startup and expose database readiness.
+8. [ ] Add request/run correlation IDs (structured 404 responses are complete).
 
 ### API slice
 
@@ -112,9 +114,9 @@ Agree on what Forge is and establish a minimal local development environment.
 
 ### Exit criteria
 
-- [ ] Restarting the API preserves agents and runs.
-- [ ] Every run references an immutable agent version.
-- [ ] Invalid state transitions fail deterministically.
+- [x] Restarting the API preserves agents and runs.
+- [x] Every run references an immutable agent version.
+- [x] Invalid state transitions fail deterministically.
 - [ ] The dashboard shows real persisted data.
 - [ ] No provider SDK or actual LLM call is required.
 

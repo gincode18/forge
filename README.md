@@ -12,6 +12,7 @@ Local-first runtime and engineering platform for AI agents.
 - [`scope.md`](scope.md) — vision and project philosophy.
 - [`architecture.md`](architecture.md) — proposed UX and technical architecture.
 - [`plan.md`](plan.md) — phased implementation roadmap and current position.
+- [`docs/decisions/`](docs/decisions/) — architecture decisions and tradeoffs.
 
 ## Run locally
 
@@ -31,6 +32,17 @@ pnpm dev
 
 The API is available at `http://localhost:8000`, with interactive API docs at
 `http://localhost:8000/docs`. The dashboard runs at `http://localhost:3000`.
+
+Forge stores local state in `backend/data/forge.db` by default. Override the
+directory with `FORGE_DATA_DIR` or provide a complete `FORGE_DATABASE_URL`.
+
+Database migrations run automatically when the API starts. They can also be
+managed explicitly from `backend/`:
+
+```bash
+uv run alembic upgrade head
+uv run alembic downgrade -1
+```
 
 ## Checks
 
