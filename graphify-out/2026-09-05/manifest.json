@@ -90,8 +90,8 @@
     "semantic_hash": "6a47d64fcc136324ca395065a707ef76"
   },
   "README.md": {
-    "mtime": 1788592315.2095802,
-    "ast_hash": "1785b5a16b967796ffb5777ca9097c78",
+    "mtime": 1786560827.2834246,
+    "ast_hash": "6c95be523de891b9704cee08a836796b",
     "semantic_hash": ""
   },
   "architecture.md": {
@@ -115,8 +115,8 @@
     "semantic_hash": "074e68c45e35d78130ebc1779448d4a8"
   },
   "plan.md": {
-    "mtime": 1788592315.2091694,
-    "ast_hash": "b88f759873b8e5599d83b976cb44732d",
+    "mtime": 1786560871.9407532,
+    "ast_hash": "8ad710e4fb0dfe22667c9bc5df7120f0",
     "semantic_hash": ""
   },
   "scope.md": {
@@ -180,13 +180,13 @@
     "semantic_hash": ""
   },
   "backend/src/forge/adapters/sqlite/models.py": {
-    "mtime": 1788592315.2065935,
-    "ast_hash": "a4e9154f821a2ada8688dfbbb6a8a272",
+    "mtime": 1786560753.6854658,
+    "ast_hash": "cb90348a3b9d99afa296fadf4eef59fc",
     "semantic_hash": ""
   },
   "backend/src/forge/adapters/sqlite/repositories.py": {
-    "mtime": 1788592315.2070584,
-    "ast_hash": "7516e5833437327563818553230ef226",
+    "mtime": 1786560766.616125,
+    "ast_hash": "31e74ecca7641c1280e1df58e17220b2",
     "semantic_hash": ""
   },
   "backend/src/forge/api/__init__.py": {
@@ -215,13 +215,13 @@
     "semantic_hash": ""
   },
   "backend/src/forge/api/routes/runs.py": {
-    "mtime": 1788592315.207921,
-    "ast_hash": "ac39dd0e4585f7749f57d024d2a7cbec",
+    "mtime": 1786560676.8388739,
+    "ast_hash": "dd5f2c6235b3fa34c7afda07cb3c16e9",
     "semantic_hash": ""
   },
   "backend/src/forge/api/schemas.py": {
-    "mtime": 1788592315.2077632,
-    "ast_hash": "ce13f5e600e8238cfb181ef87025e40b",
+    "mtime": 1786560676.3720565,
+    "ast_hash": "4e53461840ffa0c81ad4e797f138ce5b",
     "semantic_hash": ""
   },
   "backend/src/forge/application/__init__.py": {
@@ -240,8 +240,8 @@
     "semantic_hash": ""
   },
   "backend/src/forge/application/runs.py": {
-    "mtime": 1788592315.2074785,
-    "ast_hash": "9ff15d69b35e2e6c78111aaf049d5e41",
+    "mtime": 1786560766.8764713,
+    "ast_hash": "5302d30ecdb5211e0e142f89a6b3dc96",
     "semantic_hash": ""
   },
   "backend/src/forge/config.py": {
@@ -275,13 +275,13 @@
     "semantic_hash": ""
   },
   "backend/tests/integration/test_agents_and_runs.py": {
-    "mtime": 1788592315.2085826,
-    "ast_hash": "31819148c3df7a372bc0f9cf86ee74f2",
+    "mtime": 1786560722.39915,
+    "ast_hash": "75319073f2c030d0ca3c55aa74ab9162",
     "semantic_hash": ""
   },
   "backend/tests/integration/test_migrations.py": {
-    "mtime": 1788592315.208358,
-    "ast_hash": "3fb0fd77aa17f2c0cfa2e3321d4edfa2",
+    "mtime": 1786560837.5548604,
+    "ast_hash": "c63ad21d2b55e50920e55ba26bf42670",
     "semantic_hash": ""
   },
   "backend/tests/integration/test_persistence.py": {
@@ -297,21 +297,6 @@
   "docs/decisions/0001-python-runtime.md": {
     "mtime": 1786560827.1536243,
     "ast_hash": "04212cf5864fd06c5515c3173409db4a",
-    "semantic_hash": ""
-  },
-  "backend/alembic/versions/0002_add_run_steps.py": {
-    "mtime": 1788592315.2080538,
-    "ast_hash": "2f3ae78b2351c537cf7fc81823660f67",
-    "semantic_hash": ""
-  },
-  "backend/src/forge/domain/steps.py": {
-    "mtime": 1788592315.2060668,
-    "ast_hash": "cbd9087c4a75e9204b7a9ef8a770f58d",
-    "semantic_hash": ""
-  },
-  "docs/codebase-guide.md": {
-    "mtime": 1788592315.209752,
-    "ast_hash": "0c9cbe67cba52344431a0c31b4d38c73",
     "semantic_hash": ""
   }
 }

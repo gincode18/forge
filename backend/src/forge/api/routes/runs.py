@@ -3,11 +3,12 @@
 from fastapi import APIRouter, status
 
 from forge.api.dependencies import SessionDependency
-from forge.api.schemas import CreateRunRequest, EventResponse, RunResponse
+from forge.api.schemas import CreateRunRequest, EventResponse, RunResponse, StepResponse
 from forge.application.runs import (
     create_run,
     get_run,
     list_run_events,
+    list_run_steps,
     list_runs,
 )
 
@@ -34,4 +35,11 @@ def get_run_by_id(run_id: str, session: SessionDependency) -> RunResponse:
 def get_events(run_id: str, session: SessionDependency) -> list[EventResponse]:
     return [
         EventResponse.model_validate(event) for event in list_run_events(session, run_id)
+    ]
+
+
+@router.get("/{run_id}/steps", response_model=list[StepResponse])
+def get_steps(run_id: str, session: SessionDependency) -> list[StepResponse]:
+    return [
+        StepResponse.model_validate(step) for step in list_run_steps(session, run_id)
     ]

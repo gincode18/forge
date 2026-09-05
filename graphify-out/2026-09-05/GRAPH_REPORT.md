@@ -1,16 +1,16 @@
-# Graph Report - forge  (2026-09-05)
+# Graph Report - forge  (2026-08-13)
 
 ## Corpus Check
-- 58 files · ~14,288 words
+- 55 files · ~12,905 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 418 nodes · 647 edges · 40 communities (23 shown, 17 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 42 edges (avg confidence: 0.71)
+- 382 nodes · 579 edges · 38 communities (21 shown, 17 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.75)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `27c23253`
+- Built from commit: `cae83c3f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,7 +38,7 @@
 - next.config.ts
 - postcss.config.mjs
 - forge-api
-- RunRepository
+- routes/runs.py
 - domain/agents.py
 - test_agents_and_runs.py
 - ADR 0001: Python for the Forge control plane and runtime
@@ -52,12 +52,11 @@
 - routes/__init__.py
 - application/__init__.py
 - domain/__init__.py
-- Forge codebase guide
 
 ## God Nodes (most connected - your core abstractions)
-1. `AgentRepository` - 24 edges
-2. `RunRepository` - 23 edges
-3. `AgentRecord` - 16 edges
+1. `AgentRepository` - 21 edges
+2. `AgentRecord` - 16 edges
+3. `RunRepository` - 16 edges
 4. `compilerOptions` - 16 edges
 5. `cn()` - 15 edges
 6. `AgentVersionRecord` - 12 edges
@@ -86,7 +85,7 @@
 - **Inspectable Runtime Mechanisms** — architecture_runtime_execution_loop, architecture_trace_first_events, architecture_operator_dashboard, scope_explain_complexity [INFERRED 0.95]
 - **First Durable Runtime Vertical Slice** — plan_phase_1_domain_storage, plan_phase_2_fake_agent, architecture_sqlite_persistence, architecture_sse_event_delivery [INFERRED 0.85]
 
-## Communities (40 total, 17 thin omitted)
+## Communities (38 total, 17 thin omitted)
 
 ### Community 0 - "Runtime Execution Loop"
 Cohesion: 0.08
@@ -113,16 +112,16 @@ Cohesion: 0.07
 Nodes (26): eslint, eslint-config-next, devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, @types/node (+18 more)
 
 ### Community 6 - "app.py"
-Cohesion: 0.06
-Nodes (34): Compatibility entry point for ``uv run fastapi dev main.py``., create_database_engine(), Database, _is_sqlite(), Database engine, sessions, migration, and SQLite configuration., Create an engine with safe local SQLite defaults., Upgrade the configured database to the latest schema revision., Own the engine and produce short-lived transaction sessions. (+26 more)
+Cohesion: 0.05
+Nodes (37): Compatibility entry point for ``uv run fastapi dev main.py``., create_database_engine(), Database, _is_sqlite(), Session, Database engine, sessions, migration, and SQLite configuration., Create an engine with safe local SQLite defaults., Upgrade the configured database to the latest schema revision. (+29 more)
 
 ### Community 7 - "AgentRepository"
 Cohesion: 0.09
-Nodes (32): AgentRecord, AgentVersionRecord, Base, datetime, SQLAlchemy records for Forge's local durable state., utc_now(), AgentRepository, Repository implementations backed by a SQLAlchemy session. (+24 more)
+Nodes (28): AgentRecord, AgentVersionRecord, Base, EventRecord, datetime, SQLAlchemy records for Forge's local durable state., RunRecord, utc_now() (+20 more)
 
 ### Community 8 - "routes/agents.py"
-Cohesion: 0.20
-Nodes (22): _agent_response(), _config(), get_agent_by_id(), get_agents(), post_agent(), post_agent_version(), get, post (+14 more)
+Cohesion: 0.15
+Nodes (28): _agent_response(), _config(), get_agent_by_id(), get_agents(), post_agent(), post_agent_version(), get, post (+20 more)
 
 ### Community 9 - "Application Interface"
 Cohesion: 0.60
@@ -152,45 +151,41 @@ Nodes (4): Next.js Web Framework, Next.js Logo, Monochrome Brand Styling, NEXT.J
 Cohesion: 0.67
 Nodes (4): Vercel Brand Identity, Minimal Geometric Brand Mark, Vercel SVG Logo, Upward-Pointing Triangle
 
-### Community 23 - "RunRepository"
-Cohesion: 0.12
-Nodes (28): EventRecord, RunRecord, StepRecord, Session, RunRepository, get_events(), get_run_by_id(), get_runs() (+20 more)
+### Community 23 - "routes/runs.py"
+Cohesion: 0.28
+Nodes (14): get_events(), get_run_by_id(), get_runs(), post_run(), get, post, SessionDependency, Queued run and persisted event endpoints. (+6 more)
 
 ### Community 24 - "domain/agents.py"
 Cohesion: 0.33
 Nodes (5): AgentDefinition, AgentVersion, Agent identity and immutable executable configuration., Immutable configuration captured for reproducible runs., Stable identity and human-facing metadata for an agent.
 
 ### Community 25 - "test_agents_and_runs.py"
-Cohesion: 0.23
-Nodes (11): Session, Typed units of work performed while executing a run., One ordered, inspectable operation belonging to a run., Step, create_agent(), TestClient, test_agent_versions_are_immutable_snapshots(), test_missing_agent_returns_structured_404() (+3 more)
+Cohesion: 0.67
+Nodes (5): create_agent(), TestClient, test_agent_versions_are_immutable_snapshots(), test_missing_agent_returns_structured_404(), test_queued_run_is_pinned_and_emits_created_event()
 
 ### Community 26 - "ADR 0001: Python for the Forge control plane and runtime"
 Cohesion: 0.33
 Nodes (5): ADR 0001: Python for the Forge control plane and runtime, Consequences, Context, Decision, Why Python is credible for agent harnesses
 
-### Community 38 - "Forge codebase guide"
-Cohesion: 0.13
-Nodes (14): A useful reading order, `adapters/sqlite/`, `alembic/`, `api/`, `application/`, Backend directories, `domain/`, Forge codebase guide (+6 more)
-
 ## Knowledge Gaps
-- **105 isolated node(s):** `forge-api`, `Event`, `$schema`, `style`, `rsc` (+100 more)
+- **93 isolated node(s):** `forge-api`, `Event`, `$schema`, `style`, `rsc` (+88 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `RunRepository` connect `RunRepository` to `test_agents_and_runs.py`, `AgentRepository`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
-- **Why does `AgentRepository` connect `AgentRepository` to `RunRepository`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Are the 9 inferred relationships involving `AgentRepository` (e.g. with `AgentRecord` and `AgentVersionRecord`) actually correct?**
-  _`AgentRepository` has 9 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 8 inferred relationships involving `RunRepository` (e.g. with `AgentRecord` and `AgentVersionRecord`) actually correct?**
-  _`RunRepository` has 8 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `AgentRepository` connect `AgentRepository` to `routes/agents.py`, `routes/runs.py`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Are the 6 inferred relationships involving `AgentRepository` (e.g. with `AgentRecord` and `AgentVersionRecord`) actually correct?**
+  _`AgentRepository` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `AgentRecord` (e.g. with `AgentRepository` and `RunRepository`) actually correct?**
   _`AgentRecord` has 3 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 5 inferred relationships involving `RunRepository` (e.g. with `AgentRecord` and `AgentVersionRecord`) actually correct?**
+  _`RunRepository` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `forge-api`, `Event`, `$schema` to the rest of the system?**
-  _105 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _93 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Runtime Execution Loop` be split into smaller, more focused modules?**
   _Cohesion score 0.07671957671957672 - nodes in this community are weakly interconnected._
+- **Should `components.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._

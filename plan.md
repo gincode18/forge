@@ -4,7 +4,7 @@
 
 **Current phase: Phase 1 in progress — backend foundation and durable domain model.**
 
-**Current slice: SQLAlchemy persistence, agent versions, queued runs, and events.**
+**Current slice: SQLAlchemy persistence, agent versions, queued runs, steps, and events.**
 
 The repository now contains a packaged FastAPI service, Alembic-managed SQLite
 persistence, durable agent definitions and immutable versions, queued run and
@@ -85,8 +85,8 @@ Agree on what Forge is and establish a minimal local development environment.
 1. [x] Move the backend into an installable `src/forge` package.
 2. [x] Add typed application settings and a configurable Forge data directory.
 3. [x] Add SQLAlchemy, SQLite, and Alembic migrations.
-4. [ ] Define domain types for `AgentDefinition`, `AgentVersion`, `Run`, `Step`,
-   and `Event` (`Step` remains).
+4. [x] Define domain types for `AgentDefinition`, `AgentVersion`, `Run`, `Step`,
+   and `Event`.
 5. [x] Implement and test valid run-state transitions.
 6. [x] Add repositories for agents, versions, runs, and events.
 7. [x] Initialize SQLite on application startup and expose database readiness.

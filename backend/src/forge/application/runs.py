@@ -2,7 +2,7 @@
 
 from sqlalchemy.orm import Session
 
-from forge.adapters.sqlite.models import EventRecord, RunRecord
+from forge.adapters.sqlite.models import EventRecord, RunRecord, StepRecord
 from forge.adapters.sqlite.repositories import AgentRepository, RunRepository
 from forge.application.errors import ResourceNotFoundError
 
@@ -43,3 +43,10 @@ def get_run(session: Session, run_id: str) -> RunRecord:
 def list_run_events(session: Session, run_id: str) -> list[EventRecord]:
     get_run(session, run_id)
     return RunRepository(session).events(run_id)
+
+
+def list_run_steps(session: Session, run_id: str) -> list[StepRecord]:
+    """Return a run's durable operations in execution order."""
+
+    get_run(session, run_id)
+    return RunRepository(session).steps(run_id)

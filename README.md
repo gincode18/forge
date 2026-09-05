@@ -12,6 +12,8 @@ Local-first runtime and engineering platform for AI agents.
 - [`scope.md`](scope.md) — vision and project philosophy.
 - [`architecture.md`](architecture.md) — proposed UX and technical architecture.
 - [`plan.md`](plan.md) — phased implementation roadmap and current position.
+- [`docs/codebase-guide.md`](docs/codebase-guide.md) — plain-English tour of the
+  code and agent harness.
 - [`docs/decisions/`](docs/decisions/) — architecture decisions and tradeoffs.
 
 ## Run locally

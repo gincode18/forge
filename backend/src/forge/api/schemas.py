@@ -83,6 +83,23 @@ class EventResponse(BaseModel):
     created_at: datetime
 
 
+class StepResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: str
+    run_id: str
+    sequence: int
+    kind: str
+    status: str
+    input: dict[str, Any]
+    output: dict[str, Any] | None
+    attempt: int
+    error: dict[str, Any] | None
+    started_at: datetime | None
+    finished_at: datetime | None
+    created_at: datetime
+
+
 class ErrorResponse(BaseModel):
     detail: str
     resource: str | None = None

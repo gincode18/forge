@@ -1,5 +1,8 @@
 from fastapi.testclient import TestClient
 
+from forge.adapters.sqlite.repositories import RunRepository
+from forge.domain.steps import StepKind, StepStatus
+
 
 def create_agent(client: TestClient) -> dict[str, object]:
     response = client.post(
@@ -62,3 +65,43 @@ def test_missing_agent_returns_structured_404(client: TestClient) -> None:
 
     assert response.status_code == 404
     assert response.json()["resource"] == "agent"
+
+
+def test_run_steps_are_persisted_and_returned_in_order(client: TestClient) -> None:
+    agent = create_agent(client)
+    run_response = client.post(
+        "/api/v1/runs",
+        json={"agent_id": agent["id"], "input": "Inspect the runtime."},
+    )
+    run_id = run_response.json()["id"]
+
+    with next(client.app.state.database.session()) as session:
+        repository = RunRepository(session)
+        repository.create_step(
+            run_id=run_id,
+            kind=StepKind.PLANNER,
+            input={"messages": 1},
+        )
+        repository.create_step(
+            run_id=run_id,
+            kind=StepKind.MODEL,
+            input={"model": "deterministic"},
+            status=StepStatus.RUNNING,
+            attempt=2,
+        )
+        session.commit()
+
+    response = client.get(f"/api/v1/runs/{run_id}/steps")
+
+    assert response.status_code == 200
+    assert [step["sequence"] for step in response.json()] == [1, 2]
+    assert response.json()[0]["kind"] == "planner"
+    assert response.json()[1]["status"] == "running"
+    assert response.json()[1]["attempt"] == 2
+
+
+def test_steps_for_missing_run_return_structured_404(client: TestClient) -> None:
+    response = client.get("/api/v1/runs/missing/steps")
+
+    assert response.status_code == 404
+    assert response.json()["resource"] == "run"

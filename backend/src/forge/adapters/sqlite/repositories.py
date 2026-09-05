@@ -10,9 +10,11 @@ from forge.adapters.sqlite.models import (
     AgentVersionRecord,
     EventRecord,
     RunRecord,
+    StepRecord,
     utc_now,
 )
 from forge.domain.runs import RunStatus
+from forge.domain.steps import StepKind, StepStatus
 
 
 class AgentRepository:
@@ -149,5 +151,38 @@ class RunRepository:
             select(EventRecord)
             .where(EventRecord.run_id == run_id)
             .order_by(EventRecord.sequence)
+        )
+        return list(self.session.scalars(statement))
+
+    def create_step(
+        self,
+        *,
+        run_id: str,
+        kind: StepKind,
+        input: dict[str, object],
+        status: StepStatus = StepStatus.PENDING,
+        attempt: int = 1,
+    ) -> StepRecord:
+        next_sequence = self.session.scalar(
+            select(func.max(StepRecord.sequence)).where(StepRecord.run_id == run_id)
+        )
+        step = StepRecord(
+            id=str(uuid4()),
+            run_id=run_id,
+            sequence=(next_sequence or 0) + 1,
+            kind=kind.value,
+            status=status.value,
+            input=input,
+            attempt=attempt,
+        )
+        self.session.add(step)
+        self.session.flush()
+        return step
+
+    def steps(self, run_id: str) -> list[StepRecord]:
+        statement = (
+            select(StepRecord)
+            .where(StepRecord.run_id == run_id)
+            .order_by(StepRecord.sequence)
         )
         return list(self.session.scalars(statement))

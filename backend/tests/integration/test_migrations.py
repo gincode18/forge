@@ -15,7 +15,7 @@ def test_initial_migration_upgrades_and_downgrades(tmp_path: Path) -> None:
 
     command.upgrade(config, "head")
     engine = create_engine(database_url)
-    assert {"agents", "agent_versions", "runs", "events"}.issubset(
+    assert {"agents", "agent_versions", "runs", "steps", "events"}.issubset(
         set(inspect(engine).get_table_names())
     )
     engine.dispose()

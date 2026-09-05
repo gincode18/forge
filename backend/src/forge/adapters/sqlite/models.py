@@ -88,6 +88,42 @@ class RunRecord(Base):
         cascade="all, delete-orphan",
         order_by="EventRecord.sequence",
     )
+    steps: Mapped[list["StepRecord"]] = relationship(
+        back_populates="run",
+        cascade="all, delete-orphan",
+        order_by="StepRecord.sequence",
+    )
+
+
+class StepRecord(Base):
+    __tablename__ = "steps"
+    __table_args__ = (
+        UniqueConstraint("run_id", "sequence", name="uq_run_step_sequence"),
+        Index("ix_steps_run_created", "run_id", "created_at"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    run_id: Mapped[str] = mapped_column(
+        ForeignKey("runs.id", ondelete="CASCADE"), index=True
+    )
+    sequence: Mapped[int] = mapped_column(Integer(), nullable=False)
+    kind: Mapped[str] = mapped_column(String(32), nullable=False, index=True)
+    status: Mapped[str] = mapped_column(String(32), nullable=False, index=True)
+    input: Mapped[dict[str, Any]] = mapped_column(JSON(), default=dict, nullable=False)
+    output: Mapped[dict[str, Any] | None] = mapped_column(JSON(), nullable=True)
+    attempt: Mapped[int] = mapped_column(Integer(), default=1, nullable=False)
+    error: Mapped[dict[str, Any] | None] = mapped_column(JSON(), nullable=True)
+    started_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
+    finished_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=utc_now, nullable=False
+    )
+
+    run: Mapped[RunRecord] = relationship(back_populates="steps")
 
 
 class EventRecord(Base):

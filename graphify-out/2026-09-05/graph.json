@@ -125,39 +125,6 @@
       "norm_label": "downgrade()"
     },
     {
-      "label": "0002_add_run_steps.py",
-      "file_type": "code",
-      "source_file": "backend/alembic/versions/0002_add_run_steps.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_alembic_versions_0002_add_run_steps",
-      "community": 39,
-      "community_name": "0002_add_run_steps.py",
-      "norm_label": "0002_add_run_steps.py"
-    },
-    {
-      "label": "upgrade()",
-      "file_type": "code",
-      "source_file": "backend/alembic/versions/0002_add_run_steps.py",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "backend_alembic_versions_0002_add_run_steps_upgrade",
-      "community": 39,
-      "community_name": "0002_add_run_steps.py",
-      "norm_label": "upgrade()"
-    },
-    {
-      "label": "downgrade()",
-      "file_type": "code",
-      "source_file": "backend/alembic/versions/0002_add_run_steps.py",
-      "source_location": "L44",
-      "_origin": "ast",
-      "id": "backend_alembic_versions_0002_add_run_steps_downgrade",
-      "community": 39,
-      "community_name": "0002_add_run_steps.py",
-      "norm_label": "downgrade()"
-    },
-    {
       "label": "main.py",
       "file_type": "code",
       "source_file": "backend/main.py",
@@ -343,8 +310,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_database_session",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": ".session()"
     },
     {
@@ -354,8 +321,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_py_session",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": "session"
     },
     {
@@ -508,30 +475,19 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_runrecord",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "runrecord"
-    },
-    {
-      "label": "StepRecord",
-      "file_type": "code",
-      "source_file": "backend/src/forge/adapters/sqlite/models.py",
-      "source_location": "L98",
-      "_origin": "ast",
-      "id": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "steprecord"
     },
     {
       "label": "EventRecord",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/models.py",
-      "source_location": "L129",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_eventrecord",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "eventrecord"
     },
     {
@@ -560,7 +516,7 @@
       "label": "AgentRepository",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L20",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
       "community": 7,
@@ -571,11 +527,11 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L21",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_init",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
     {
@@ -585,15 +541,15 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_py_session",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "session"
     },
     {
       "label": ".create()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L24",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_create",
       "community": 7,
@@ -604,7 +560,7 @@
       "label": ".list_all()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L53",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_list_all",
       "community": 7,
@@ -615,7 +571,7 @@
       "label": ".get()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L61",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get",
       "community": 7,
@@ -626,7 +582,7 @@
       "label": ".add_version()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L69",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_add_version",
       "community": 7,
@@ -637,7 +593,7 @@
       "label": ".get_version()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L100",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get_version",
       "community": 7,
@@ -648,7 +604,7 @@
       "label": ".latest_version()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L103",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_latest_version",
       "community": 7,
@@ -659,89 +615,67 @@
       "label": "RunRepository",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L113",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "runrepository"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L114",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_init",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
     {
       "label": ".create()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L117",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_create",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": ".create()"
     },
     {
       "label": ".list_all()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L141",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_list_all",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": ".list_all()"
     },
     {
       "label": ".get()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L146",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_get",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": ".get()"
     },
     {
       "label": ".events()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L149",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_events",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": ".events()"
-    },
-    {
-      "label": ".create_step()",
-      "file_type": "code",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L157",
-      "_origin": "ast",
-      "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": ".create_step()"
-    },
-    {
-      "label": ".steps()",
-      "file_type": "code",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L182",
-      "_origin": "ast",
-      "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_steps",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": ".steps()"
     },
     {
       "label": "Repository implementations backed by a SQLAlchemy session.",
@@ -1059,7 +993,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "routes/runs.py"
     },
     {
@@ -1070,18 +1004,18 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_post",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "post"
     },
     {
       "label": "post_run()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_post_run",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "post_run()"
     },
     {
@@ -1092,7 +1026,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_sessiondependency",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "sessiondependency"
     },
     {
@@ -1103,52 +1037,41 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_get",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "get"
     },
     {
       "label": "get_runs()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L25",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_runs",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "get_runs()"
     },
     {
       "label": "get_run_by_id()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L30",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_run_by_id",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "get_run_by_id()"
     },
     {
       "label": "get_events()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L35",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_events",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "get_events()"
-    },
-    {
-      "label": "get_steps()",
-      "file_type": "code",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L42",
-      "_origin": "ast",
-      "id": "backend_src_forge_api_routes_runs_get_steps",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "get_steps()"
     },
     {
       "label": "Queued run and persisted event endpoints.",
@@ -1158,7 +1081,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_rationale_1",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "queued run and persisted event endpoints."
     },
     {
@@ -1179,8 +1102,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_healthresponse",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": "healthresponse"
     },
     {
@@ -1256,8 +1179,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_createrunrequest",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 23,
+      "community_name": "routes/runs.py",
       "norm_label": "createrunrequest"
     },
     {
@@ -1268,7 +1191,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_runresponse",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "runresponse"
     },
     {
@@ -1283,25 +1206,14 @@
       "norm_label": "eventresponse"
     },
     {
-      "label": "StepResponse",
+      "label": "ErrorResponse",
       "file_type": "code",
       "source_file": "backend/src/forge/api/schemas.py",
       "source_location": "L86",
       "_origin": "ast",
-      "id": "backend_src_forge_api_schemas_stepresponse",
-      "community": 8,
-      "community_name": "routes/agents.py",
-      "norm_label": "stepresponse"
-    },
-    {
-      "label": "ErrorResponse",
-      "file_type": "code",
-      "source_file": "backend/src/forge/api/schemas.py",
-      "source_location": "L103",
-      "_origin": "ast",
       "id": "backend_src_forge_api_schemas_errorresponse",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": "errorresponse"
     },
     {
@@ -1344,8 +1256,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "application/agents.py"
     },
     {
@@ -1355,8 +1267,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_agentconfig",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "agentconfig"
     },
     {
@@ -1366,8 +1278,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_create_agent",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "create_agent()"
     },
     {
@@ -1377,8 +1289,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_py_session",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "session"
     },
     {
@@ -1388,8 +1300,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_list_agents",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "list_agents()"
     },
     {
@@ -1399,8 +1311,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_get_agent",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "get_agent()"
     },
     {
@@ -1410,8 +1322,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_create_agent_version",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "create_agent_version()"
     },
     {
@@ -1421,8 +1333,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_rationale_1",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "agent creation, versioning, and query use cases."
     },
     {
@@ -1432,8 +1344,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "errors.py"
     },
     {
@@ -1443,8 +1355,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_resourcenotfounderror",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "resourcenotfounderror"
     },
     {
@@ -1454,8 +1366,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "lookuperror",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "lookuperror"
     },
     {
@@ -1465,8 +1377,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_resourcenotfounderror_init",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": ".__init__()"
     },
     {
@@ -1476,8 +1388,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_rationale_1",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "routes/agents.py",
       "norm_label": "errors raised by application use cases."
     },
     {
@@ -1487,8 +1399,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "application/runs.py"
     },
     {
@@ -1499,7 +1411,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_create_run",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "create_run()"
     },
     {
@@ -1510,7 +1422,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_py_session",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "session"
     },
     {
@@ -1520,8 +1432,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_runs",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "list_runs()"
     },
     {
@@ -1532,7 +1444,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_get_run",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "get_run()"
     },
     {
@@ -1543,19 +1455,8 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_run_events",
       "community": 23,
-      "community_name": "RunRepository",
+      "community_name": "routes/runs.py",
       "norm_label": "list_run_events()"
-    },
-    {
-      "label": "list_run_steps()",
-      "file_type": "code",
-      "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L48",
-      "_origin": "ast",
-      "id": "backend_src_forge_application_runs_list_run_steps",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "list_run_steps()"
     },
     {
       "label": "Queued run and event query use cases.",
@@ -1564,20 +1465,9 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_rationale_1",
-      "community": 23,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "queued run and event query use cases."
-    },
-    {
-      "label": "Return a run's durable operations in execution order.",
-      "file_type": "rationale",
-      "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L49",
-      "_origin": "ast",
-      "id": "backend_src_forge_application_runs_rationale_49",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "return a run's durable operations in execution order."
     },
     {
       "label": "config.py",
@@ -1860,7 +1750,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "backend_src_forge_domain_runs_py_strenum",
+      "id": "strenum",
       "community": 7,
       "community_name": "AgentRepository",
       "norm_label": "strenum"
@@ -1943,105 +1833,6 @@
       "norm_label": "return a new run state after validating the transition."
     },
     {
-      "label": "steps.py",
-      "file_type": "code",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
-      "norm_label": "steps.py"
-    },
-    {
-      "label": "StepKind",
-      "file_type": "code",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps_stepkind",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "stepkind"
-    },
-    {
-      "label": "StrEnum",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps_py_strenum",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "strenum"
-    },
-    {
-      "label": "StepStatus",
-      "file_type": "code",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps_stepstatus",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "stepstatus"
-    },
-    {
-      "label": "Step",
-      "file_type": "code",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L32",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps_step",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
-      "norm_label": "step"
-    },
-    {
-      "label": "Typed units of work performed while executing a run.",
-      "file_type": "rationale",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps_rationale_1",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
-      "norm_label": "typed units of work performed while executing a run."
-    },
-    {
-      "label": "The runtime boundary represented by a step.",
-      "file_type": "rationale",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps_rationale_10",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "the runtime boundary represented by a step."
-    },
-    {
-      "label": "Lifecycle state of one runtime step.",
-      "file_type": "rationale",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps_rationale_22",
-      "community": 23,
-      "community_name": "RunRepository",
-      "norm_label": "lifecycle state of one runtime step."
-    },
-    {
-      "label": "One ordered, inspectable operation belonging to a run.",
-      "file_type": "rationale",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "backend_src_forge_domain_steps_rationale_33",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
-      "norm_label": "one ordered, inspectable operation belonging to a run."
-    },
-    {
       "label": "conftest.py",
       "file_type": "code",
       "source_file": "backend/tests/conftest.py",
@@ -2111,7 +1902,7 @@
       "label": "create_agent()",
       "file_type": "code",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L7",
+      "source_location": "L4",
       "_origin": "ast",
       "id": "backend_tests_integration_test_agents_and_runs_create_agent",
       "community": 25,
@@ -2133,7 +1924,7 @@
       "label": "test_agent_versions_are_immutable_snapshots()",
       "file_type": "code",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L20",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "backend_tests_integration_test_agents_and_runs_test_agent_versions_are_immutable_snapshots",
       "community": 25,
@@ -2144,7 +1935,7 @@
       "label": "test_queued_run_is_pinned_and_emits_created_event()",
       "file_type": "code",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L42",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "backend_tests_integration_test_agents_and_runs_test_queued_run_is_pinned_and_emits_created_event",
       "community": 25,
@@ -2155,34 +1946,12 @@
       "label": "test_missing_agent_returns_structured_404()",
       "file_type": "code",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L63",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "backend_tests_integration_test_agents_and_runs_test_missing_agent_returns_structured_404",
       "community": 25,
       "community_name": "test_agents_and_runs.py",
       "norm_label": "test_missing_agent_returns_structured_404()"
-    },
-    {
-      "label": "test_run_steps_are_persisted_and_returned_in_order()",
-      "file_type": "code",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L70",
-      "_origin": "ast",
-      "id": "backend_tests_integration_test_agents_and_runs_test_run_steps_are_persisted_and_returned_in_order",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
-      "norm_label": "test_run_steps_are_persisted_and_returned_in_order()"
-    },
-    {
-      "label": "test_steps_for_missing_run_return_structured_404()",
-      "file_type": "code",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L103",
-      "_origin": "ast",
-      "id": "backend_tests_integration_test_agents_and_runs_test_steps_for_missing_run_return_structured_404",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
-      "norm_label": "test_steps_for_missing_run_return_structured_404()"
     },
     {
       "label": "test_migrations.py",
@@ -3769,171 +3538,6 @@
       "norm_label": "node_modules"
     },
     {
-      "label": "codebase-guide.md",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_codebase_guide",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "codebase-guide.md"
-    },
-    {
-      "label": "Forge codebase guide",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_forge_codebase_guide",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "forge codebase guide"
-    },
-    {
-      "label": "What \"agent harness\" means",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_what_agent_harness_means",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "what \"agent harness\" means"
-    },
-    {
-      "label": "Request flow in the current code",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_request_flow_in_the_current_code",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "request flow in the current code"
-    },
-    {
-      "label": "Backend directories",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_backend_directories",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "backend directories"
-    },
-    {
-      "label": "`domain/`",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_domain",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "`domain/`"
-    },
-    {
-      "label": "`application/`",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L66",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_application",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "`application/`"
-    },
-    {
-      "label": "`adapters/sqlite/`",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L72",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_adapters_sqlite",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "`adapters/sqlite/`"
-    },
-    {
-      "label": "`api/`",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L82",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_api",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "`api/`"
-    },
-    {
-      "label": "`alembic/`",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L90",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_alembic",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "`alembic/`"
-    },
-    {
-      "label": "`tests/`",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L96",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_tests",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "`tests/`"
-    },
-    {
-      "label": "Frontend",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L102",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_frontend",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "frontend"
-    },
-    {
-      "label": "How the future runtime fits",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L108",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_how_the_future_runtime_fits",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "how the future runtime fits"
-    },
-    {
-      "label": "A useful reading order",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L127",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_a_useful_reading_order",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "a useful reading order"
-    },
-    {
-      "label": "How to verify changes",
-      "file_type": "document",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L137",
-      "_origin": "ast",
-      "id": "docs_codebase_guide_how_to_verify_changes",
-      "community": 38,
-      "community_name": "Forge codebase guide",
-      "norm_label": "how to verify changes"
-    },
-    {
       "label": "0001-python-runtime.md",
       "file_type": "document",
       "source_file": "docs/decisions/0001-python-runtime.md",
@@ -4012,8 +3616,8 @@
       "community": 16,
       "norm_label": "graphify-first codebase workflow",
       "_origin": "semantic",
-      "community_name": "Knowledge Graph Maintenance",
-      "id": "agents_graphify_workflow"
+      "id": "agents_graphify_workflow",
+      "community_name": "Knowledge Graph Maintenance"
     },
     {
       "label": "Knowledge Graph Maintenance",
@@ -4028,8 +3632,8 @@
       "community": 16,
       "norm_label": "knowledge graph maintenance",
       "_origin": "semantic",
-      "community_name": "Knowledge Graph Maintenance",
-      "id": "agents_graph_maintenance"
+      "id": "agents_graph_maintenance",
+      "community_name": "Knowledge Graph Maintenance"
     },
     {
       "label": "Forge",
@@ -4043,8 +3647,8 @@
       "community": 11,
       "norm_label": "forge",
       "_origin": "semantic",
-      "community_name": "Forge Architecture",
-      "id": "readme_forge"
+      "id": "readme_forge",
+      "community_name": "Forge Architecture"
     },
     {
       "label": "Local Development Workflow",
@@ -4058,8 +3662,8 @@
       "community": 0,
       "norm_label": "local development workflow",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "readme_local_development"
+      "id": "readme_local_development",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Forge Architecture",
@@ -4073,8 +3677,8 @@
       "community": 11,
       "norm_label": "forge architecture",
       "_origin": "semantic",
-      "community_name": "Forge Architecture",
-      "id": "architecture_forge_architecture"
+      "id": "architecture_forge_architecture",
+      "community_name": "Forge Architecture"
     },
     {
       "label": "Local-First Agent Platform",
@@ -4088,8 +3692,8 @@
       "community": 17,
       "norm_label": "local-first agent platform",
       "_origin": "semantic",
-      "community_name": "Local-First Agent Platform",
-      "id": "architecture_local_first_platform"
+      "id": "architecture_local_first_platform",
+      "community_name": "Local-First Agent Platform"
     },
     {
       "label": "Runtime-Only Execution Path",
@@ -4104,8 +3708,8 @@
       "community": 0,
       "norm_label": "runtime-only execution path",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_runtime_only_execution_path"
+      "id": "architecture_runtime_only_execution_path",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Modular Monolith",
@@ -4120,8 +3724,8 @@
       "community": 0,
       "norm_label": "modular monolith",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_modular_monolith"
+      "id": "architecture_modular_monolith",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Trace-First Typed Events",
@@ -4136,8 +3740,8 @@
       "community": 0,
       "norm_label": "trace-first typed events",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_trace_first_events"
+      "id": "architecture_trace_first_events",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Safe Tool Execution",
@@ -4151,8 +3755,8 @@
       "community": 0,
       "norm_label": "safe tool execution",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_safe_tool_execution"
+      "id": "architecture_safe_tool_execution",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Immutable Agent Versions",
@@ -4167,8 +3771,8 @@
       "community": 0,
       "norm_label": "immutable agent versions",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_immutable_agent_versions"
+      "id": "architecture_immutable_agent_versions",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Run State Machine",
@@ -4182,8 +3786,8 @@
       "community": 0,
       "norm_label": "run state machine",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_run_state_machine"
+      "id": "architecture_run_state_machine",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Runtime Execution Loop",
@@ -4197,8 +3801,8 @@
       "community": 0,
       "norm_label": "runtime execution loop",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_runtime_execution_loop"
+      "id": "architecture_runtime_execution_loop",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Planner Contract",
@@ -4212,8 +3816,8 @@
       "community": 0,
       "norm_label": "planner contract",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_planner_contract"
+      "id": "architecture_planner_contract",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Provider Contract",
@@ -4227,8 +3831,8 @@
       "community": 0,
       "norm_label": "provider contract",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_provider_contract"
+      "id": "architecture_provider_contract",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Purpose-Specific Memory Contract",
@@ -4242,8 +3846,8 @@
       "community": 0,
       "norm_label": "purpose-specific memory contract",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_memory_contract"
+      "id": "architecture_memory_contract",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "SQLite-First Persistence",
@@ -4258,8 +3862,8 @@
       "community": 0,
       "norm_label": "sqlite-first persistence",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_sqlite_persistence"
+      "id": "architecture_sqlite_persistence",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Server-Sent Event Delivery",
@@ -4274,8 +3878,8 @@
       "community": 0,
       "norm_label": "server-sent event delivery",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_sse_event_delivery"
+      "id": "architecture_sse_event_delivery",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Operator Dashboard",
@@ -4289,8 +3893,8 @@
       "community": 0,
       "norm_label": "operator dashboard",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_operator_dashboard"
+      "id": "architecture_operator_dashboard",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Raspberry Pi Deployment",
@@ -4304,8 +3908,8 @@
       "community": 17,
       "norm_label": "raspberry pi deployment",
       "_origin": "semantic",
-      "community_name": "Local-First Agent Platform",
-      "id": "architecture_raspberry_pi_deployment"
+      "id": "architecture_raspberry_pi_deployment",
+      "community_name": "Local-First Agent Platform"
     },
     {
       "label": "Deterministic Fake Providers and Tools",
@@ -4320,8 +3924,8 @@
       "community": 0,
       "norm_label": "deterministic fake providers and tools",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "architecture_deterministic_test_doubles"
+      "id": "architecture_deterministic_test_doubles",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Next.js Version-Specific Rules",
@@ -4336,8 +3940,8 @@
       "community": 18,
       "norm_label": "next.js version-specific rules",
       "_origin": "semantic",
-      "community_name": "Next.js Version-Specific Rules",
-      "id": "frontend_agents_nextjs_version_rules"
+      "id": "frontend_agents_nextjs_version_rules",
+      "community_name": "Next.js Version-Specific Rules"
     },
     {
       "label": "Frontend Agent Rules Reference",
@@ -4351,8 +3955,8 @@
       "community": 18,
       "norm_label": "frontend agent rules reference",
       "_origin": "semantic",
-      "community_name": "Next.js Version-Specific Rules",
-      "id": "frontend_claude_agent_rules_reference"
+      "id": "frontend_claude_agent_rules_reference",
+      "community_name": "Next.js Version-Specific Rules"
     },
     {
       "label": "Forge Dashboard",
@@ -4366,8 +3970,8 @@
       "community": 0,
       "norm_label": "forge dashboard",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "frontend_readme_forge_dashboard"
+      "id": "frontend_readme_forge_dashboard",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Next.js TypeScript Tailwind Shadcn Stack",
@@ -4381,8 +3985,8 @@
       "community": 0,
       "norm_label": "next.js typescript tailwind shadcn stack",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "frontend_readme_frontend_stack"
+      "id": "frontend_readme_frontend_stack",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Forge Implementation Plan",
@@ -4396,8 +4000,8 @@
       "community": 11,
       "norm_label": "forge implementation plan",
       "_origin": "semantic",
-      "community_name": "Forge Architecture",
-      "id": "plan_implementation_plan"
+      "id": "plan_implementation_plan",
+      "community_name": "Forge Architecture"
     },
     {
       "label": "Vertical-Slice Delivery",
@@ -4412,8 +4016,8 @@
       "community": 0,
       "norm_label": "vertical-slice delivery",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "plan_vertical_slice_delivery"
+      "id": "plan_vertical_slice_delivery",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Phase 1 Domain and Storage",
@@ -4427,8 +4031,8 @@
       "community": 0,
       "norm_label": "phase 1 domain and storage",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "plan_phase_1_domain_storage"
+      "id": "plan_phase_1_domain_storage",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Phase 2 End-to-End Fake Agent",
@@ -4442,8 +4046,8 @@
       "community": 0,
       "norm_label": "phase 2 end-to-end fake agent",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "plan_phase_2_fake_agent"
+      "id": "plan_phase_2_fake_agent",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Phase 4 Controlled Tool Execution",
@@ -4457,8 +4061,8 @@
       "community": 0,
       "norm_label": "phase 4 controlled tool execution",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "plan_phase_4_controlled_tools"
+      "id": "plan_phase_4_controlled_tools",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Scale Only from Evidence",
@@ -4473,8 +4077,8 @@
       "community": 0,
       "norm_label": "scale only from evidence",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "plan_scale_from_evidence"
+      "id": "plan_scale_from_evidence",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Forge Vision",
@@ -4488,8 +4092,8 @@
       "community": 11,
       "norm_label": "forge vision",
       "_origin": "semantic",
-      "community_name": "Forge Architecture",
-      "id": "scope_forge_vision"
+      "id": "scope_forge_vision",
+      "community_name": "Forge Architecture"
     },
     {
       "label": "Educational AI Systems Engineering",
@@ -4504,8 +4108,8 @@
       "community": 0,
       "norm_label": "educational ai systems engineering",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "scope_educational_agent_engineering"
+      "id": "scope_educational_agent_engineering",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Build Concepts, Reuse Infrastructure",
@@ -4520,8 +4124,8 @@
       "community": 0,
       "norm_label": "build concepts, reuse infrastructure",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "scope_build_concepts_reuse_infrastructure"
+      "id": "scope_build_concepts_reuse_infrastructure",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Forge as an Operating System for Agents",
@@ -4535,8 +4139,8 @@
       "community": 0,
       "norm_label": "forge as an operating system for agents",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "scope_operating_system_analogy"
+      "id": "scope_operating_system_analogy",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Configurable Provider Layer",
@@ -4550,8 +4154,8 @@
       "community": 0,
       "norm_label": "configurable provider layer",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "scope_configurable_provider_layer"
+      "id": "scope_configurable_provider_layer",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Plugin Extensibility",
@@ -4565,8 +4169,8 @@
       "community": 0,
       "norm_label": "plugin extensibility",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "scope_plugin_extensibility"
+      "id": "scope_plugin_extensibility",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "Explain Rather Than Hide Complexity",
@@ -4581,8 +4185,8 @@
       "community": 0,
       "norm_label": "explain rather than hide complexity",
       "_origin": "semantic",
-      "community_name": "Runtime Execution Loop",
-      "id": "scope_explain_complexity"
+      "id": "scope_explain_complexity",
+      "community_name": "Runtime Execution Loop"
     },
     {
       "label": "File Icon",
@@ -4596,8 +4200,8 @@
       "community": 12,
       "norm_label": "file icon",
       "_origin": "semantic",
-      "community_name": "Document",
-      "id": "frontend_public_file_icon"
+      "id": "frontend_public_file_icon",
+      "community_name": "Document"
     },
     {
       "label": "Document",
@@ -4611,8 +4215,8 @@
       "community": 12,
       "norm_label": "document",
       "_origin": "semantic",
-      "community_name": "Document",
-      "id": "frontend_public_file_document"
+      "id": "frontend_public_file_document",
+      "community_name": "Document"
     },
     {
       "label": "Folded Page Corner",
@@ -4626,8 +4230,8 @@
       "community": 12,
       "norm_label": "folded page corner",
       "_origin": "semantic",
-      "community_name": "Document",
-      "id": "frontend_public_file_folded_corner"
+      "id": "frontend_public_file_folded_corner",
+      "community_name": "Document"
     },
     {
       "label": "Document Text Lines",
@@ -4641,8 +4245,8 @@
       "community": 12,
       "norm_label": "document text lines",
       "_origin": "semantic",
-      "community_name": "Document",
-      "id": "frontend_public_file_text_lines"
+      "id": "frontend_public_file_text_lines",
+      "community_name": "Document"
     },
     {
       "label": "Globe SVG Icon",
@@ -4656,8 +4260,8 @@
       "community": 13,
       "norm_label": "globe svg icon",
       "_origin": "semantic",
-      "community_name": "World Globe",
-      "id": "frontend_public_globe_svg_icon"
+      "id": "frontend_public_globe_svg_icon",
+      "community_name": "World Globe"
     },
     {
       "label": "World Globe",
@@ -4671,8 +4275,8 @@
       "community": 13,
       "norm_label": "world globe",
       "_origin": "semantic",
-      "community_name": "World Globe",
-      "id": "frontend_public_globe_world_globe"
+      "id": "frontend_public_globe_world_globe",
+      "community_name": "World Globe"
     },
     {
       "label": "Geographic Coordinate Grid",
@@ -4686,8 +4290,8 @@
       "community": 13,
       "norm_label": "geographic coordinate grid",
       "_origin": "semantic",
-      "community_name": "World Globe",
-      "id": "frontend_public_globe_geographic_grid"
+      "id": "frontend_public_globe_geographic_grid",
+      "community_name": "World Globe"
     },
     {
       "label": "Global Scope",
@@ -4701,8 +4305,8 @@
       "community": 13,
       "norm_label": "global scope",
       "_origin": "semantic",
-      "community_name": "World Globe",
-      "id": "frontend_public_globe_global_scope"
+      "id": "frontend_public_globe_global_scope",
+      "community_name": "World Globe"
     },
     {
       "label": "Next.js Logo",
@@ -4716,8 +4320,8 @@
       "community": 14,
       "norm_label": "next.js logo",
       "_origin": "semantic",
-      "community_name": "Next.js Logo",
-      "id": "frontend_public_next_logo"
+      "id": "frontend_public_next_logo",
+      "community_name": "Next.js Logo"
     },
     {
       "label": "NEXT.JS Wordmark",
@@ -4731,8 +4335,8 @@
       "community": 14,
       "norm_label": "next.js wordmark",
       "_origin": "semantic",
-      "community_name": "Next.js Logo",
-      "id": "frontend_public_next_wordmark"
+      "id": "frontend_public_next_wordmark",
+      "community_name": "Next.js Logo"
     },
     {
       "label": "Next.js Web Framework",
@@ -4746,8 +4350,8 @@
       "community": 14,
       "norm_label": "next.js web framework",
       "_origin": "semantic",
-      "community_name": "Next.js Logo",
-      "id": "frontend_public_next_framework"
+      "id": "frontend_public_next_framework",
+      "community_name": "Next.js Logo"
     },
     {
       "label": "Monochrome Brand Styling",
@@ -4761,8 +4365,8 @@
       "community": 14,
       "norm_label": "monochrome brand styling",
       "_origin": "semantic",
-      "community_name": "Next.js Logo",
-      "id": "frontend_public_next_monochrome_branding"
+      "id": "frontend_public_next_monochrome_branding",
+      "community_name": "Next.js Logo"
     },
     {
       "label": "Vercel SVG Logo",
@@ -4776,8 +4380,8 @@
       "community": 15,
       "norm_label": "vercel svg logo",
       "_origin": "semantic",
-      "community_name": "Vercel Brand Identity",
-      "id": "frontend_public_vercel_svg_logo"
+      "id": "frontend_public_vercel_svg_logo",
+      "community_name": "Vercel Brand Identity"
     },
     {
       "label": "Upward-Pointing Triangle",
@@ -4791,8 +4395,8 @@
       "community": 15,
       "norm_label": "upward-pointing triangle",
       "_origin": "semantic",
-      "community_name": "Vercel Brand Identity",
-      "id": "frontend_public_vercel_upward_triangle"
+      "id": "frontend_public_vercel_upward_triangle",
+      "community_name": "Vercel Brand Identity"
     },
     {
       "label": "Vercel Brand Identity",
@@ -4806,8 +4410,8 @@
       "community": 15,
       "norm_label": "vercel brand identity",
       "_origin": "semantic",
-      "community_name": "Vercel Brand Identity",
-      "id": "frontend_public_vercel_brand_identity"
+      "id": "frontend_public_vercel_brand_identity",
+      "community_name": "Vercel Brand Identity"
     },
     {
       "label": "Minimal Geometric Brand Mark",
@@ -4821,8 +4425,8 @@
       "community": 15,
       "norm_label": "minimal geometric brand mark",
       "_origin": "semantic",
-      "community_name": "Vercel Brand Identity",
-      "id": "frontend_public_vercel_minimal_geometric_mark"
+      "id": "frontend_public_vercel_minimal_geometric_mark",
+      "community_name": "Vercel Brand Identity"
     },
     {
       "label": "Application Window Icon",
@@ -4836,8 +4440,8 @@
       "community": 9,
       "norm_label": "application window icon",
       "_origin": "semantic",
-      "community_name": "Application Interface",
-      "id": "frontend_public_window_icon"
+      "id": "frontend_public_window_icon",
+      "community_name": "Application Interface"
     },
     {
       "label": "Rounded Window Frame",
@@ -4851,8 +4455,8 @@
       "community": 9,
       "norm_label": "rounded window frame",
       "_origin": "semantic",
-      "community_name": "Application Interface",
-      "id": "frontend_public_window_frame"
+      "id": "frontend_public_window_frame",
+      "community_name": "Application Interface"
     },
     {
       "label": "Three Circular Window Controls",
@@ -4866,8 +4470,8 @@
       "community": 9,
       "norm_label": "three circular window controls",
       "_origin": "semantic",
-      "community_name": "Application Interface",
-      "id": "frontend_public_window_controls"
+      "id": "frontend_public_window_controls",
+      "community_name": "Application Interface"
     },
     {
       "label": "Blank Window Content Area",
@@ -4881,8 +4485,8 @@
       "community": 9,
       "norm_label": "blank window content area",
       "_origin": "semantic",
-      "community_name": "Application Interface",
-      "id": "frontend_public_window_content_area"
+      "id": "frontend_public_window_content_area",
+      "community_name": "Application Interface"
     },
     {
       "label": "Application Interface",
@@ -4896,8 +4500,8 @@
       "community": 9,
       "norm_label": "application interface",
       "_origin": "semantic",
-      "community_name": "Application Interface",
-      "id": "frontend_public_window_application_interface"
+      "id": "frontend_public_window_application_interface",
+      "community_name": "Application Interface"
     }
   ],
   "links": [
@@ -4966,28 +4570,6 @@
       "_origin": "ast",
       "source": "backend_alembic_versions_0001_initial_schema",
       "target": "backend_alembic_versions_0001_initial_schema_upgrade",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/alembic/versions/0002_add_run_steps.py",
-      "source_location": "L44",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_alembic_versions_0002_add_run_steps",
-      "target": "backend_alembic_versions_0002_add_run_steps_downgrade",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/alembic/versions/0002_add_run_steps.py",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_alembic_versions_0002_add_run_steps",
-      "target": "backend_alembic_versions_0002_add_run_steps_upgrade",
       "confidence_score": 1.0
     },
     {
@@ -5323,18 +4905,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L79",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs_test_run_steps_are_persisted_and_returned_in_order",
-      "target": "backend_src_forge_adapters_sqlite_database_database_session"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/models.py",
@@ -5371,7 +4941,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/models.py",
-      "source_location": "L129",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_models",
@@ -5399,17 +4969,6 @@
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_models",
       "target": "backend_src_forge_adapters_sqlite_models_runrecord",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/models.py",
-      "source_location": "L98",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_models",
-      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
       "confidence_score": 1.0
     },
     {
@@ -5512,7 +5071,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L118",
+      "source_location": "L116",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create",
@@ -5555,7 +5114,7 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/models.py",
-      "source_location": "L129",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_models_eventrecord",
@@ -5570,17 +5129,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_models_runrecord",
-      "target": "backend_src_forge_adapters_sqlite_models_base",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/models.py",
-      "source_location": "L98",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_models_steprecord",
       "target": "backend_src_forge_adapters_sqlite_models_base",
       "confidence_score": 1.0
     },
@@ -5612,7 +5160,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L69",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_add_version",
@@ -5624,7 +5172,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L24",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_create",
@@ -5636,7 +5184,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L61",
+      "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get",
@@ -5648,7 +5196,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L53",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_list_all",
@@ -5777,7 +5325,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L69",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_add_version",
@@ -5789,7 +5337,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L38",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_create",
@@ -5801,7 +5349,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L100",
+      "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get_version",
@@ -5813,7 +5361,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L103",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_latest_version",
@@ -5905,7 +5453,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L117",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create",
@@ -5917,7 +5465,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L146",
+      "source_location": "L144",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_get",
@@ -5929,7 +5477,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L141",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_list_all",
@@ -5993,88 +5541,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories",
-      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L8",
-      "weight": 0.8,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
-      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L8",
-      "weight": 0.8,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
-      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L157",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
-      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L182",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_steps",
-      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_application_runs",
-      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L48",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_application_runs_list_run_steps",
-      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories",
       "target": "backend_src_forge_adapters_sqlite_models_eventrecord",
       "confidence_score": 1.0
     },
@@ -6105,7 +5571,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L128",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create",
@@ -6117,7 +5583,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L149",
+      "source_location": "L147",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_events",
@@ -6152,7 +5618,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L20",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories",
@@ -6163,7 +5629,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L113",
+      "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories",
@@ -6175,7 +5641,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories",
@@ -6187,47 +5653,11 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories",
       "target": "backend_src_forge_domain_runs_runstatus",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories",
-      "target": "backend_src_forge_domain_steps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories",
-      "target": "backend_src_forge_domain_steps_stepkind",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories",
-      "target": "backend_src_forge_domain_steps_stepstatus",
       "confidence_score": 1.0
     },
     {
@@ -6266,22 +5696,10 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs",
-      "target": "backend_src_forge_adapters_sqlite_repositories",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L69",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
@@ -6292,7 +5710,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L24",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
@@ -6303,7 +5721,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L61",
+      "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
@@ -6314,7 +5732,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L100",
+      "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
@@ -6325,7 +5743,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L21",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
@@ -6336,7 +5754,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L103",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
@@ -6347,7 +5765,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L53",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
@@ -6358,33 +5776,11 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
       "target": "backend_src_forge_domain_runs_runstatus",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
-      "target": "backend_src_forge_domain_steps_stepkind",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
-      "target": "backend_src_forge_domain_steps_stepstatus",
       "confidence_score": 0.5
     },
     {
@@ -6487,7 +5883,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L21",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_init",
@@ -6499,7 +5895,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L114",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_init",
@@ -6511,7 +5907,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L101",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get_version",
@@ -6522,7 +5918,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L117",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
@@ -6533,18 +5929,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L157",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
-      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L149",
+      "source_location": "L147",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
@@ -6555,7 +5940,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L146",
+      "source_location": "L144",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
@@ -6566,7 +5951,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L114",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
@@ -6577,7 +5962,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L141",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
@@ -6585,47 +5970,14 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L182",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
-      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository_steps",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
       "target": "backend_src_forge_domain_runs_runstatus",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
-      "target": "backend_src_forge_domain_steps_stepkind",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
-      "target": "backend_src_forge_domain_steps_stepstatus",
       "confidence_score": 0.5
     },
     {
@@ -6681,59 +6033,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L52",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_application_runs_list_run_steps",
-      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/application/runs.py",
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_application_runs_list_runs",
       "target": "backend_src_forge_adapters_sqlite_repositories_runrepository",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L79",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs_test_run_steps_are_persisted_and_returned_in_order",
-      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L157",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
-      "target": "backend_src_forge_domain_steps_stepkind",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L157",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
-      "target": "backend_src_forge_domain_steps_stepstatus",
       "confidence_score": 1.0
     },
     {
@@ -7684,7 +6988,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L35",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
@@ -7695,7 +6999,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L30",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
@@ -7706,7 +7010,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
@@ -7717,18 +7021,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L42",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs",
-      "target": "backend_src_forge_api_routes_runs_get_steps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
@@ -7781,18 +7074,6 @@
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
       "target": "backend_src_forge_api_schemas_runresponse",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs",
-      "target": "backend_src_forge_api_schemas_stepresponse",
       "confidence_score": 1.0
     },
     {
@@ -7852,18 +7133,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
-      "target": "backend_src_forge_application_runs_list_run_steps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs",
       "target": "backend_src_forge_application_runs_list_runs",
       "confidence_score": 1.0
     },
@@ -7882,7 +7151,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L18",
+      "source_location": "L17",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -7895,7 +7164,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -7907,7 +7176,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -7919,7 +7188,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -7932,7 +7201,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -7943,67 +7212,55 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L35",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_events",
-      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_run_by_id",
-      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_runs",
-      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L42",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_steps",
-      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
       "source_location": "L34",
       "weight": 1.0,
-      "context": "decorator",
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_events",
-      "target": "backend_src_forge_api_routes_runs_py_get",
+      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
       "confidence_score": 1.0
     },
     {
       "relation": "references",
+      "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
       "source_location": "L29",
       "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs_get_run_by_id",
+      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs_get_runs",
+      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs_get_events",
+      "target": "backend_src_forge_api_routes_runs_py_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L28",
+      "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_run_by_id",
@@ -8014,23 +7271,11 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_runs",
-      "target": "backend_src_forge_api_routes_runs_py_get",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L41",
-      "weight": 1.0,
-      "context": "decorator",
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_steps",
       "target": "backend_src_forge_api_routes_runs_py_get",
       "confidence_score": 1.0
     },
@@ -8039,7 +7284,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_runs",
@@ -8052,7 +7297,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L26",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_runs",
@@ -8063,7 +7308,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L30",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_run_by_id",
@@ -8076,7 +7321,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L31",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_run_by_id",
@@ -8087,7 +7332,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L35",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_events",
@@ -8100,35 +7345,11 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L37",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_events",
       "target": "backend_src_forge_application_runs_list_run_events"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L42",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_steps",
-      "target": "backend_src_forge_api_schemas_stepresponse",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L44",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_steps",
-      "target": "backend_src_forge_application_runs_list_run_steps"
     },
     {
       "relation": "contains",
@@ -8200,7 +7421,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/schemas.py",
-      "source_location": "L103",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_schemas",
@@ -8238,17 +7459,6 @@
       "_origin": "ast",
       "source": "backend_src_forge_api_schemas",
       "target": "backend_src_forge_api_schemas_runresponse",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/schemas.py",
-      "source_location": "L86",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_schemas",
-      "target": "backend_src_forge_api_schemas_stepresponse",
       "confidence_score": 1.0
     },
     {
@@ -8321,7 +7531,7 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/schemas.py",
-      "source_location": "L103",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_schemas_errorresponse",
@@ -8347,17 +7557,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_schemas_runresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/schemas.py",
-      "source_location": "L86",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_schemas_stepresponse",
       "target": "basemodel",
       "confidence_score": 1.0
     },
@@ -8720,17 +7919,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L48",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_application_runs",
-      "target": "backend_src_forge_application_runs_list_run_steps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/application/runs.py",
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
@@ -8790,18 +7978,6 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L48",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_application_runs_list_run_steps",
-      "target": "backend_src_forge_application_runs_py_session",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/application/runs.py",
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
@@ -8819,29 +7995,6 @@
       "_origin": "ast",
       "source": "backend_src_forge_application_runs_list_run_events",
       "target": "backend_src_forge_application_runs_get_run",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L51",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_application_runs_list_run_steps",
-      "target": "backend_src_forge_application_runs_get_run",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/application/runs.py",
-      "source_location": "L49",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_application_runs_rationale_49",
-      "target": "backend_src_forge_application_runs_list_run_steps",
       "confidence_score": 1.0
     },
     {
@@ -9202,7 +8355,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_domain_runs_runstatus",
-      "target": "backend_src_forge_domain_runs_py_strenum",
+      "target": "strenum",
       "confidence_score": 1.0
     },
     {
@@ -9277,117 +8430,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps",
-      "target": "backend_src_forge_domain_steps_step",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps",
-      "target": "backend_src_forge_domain_steps_stepkind",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps",
-      "target": "backend_src_forge_domain_steps_stepstatus",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps_rationale_1",
-      "target": "backend_src_forge_domain_steps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs",
-      "target": "backend_src_forge_domain_steps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps_rationale_10",
-      "target": "backend_src_forge_domain_steps_stepkind",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps_stepkind",
-      "target": "backend_src_forge_domain_steps_py_strenum",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps_stepstatus",
-      "target": "backend_src_forge_domain_steps_py_strenum",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps_rationale_22",
-      "target": "backend_src_forge_domain_steps_stepstatus",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/domain/steps.py",
-      "source_location": "L33",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_domain_steps_rationale_33",
-      "target": "backend_src_forge_domain_steps_step",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "backend/tests/conftest.py",
       "source_location": "L12",
       "weight": 1.0,
@@ -9436,7 +8478,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L7",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs",
@@ -9447,7 +8489,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L20",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs",
@@ -9458,7 +8500,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L63",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs",
@@ -9469,7 +8511,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L42",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs",
@@ -9477,33 +8519,11 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L70",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs",
-      "target": "backend_tests_integration_test_agents_and_runs_test_run_steps_are_persisted_and_returned_in_order",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L103",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs",
-      "target": "backend_tests_integration_test_agents_and_runs_test_steps_for_missing_run_return_structured_404",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L7",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs_create_agent",
@@ -9515,7 +8535,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L21",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs_test_agent_versions_are_immutable_snapshots",
@@ -9527,22 +8547,10 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L43",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs_test_queued_run_is_pinned_and_emits_created_event",
-      "target": "backend_tests_integration_test_agents_and_runs_create_agent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L71",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs_test_run_steps_are_persisted_and_returned_in_order",
       "target": "backend_tests_integration_test_agents_and_runs_create_agent",
       "confidence_score": 1.0
     },
@@ -9551,7 +8559,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L20",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs_test_agent_versions_are_immutable_snapshots",
@@ -9563,7 +8571,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L63",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs_test_missing_agent_returns_structured_404",
@@ -9575,34 +8583,10 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L42",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs_test_queued_run_is_pinned_and_emits_created_event",
-      "target": "backend_tests_integration_test_agents_and_runs_py_testclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L70",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs_test_run_steps_are_persisted_and_returned_in_order",
-      "target": "backend_tests_integration_test_agents_and_runs_py_testclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/integration/test_agents_and_runs.py",
-      "source_location": "L103",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_integration_test_agents_and_runs_test_steps_for_missing_run_return_structured_404",
       "target": "backend_tests_integration_test_agents_and_runs_py_testclient",
       "confidence_score": 1.0
     },
@@ -11445,160 +10429,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide",
-      "target": "docs_codebase_guide_forge_codebase_guide",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L127",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_forge_codebase_guide",
-      "target": "docs_codebase_guide_a_useful_reading_order",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L55",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_forge_codebase_guide",
-      "target": "docs_codebase_guide_backend_directories",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L102",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_forge_codebase_guide",
-      "target": "docs_codebase_guide_frontend",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L108",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_forge_codebase_guide",
-      "target": "docs_codebase_guide_how_the_future_runtime_fits",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L137",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_forge_codebase_guide",
-      "target": "docs_codebase_guide_how_to_verify_changes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L28",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_forge_codebase_guide",
-      "target": "docs_codebase_guide_request_flow_in_the_current_code",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_forge_codebase_guide",
-      "target": "docs_codebase_guide_what_agent_harness_means",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L72",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_backend_directories",
-      "target": "docs_codebase_guide_adapters_sqlite",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L90",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_backend_directories",
-      "target": "docs_codebase_guide_alembic",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L82",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_backend_directories",
-      "target": "docs_codebase_guide_api",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L66",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_backend_directories",
-      "target": "docs_codebase_guide_application",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_backend_directories",
-      "target": "docs_codebase_guide_domain",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/codebase-guide.md",
-      "source_location": "L96",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_codebase_guide_backend_directories",
-      "target": "docs_codebase_guide_tests",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "docs/decisions/0001-python-runtime.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -12355,5 +11185,5 @@
       "source_file": "plan.md"
     }
   ],
-  "built_at_commit": "27c23253909c724d41d55ee99aa651ce6343a878"
+  "built_at_commit": "cae83c3fcee58b360e5dc3e29f8a0a4d40b5f68b"
 }
