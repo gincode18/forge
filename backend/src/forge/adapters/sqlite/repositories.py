@@ -114,7 +114,9 @@ class RunRepository:
     def __init__(self, session: Session) -> None:
         self.session = session
 
-    def create(self, *, agent_version_id: str, input: str) -> RunRecord:
+    def create(
+        self, *, agent_version_id: str, input: str, request_id: str
+    ) -> RunRecord:
         now = utc_now()
         run = RunRecord(
             id=str(uuid4()),
@@ -129,7 +131,7 @@ class RunRepository:
                 id=str(uuid4()),
                 sequence=1,
                 type="run.created",
-                payload={"status": RunStatus.QUEUED.value},
+                payload={"status": RunStatus.QUEUED.value, "request_id": request_id},
                 schema_version=1,
                 created_at=now,
             )

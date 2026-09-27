@@ -34,6 +34,17 @@ pnpm dev
 
 The API is available at `http://localhost:8000`, with interactive API docs at
 `http://localhost:8000/docs`. The dashboard runs at `http://localhost:3000`.
+Its status, Agents, and Runs pages read from the API. The creation forms create
+an agent version or a queued run; runs do not execute yet. Set
+`NEXT_PUBLIC_FORGE_API_URL` for the dashboard if the API is not at
+`http://localhost:8000` (the URL must be reachable from both the browser and
+the Next.js server; configure `FORGE_ALLOWED_ORIGINS` on the API for a different
+dashboard origin).
+
+Every API response includes a server-generated `X-Request-ID`. A newly queued
+run's `run.created` event persists the creation request ID in its payload; the
+event's `run_id` links it to the run. These IDs can be compared when debugging
+requests, including after a restart.
 
 Forge stores local state in `backend/data/forge.db` by default. Override the
 directory with `FORGE_DATA_DIR` or provide a complete `FORGE_DATABASE_URL`.

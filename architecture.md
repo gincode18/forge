@@ -505,6 +505,12 @@ repository. A runtime action writes its state change and corresponding event in
 one transaction where possible, then publishes the committed event to local
 subscribers.
 
+In the Phase 1 foundation, the API returns a server-generated `X-Request-ID`
+for each request and persists that value in the `run.created` event payload.
+The event's `run_id` connects the creation request to its durable trace. Full
+correlation and causation fields across runtime operations remain Phase 5 work
+(see `docs/decisions/0002-request-correlation.md`).
+
 Example event families:
 
 - `run.created`, `run.started`, `run.completed`, `run.failed`;

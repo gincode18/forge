@@ -58,6 +58,8 @@ def test_queued_run_is_pinned_and_emits_created_event(client: TestClient) -> Non
     assert events.status_code == 200
     assert events.json()[0]["type"] == "run.created"
     assert events.json()[0]["sequence"] == 1
+    assert events.json()[0]["payload"]["request_id"] == response.headers["X-Request-ID"]
+    assert events.json()[0]["run_id"] == run["id"]
 
 
 def test_missing_agent_returns_structured_404(client: TestClient) -> None:
@@ -65,6 +67,14 @@ def test_missing_agent_returns_structured_404(client: TestClient) -> None:
 
     assert response.status_code == 404
     assert response.json()["resource"] == "agent"
+    assert response.json()["request_id"] == response.headers["X-Request-ID"]
+
+
+def test_validation_errors_include_request_id_header(client: TestClient) -> None:
+    response = client.post("/api/v1/agents", json={"name": ""})
+
+    assert response.status_code == 422
+    assert response.headers["X-Request-ID"]
 
 
 def test_run_steps_are_persisted_and_returned_in_order(client: TestClient) -> None:

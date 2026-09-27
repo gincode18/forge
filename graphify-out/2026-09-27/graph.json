@@ -432,7 +432,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "models.py"
     },
     {
@@ -443,7 +443,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_utc_now",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "utc_now()"
     },
     {
@@ -454,7 +454,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_py_datetime",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "datetime"
     },
     {
@@ -465,7 +465,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_base",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "base"
     },
     {
@@ -476,7 +476,7 @@
       "_origin": "ast",
       "id": "declarativebase",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "declarativebase"
     },
     {
@@ -486,7 +486,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_agentrecord",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "agentrecord"
     },
@@ -497,7 +497,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_agentversionrecord",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "agentversionrecord"
     },
@@ -509,7 +509,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_runrecord",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "runrecord"
     },
     {
@@ -520,7 +520,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_steprecord",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "steprecord"
     },
     {
@@ -531,7 +531,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_eventrecord",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "eventrecord"
     },
     {
@@ -542,7 +542,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_rationale_1",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "sqlalchemy records for forge's local durable state."
     },
     {
@@ -553,7 +553,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "repositories.py"
     },
     {
@@ -563,7 +563,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "agentrepository"
     },
@@ -574,7 +574,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_init",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
@@ -585,7 +585,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_py_session",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "session"
     },
@@ -596,7 +596,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_create",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".create()"
     },
@@ -607,7 +607,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_list_all",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".list_all()"
     },
@@ -618,7 +618,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".get()"
     },
@@ -629,7 +629,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_add_version",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".add_version()"
     },
@@ -640,7 +640,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get_version",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".get_version()"
     },
@@ -651,7 +651,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_latest_version",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".latest_version()"
     },
@@ -663,7 +663,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "runrepository"
     },
     {
@@ -673,7 +673,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_init",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
@@ -685,7 +685,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_create",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": ".create()"
     },
     {
@@ -696,7 +696,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_list_all",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": ".list_all()"
     },
     {
@@ -707,7 +707,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_get",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": ".get()"
     },
     {
@@ -718,7 +718,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_events",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": ".events()"
     },
     {
@@ -729,7 +729,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": ".create_step()"
     },
     {
@@ -740,7 +740,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_steps",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": ".steps()"
     },
     {
@@ -751,7 +751,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_rationale_1",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "repository implementations backed by a sqlalchemy session."
     },
     {
@@ -813,7 +813,7 @@
       "label": "run()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L110",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "backend_src_forge_api_app_run",
       "community": 6,
@@ -846,9 +846,9 @@
       "label": "Run the local development service through the project script.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L111",
+      "source_location": "L102",
       "_origin": "ast",
-      "id": "backend_src_forge_api_app_rationale_111",
+      "id": "backend_src_forge_api_app_rationale_102",
       "community": 6,
       "community_name": "app.py",
       "norm_label": "run the local development service through the project script."
@@ -1058,8 +1058,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "routes/runs.py"
     },
     {
@@ -1069,8 +1069,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_post",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "post"
     },
     {
@@ -1080,8 +1080,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_post_run",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "post_run()"
     },
     {
@@ -1091,8 +1091,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "sessiondependency"
     },
     {
@@ -1102,8 +1102,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_request",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "request"
     },
     {
@@ -1113,8 +1113,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_get",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "get"
     },
     {
@@ -1124,8 +1124,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_runs",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "get_runs()"
     },
     {
@@ -1135,8 +1135,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_run_by_id",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "get_run_by_id()"
     },
     {
@@ -1146,8 +1146,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_events",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "get_events()"
     },
     {
@@ -1157,8 +1157,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_steps",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "get_steps()"
     },
     {
@@ -1168,8 +1168,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_rationale_1",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "queued run and persisted event endpoints."
     },
     {
@@ -1278,8 +1278,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_runresponse",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "runresponse"
     },
     {
@@ -1355,7 +1355,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "application/agents.py"
     },
@@ -1366,7 +1366,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_agentconfig",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "agentconfig"
     },
@@ -1377,7 +1377,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_create_agent",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "create_agent()"
     },
@@ -1388,7 +1388,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_py_session",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "session"
     },
@@ -1399,7 +1399,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_list_agents",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "list_agents()"
     },
@@ -1410,7 +1410,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_get_agent",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "get_agent()"
     },
@@ -1421,7 +1421,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_create_agent_version",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "create_agent_version()"
     },
@@ -1432,7 +1432,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_rationale_1",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "agent creation, versioning, and query use cases."
     },
@@ -1443,7 +1443,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "errors.py"
     },
@@ -1454,7 +1454,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_resourcenotfounderror",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "resourcenotfounderror"
     },
@@ -1465,7 +1465,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "lookuperror",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "lookuperror"
     },
@@ -1476,7 +1476,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_resourcenotfounderror_init",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
@@ -1487,7 +1487,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_rationale_1",
-      "community": 7,
+      "community": 40,
       "community_name": "AgentRepository",
       "norm_label": "errors raised by application use cases."
     },
@@ -1499,7 +1499,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "application/runs.py"
     },
     {
@@ -1510,7 +1510,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_create_run",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "create_run()"
     },
     {
@@ -1521,7 +1521,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_py_session",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "session"
     },
     {
@@ -1532,7 +1532,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_runs",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "list_runs()"
     },
     {
@@ -1543,7 +1543,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_get_run",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "get_run()"
     },
     {
@@ -1554,7 +1554,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_run_events",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "list_run_events()"
     },
     {
@@ -1565,7 +1565,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_run_steps",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "list_run_steps()"
     },
     {
@@ -1576,7 +1576,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_rationale_1",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "queued run and event query use cases."
     },
     {
@@ -1587,7 +1587,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_rationale_52",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "return a run's durable operations in execution order."
     },
     {
@@ -1862,7 +1862,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_runstatus",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "runstatus"
     },
     {
@@ -1873,7 +1873,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_py_strenum",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "strenum"
     },
     {
@@ -1961,7 +1961,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "steps.py"
     },
     {
@@ -1972,7 +1972,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_stepkind",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "stepkind"
     },
     {
@@ -1983,7 +1983,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_py_strenum",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "strenum"
     },
     {
@@ -1994,7 +1994,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_stepstatus",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "stepstatus"
     },
     {
@@ -2005,7 +2005,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_step",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "step"
     },
     {
@@ -2016,7 +2016,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_rationale_1",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "typed units of work performed while executing a run."
     },
     {
@@ -2027,7 +2027,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_rationale_10",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "the runtime boundary represented by a step."
     },
     {
@@ -2038,7 +2038,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_rationale_22",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "lifecycle state of one runtime step."
     },
     {
@@ -2049,7 +2049,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_rationale_33",
       "community": 7,
-      "community_name": "AgentRepository",
+      "community_name": "RunRepository",
       "norm_label": "one ordered, inspectable operation belonging to a run."
     },
     {
@@ -2290,19 +2290,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_tests_test_health",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 31,
+      "community_name": "test_health.py",
       "norm_label": "test_health.py"
     },
     {
       "label": "test_health_endpoint_returns_service_and_database_metadata()",
       "file_type": "code",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L9",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "backend_tests_test_health_test_health_endpoint_returns_service_and_database_metadata",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 31,
+      "community_name": "test_health.py",
       "norm_label": "test_health_endpoint_returns_service_and_database_metadata()"
     },
     {
@@ -2312,42 +2312,31 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_tests_test_health_py_testclient",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 31,
+      "community_name": "test_health.py",
       "norm_label": "testclient"
     },
     {
       "label": "test_requests_receive_distinct_server_generated_ids()",
       "file_type": "code",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L23",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "backend_tests_test_health_test_requests_receive_distinct_server_generated_ids",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 31,
+      "community_name": "test_health.py",
       "norm_label": "test_requests_receive_distinct_server_generated_ids()"
     },
     {
       "label": "test_request_id_is_exposed_to_dashboard_origin()",
       "file_type": "code",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L33",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "backend_tests_test_health_test_request_id_is_exposed_to_dashboard_origin",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 31,
+      "community_name": "test_health.py",
       "norm_label": "test_request_id_is_exposed_to_dashboard_origin()"
-    },
-    {
-      "label": "test_unhandled_errors_keep_request_id_without_leaking_details()",
-      "file_type": "code",
-      "source_file": "backend/tests/test_health.py",
-      "source_location": "L42",
-      "_origin": "ast",
-      "id": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
-      "community": 6,
-      "community_name": "app.py",
-      "norm_label": "test_unhandled_errors_keep_request_id_without_leaking_details()"
     },
     {
       "label": "test_run_state.py",
@@ -4300,7 +4289,7 @@
       "label": "Alternatives",
       "file_type": "document",
       "source_file": "docs/decisions/0002-request-correlation.md",
-      "source_location": "L25",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "docs_decisions_0002_request_correlation_alternatives",
       "community": 41,
@@ -4311,7 +4300,7 @@
       "label": "Consequences",
       "file_type": "document",
       "source_file": "docs/decisions/0002-request-correlation.md",
-      "source_location": "L34",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "docs_decisions_0002_request_correlation_consequences",
       "community": 41,
@@ -7081,7 +7070,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L110",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app",
@@ -7256,18 +7245,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/test_health.py",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_test_health",
-      "target": "backend_src_forge_api_app",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -7284,7 +7261,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L95",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app_create_app",
@@ -7363,18 +7340,6 @@
       "target": "backend_src_forge_api_app_create_app"
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/tests/test_health.py",
-      "source_location": "L43",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
-      "target": "backend_src_forge_api_app_create_app"
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -7414,10 +7379,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L111",
+      "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_src_forge_api_app_rationale_111",
+      "source": "backend_src_forge_api_app_rationale_102",
       "target": "backend_src_forge_api_app_run",
       "confidence_score": 1.0
     },
@@ -9294,18 +9259,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/test_health.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_test_health",
-      "target": "backend_src_forge_config",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/config.py",
@@ -9383,18 +9336,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_persistence_test_run_creation_request_id_survives_restart",
-      "target": "backend_src_forge_config_settings"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/tests/test_health.py",
-      "source_location": "L43",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
       "target": "backend_src_forge_config_settings"
     },
     {
@@ -10129,7 +10070,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L9",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health",
@@ -10140,7 +10081,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L33",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health",
@@ -10151,7 +10092,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L23",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health",
@@ -10159,22 +10100,11 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/test_health.py",
-      "source_location": "L42",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_test_health",
-      "target": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L9",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health_test_health_endpoint_returns_service_and_database_metadata",
@@ -10186,7 +10116,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L33",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health_test_request_id_is_exposed_to_dashboard_origin",
@@ -10198,22 +10128,10 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L23",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health_test_requests_receive_distinct_server_generated_ids",
-      "target": "backend_tests_test_health_py_testclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/test_health.py",
-      "source_location": "L49",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
       "target": "backend_tests_test_health_py_testclient",
       "confidence_score": 1.0
     },
@@ -12750,7 +12668,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/decisions/0002-request-correlation.md",
-      "source_location": "L25",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_decisions_0002_request_correlation_adr_0002_correlate_http_requests_with_queued_runs",
@@ -12761,7 +12679,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/decisions/0002-request-correlation.md",
-      "source_location": "L34",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_decisions_0002_request_correlation_adr_0002_correlate_http_requests_with_queued_runs",

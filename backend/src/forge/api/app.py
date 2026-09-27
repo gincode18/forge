@@ -2,6 +2,7 @@
 
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+from uuid import uuid4
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -47,18 +48,36 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
+        expose_headers=["X-Request-ID"],
     )
+
+    @application.middleware("http")
+    async def assign_request_id(request: Request, call_next):
+        request.state.request_id = str(uuid4())
+        response = await call_next(request)
+        response.headers["X-Request-ID"] = request.state.request_id
+        return response
 
     @application.exception_handler(ResourceNotFoundError)
     async def resource_not_found(
-        _: Request, error: ResourceNotFoundError
+        request: Request, error: ResourceNotFoundError
     ) -> JSONResponse:
         body = ErrorResponse(
             detail=str(error),
+            request_id=request.state.request_id,
             resource=error.resource,
             resource_id=error.resource_id,
         )
         return JSONResponse(status_code=404, content=body.model_dump())
+
+    @application.exception_handler(Exception)
+    async def internal_error(request: Request, _: Exception) -> JSONResponse:
+        request_id = request.state.request_id
+        return JSONResponse(
+            status_code=500,
+            content={"detail": "Internal server error", "request_id": request_id},
+            headers={"X-Request-ID": request_id},
+        )
 
     @application.get("/", tags=["system"])
     def root() -> dict[str, str]:

@@ -12,6 +12,7 @@ def create_run(
     *,
     agent_id: str,
     input: str,
+    request_id: str,
     agent_version_id: str | None = None,
 ) -> RunRecord:
     agents = AgentRepository(session)
@@ -24,7 +25,9 @@ def create_run(
         if version is None:
             raise ResourceNotFoundError("agent", agent_id)
 
-    run = RunRepository(session).create(agent_version_id=version.id, input=input)
+    run = RunRepository(session).create(
+        agent_version_id=version.id, input=input, request_id=request_id
+    )
     session.commit()
     return run
 

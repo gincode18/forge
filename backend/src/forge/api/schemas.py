@@ -102,5 +102,6 @@ class StepResponse(BaseModel):
 
 class ErrorResponse(BaseModel):
     detail: str
+    request_id: str
     resource: str | None = None
     resource_id: str | None = None

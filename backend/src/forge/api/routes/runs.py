@@ -1,6 +1,6 @@
 """Queued run and persisted event endpoints."""
 
-from fastapi import APIRouter, status
+from fastapi import APIRouter, Request, status
 
 from forge.api.dependencies import SessionDependency
 from forge.api.schemas import CreateRunRequest, EventResponse, RunResponse, StepResponse
@@ -16,8 +16,10 @@ router = APIRouter(prefix="/runs", tags=["runs"])
 
 
 @router.post("", response_model=RunResponse, status_code=status.HTTP_201_CREATED)
-def post_run(request: CreateRunRequest, session: SessionDependency) -> RunResponse:
-    run = create_run(session, **request.model_dump())
+def post_run(
+    request: CreateRunRequest, session: SessionDependency, http_request: Request
+) -> RunResponse:
+    run = create_run(session, **request.model_dump(), request_id=http_request.state.request_id)
     return RunResponse.model_validate(run)
 
 

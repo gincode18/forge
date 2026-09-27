@@ -2,15 +2,15 @@
 
 ## Current position
 
-**Current phase: Phase 1 in progress — backend foundation and durable domain model.**
+**Current phase: Phase 1 complete — backend foundation and durable domain model.**
 
-**Current slice: SQLAlchemy persistence, agent versions, queued runs, steps, and events.**
+**Next phase: Phase 2 — end-to-end deterministic agent.**
 
 The repository now contains a packaged FastAPI service, Alembic-managed SQLite
 persistence, durable agent definitions and immutable versions, queued run and
-event records, a Next.js/Shadcn dashboard shell, `uv` for Python dependencies,
-and pnpm for frontend dependencies. The execution runtime has not been
-implemented yet.
+event and step records, a Next.js/Shadcn dashboard with live API health and
+persisted agent/run views, `uv` for Python dependencies, and pnpm for frontend
+dependencies. The execution runtime has not been implemented yet.
 
 This plan is organized around working vertical slices rather than dates. A phase
 is complete only when its exit criteria pass. We should not start several future
@@ -36,7 +36,7 @@ the current phase has at least one real implementation and the boundary matters.
 | Phase | Outcome | Status |
 | --- | --- | --- |
 | 0. Vision and foundation | Shared vision, local stack, repository, architecture | Complete |
-| 1. Domain and storage | Durable agent versions, runs, events, and clean modules | In progress |
+| 1. Domain and storage | Durable agent versions, runs, events, and clean modules | Complete |
 | 2. End-to-end fake agent | Create and run a deterministic agent through the UI | Planned |
 | 3. Real model runtime | Provider adapter, streaming, planner loop, limits | Planned |
 | 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Planned |
@@ -90,7 +90,7 @@ Agree on what Forge is and establish a minimal local development environment.
 5. [x] Implement and test valid run-state transitions.
 6. [x] Add repositories for agents, versions, runs, and events.
 7. [x] Initialize SQLite on application startup and expose database readiness.
-8. [ ] Add request/run correlation IDs (structured 404 responses are complete).
+8. [x] Add request/run correlation IDs and structured 404 responses.
 
 ### API slice
 
@@ -117,8 +117,8 @@ Agree on what Forge is and establish a minimal local development environment.
 - [x] Restarting the API preserves agents and runs.
 - [x] Every run references an immutable agent version.
 - [x] Invalid state transitions fail deterministically.
-- [ ] The dashboard shows real persisted data.
-- [ ] No provider SDK or actual LLM call is required.
+- [x] The dashboard shows real persisted data.
+- [x] No provider SDK or actual LLM call is required.
 
 ## Phase 2 — End-to-end deterministic agent
 
