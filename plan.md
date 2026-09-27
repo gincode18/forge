@@ -2,15 +2,17 @@
 
 ## Current position
 
-**Current phase: Phase 1 complete — backend foundation and durable domain model.**
+**Current phase: Phase 2 complete — end-to-end deterministic agent.**
 
-**Next phase: Phase 2 — end-to-end deterministic agent.**
+**Next phase: Phase 3 — real model provider and planning loop.**
 
 The repository now contains a packaged FastAPI service, Alembic-managed SQLite
 persistence, durable agent definitions and immutable versions, queued run and
 event and step records, a Next.js/Shadcn dashboard with live API health and
 persisted agent/run views, `uv` for Python dependencies, and pnpm for frontend
-dependencies. The execution runtime has not been implemented yet.
+dependencies. A no-tool deterministic fake runtime executes queued runs through
+an in-process supervisor, with cancellation, step/time limits, durable event
+replay over SSE, and a live run inspector. No real provider call is required.
 
 This plan is organized around working vertical slices rather than dates. A phase
 is complete only when its exit criteria pass. We should not start several future
@@ -37,7 +39,7 @@ the current phase has at least one real implementation and the boundary matters.
 | --- | --- | --- |
 | 0. Vision and foundation | Shared vision, local stack, repository, architecture | Complete |
 | 1. Domain and storage | Durable agent versions, runs, events, and clean modules | Complete |
-| 2. End-to-end fake agent | Create and run a deterministic agent through the UI | Planned |
+| 2. End-to-end fake agent | Create and run a deterministic agent through the UI | Complete |
 | 3. Real model runtime | Provider adapter, streaming, planner loop, limits | Planned |
 | 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Planned |
 | 5. Trace-first observability | Complete live run inspector and failure debugging | Planned |
@@ -130,28 +132,30 @@ Agree on what Forge is and establish a minimal local development environment.
 
 ### Build
 
-1. Define the provider, planner, event sink, and run repository protocols.
-2. Implement a deterministic `FakeProvider` with scripted responses.
-3. Implement a minimal planner that can finish without tools.
-4. Build the first runtime loop and in-process run supervisor.
-5. Persist run/step transitions and typed events.
-6. Add cancellation and runtime limits for steps and wall-clock duration.
-7. Add SSE event streaming with replay by sequence number.
+1. [x] Define provider and planner protocols; use the SQLite run repository as
+   the first concrete event sink/store. Extract storage protocols when a second
+   implementation needs them rather than adding unused interfaces.
+2. [x] Implement a deterministic `FakeProvider` with scripted responses.
+3. [x] Implement a minimal planner that can finish without tools.
+4. [x] Build the first finish-only runtime path and in-process run supervisor.
+5. [x] Persist run/step transitions and typed events.
+6. [x] Add cancellation and runtime limits for steps and wall-clock duration.
+7. [x] Add SSE event streaming with replay by sequence number.
 
 ### UI slice
 
-- Launch a fake agent from the agent page.
-- Follow its status live on a run detail page.
-- See the input, deterministic model response, steps, and final result.
-- Cancel a deliberately long fake run.
+- [x] Launch a fake agent from the agent page.
+- [x] Follow its status live on a run detail page with SSE replay.
+- [x] See the input, deterministic model response, steps, and final result.
+- [x] Cancel a deliberately long fake run.
 
 ### Exit criteria
 
-- [ ] The complete path works: create agent -> start run -> stream events ->
+- [x] The complete path works: create agent -> start run -> stream events ->
   complete -> reload historical trace.
-- [ ] Disconnecting the browser does not cancel the run.
-- [ ] Restarting during a run marks it interrupted rather than leaving it live.
-- [ ] Runtime tests are deterministic and require no API key.
+- [x] Disconnecting the browser does not cancel the run.
+- [x] Restarting during a run marks it interrupted rather than leaving it live.
+- [x] Runtime tests are deterministic and require no API key.
 
 This phase produces the first true Forge runtime, even though its model is fake.
 

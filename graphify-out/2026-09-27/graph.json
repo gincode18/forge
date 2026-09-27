@@ -343,8 +343,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_database_session",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": ".session()"
     },
     {
@@ -354,8 +354,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_py_session",
-      "community": 25,
-      "community_name": "test_agents_and_runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "session"
     },
     {
@@ -464,8 +464,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_base",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "base"
     },
     {
@@ -475,8 +475,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "declarativebase",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "declarativebase"
     },
     {
@@ -486,7 +486,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_agentrecord",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "agentrecord"
     },
@@ -497,7 +497,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_agentversionrecord",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "agentversionrecord"
     },
@@ -563,7 +563,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "agentrepository"
     },
@@ -574,7 +574,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_init",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
@@ -585,7 +585,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_py_session",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "session"
     },
@@ -596,7 +596,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_create",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".create()"
     },
@@ -607,7 +607,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_list_all",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".list_all()"
     },
@@ -618,7 +618,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".get()"
     },
@@ -629,7 +629,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_add_version",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".add_version()"
     },
@@ -640,7 +640,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_get_version",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".get_version()"
     },
@@ -651,7 +651,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_latest_version",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".latest_version()"
     },
@@ -673,7 +673,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_init",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
@@ -722,10 +722,32 @@
       "norm_label": ".events()"
     },
     {
-      "label": ".create_step()",
+      "label": ".append_event()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
       "source_location": "L159",
+      "_origin": "ast",
+      "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_append_event",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": ".append_event()"
+    },
+    {
+      "label": ".transition()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L177",
+      "_origin": "ast",
+      "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_transition",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": ".transition()"
+    },
+    {
+      "label": ".create_step()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L197",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
       "community": 7,
@@ -736,7 +758,7 @@
       "label": ".steps()",
       "file_type": "code",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L184",
+      "source_location": "L222",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_steps",
       "community": 7,
@@ -791,7 +813,7 @@
       "label": "create_app()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L21",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "backend_src_forge_api_app_create_app",
       "community": 6,
@@ -813,7 +835,7 @@
       "label": "run()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L101",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "backend_src_forge_api_app_run",
       "community": 6,
@@ -835,9 +857,9 @@
       "label": "Create an isolated application, allowing temporary settings in tests.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L22",
+      "source_location": "L24",
       "_origin": "ast",
-      "id": "backend_src_forge_api_app_rationale_22",
+      "id": "backend_src_forge_api_app_rationale_24",
       "community": 6,
       "community_name": "app.py",
       "norm_label": "create an isolated application, allowing temporary settings in tests."
@@ -846,9 +868,9 @@
       "label": "Run the local development service through the project script.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L102",
+      "source_location": "L126",
       "_origin": "ast",
-      "id": "backend_src_forge_api_app_rationale_102",
+      "id": "backend_src_forge_api_app_rationale_126",
       "community": 6,
       "community_name": "app.py",
       "norm_label": "run the local development service through the project script."
@@ -937,8 +959,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "routes/agents.py"
     },
     {
@@ -948,8 +970,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_config",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "_config()"
     },
     {
@@ -959,8 +981,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_agent_response",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "_agent_response()"
     },
     {
@@ -970,8 +992,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_py_post",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "post"
     },
     {
@@ -981,8 +1003,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_post_agent",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "post_agent()"
     },
     {
@@ -992,8 +1014,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_py_sessiondependency",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "sessiondependency"
     },
     {
@@ -1003,8 +1025,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_py_get",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "get"
     },
     {
@@ -1014,8 +1036,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_get_agents",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "get_agents()"
     },
     {
@@ -1025,8 +1047,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_get_agent_by_id",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "get_agent_by_id()"
     },
     {
@@ -1036,8 +1058,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_post_agent_version",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "post_agent_version()"
     },
     {
@@ -1047,8 +1069,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_rationale_1",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "agent definition and immutable-version endpoints."
     },
     {
@@ -1058,8 +1080,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "routes/runs.py"
     },
     {
@@ -1069,19 +1091,19 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_post",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "post"
     },
     {
       "label": "post_run()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_post_run",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "post_run()"
     },
     {
@@ -1091,8 +1113,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "sessiondependency"
     },
     {
@@ -1102,9 +1124,20 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_request",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "request"
+    },
+    {
+      "label": "start_run()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "backend_src_forge_api_routes_runs_start_run",
+      "community": 8,
+      "community_name": "routes/runs.py",
+      "norm_label": "start_run()"
     },
     {
       "label": "get",
@@ -1113,52 +1146,52 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_get",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "get"
     },
     {
       "label": "get_runs()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L27",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_runs",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "get_runs()"
     },
     {
       "label": "get_run_by_id()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L32",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_run_by_id",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "get_run_by_id()"
     },
     {
       "label": "get_events()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L37",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_events",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "get_events()"
     },
     {
       "label": "get_steps()",
       "file_type": "code",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L44",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_steps",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "get_steps()"
     },
     {
@@ -1168,8 +1201,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_rationale_1",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "queued run and persisted event endpoints."
     },
     {
@@ -1180,7 +1213,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas",
       "community": 8,
-      "community_name": "routes/agents.py",
+      "community_name": "routes/runs.py",
       "norm_label": "schemas.py"
     },
     {
@@ -1190,8 +1223,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_healthresponse",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "healthresponse"
     },
     {
@@ -1202,7 +1235,7 @@
       "_origin": "ast",
       "id": "basemodel",
       "community": 8,
-      "community_name": "routes/agents.py",
+      "community_name": "routes/runs.py",
       "norm_label": "basemodel"
     },
     {
@@ -1212,8 +1245,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_agentconfigrequest",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "agentconfigrequest"
     },
     {
@@ -1223,8 +1256,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_createagentrequest",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "createagentrequest"
     },
     {
@@ -1234,8 +1267,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_agentversionresponse",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "agentversionresponse"
     },
     {
@@ -1245,8 +1278,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_agentresponse",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "agentresponse"
     },
     {
@@ -1256,8 +1289,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_agentdetailresponse",
-      "community": 8,
-      "community_name": "routes/agents.py",
+      "community": 31,
+      "community_name": "AgentRepository",
       "norm_label": "agentdetailresponse"
     },
     {
@@ -1268,7 +1301,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_createrunrequest",
       "community": 8,
-      "community_name": "routes/agents.py",
+      "community_name": "routes/runs.py",
       "norm_label": "createrunrequest"
     },
     {
@@ -1278,8 +1311,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_runresponse",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "runresponse"
     },
     {
@@ -1290,7 +1323,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_eventresponse",
       "community": 8,
-      "community_name": "routes/agents.py",
+      "community_name": "routes/runs.py",
       "norm_label": "eventresponse"
     },
     {
@@ -1301,7 +1334,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_stepresponse",
       "community": 8,
-      "community_name": "routes/agents.py",
+      "community_name": "routes/runs.py",
       "norm_label": "stepresponse"
     },
     {
@@ -1311,8 +1344,8 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_errorresponse",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "errorresponse"
     },
     {
@@ -1323,7 +1356,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_rationale_1",
       "community": 8,
-      "community_name": "routes/agents.py",
+      "community_name": "routes/runs.py",
       "norm_label": "versioned http request and response contracts."
     },
     {
@@ -1355,7 +1388,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "application/agents.py"
     },
@@ -1366,7 +1399,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_agentconfig",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "agentconfig"
     },
@@ -1377,7 +1410,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_create_agent",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "create_agent()"
     },
@@ -1388,7 +1421,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_py_session",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "session"
     },
@@ -1399,7 +1432,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_list_agents",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "list_agents()"
     },
@@ -1410,7 +1443,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_get_agent",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "get_agent()"
     },
@@ -1421,7 +1454,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_create_agent_version",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "create_agent_version()"
     },
@@ -1432,7 +1465,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_agents_rationale_1",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "agent creation, versioning, and query use cases."
     },
@@ -1443,7 +1476,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "errors.py"
     },
@@ -1454,7 +1487,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_resourcenotfounderror",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "resourcenotfounderror"
     },
@@ -1465,7 +1498,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "lookuperror",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "lookuperror"
     },
@@ -1476,7 +1509,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_resourcenotfounderror_init",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
@@ -1487,7 +1520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_errors_rationale_1",
-      "community": 40,
+      "community": 31,
       "community_name": "AgentRepository",
       "norm_label": "errors raised by application use cases."
     },
@@ -1498,8 +1531,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "application/runs.py"
     },
     {
@@ -1509,8 +1542,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_create_run",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "create_run()"
     },
     {
@@ -1520,8 +1553,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_py_session",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "session"
     },
     {
@@ -1531,8 +1564,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_runs",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "list_runs()"
     },
     {
@@ -1542,8 +1575,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_get_run",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "get_run()"
     },
     {
@@ -1553,8 +1586,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_run_events",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "list_run_events()"
     },
     {
@@ -1564,8 +1597,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_run_steps",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "list_run_steps()"
     },
     {
@@ -1575,8 +1608,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_rationale_1",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "queued run and event query use cases."
     },
     {
@@ -1586,8 +1619,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_rationale_52",
-      "community": 7,
-      "community_name": "RunRepository",
+      "community": 8,
+      "community_name": "routes/runs.py",
       "norm_label": "return a run's durable operations in execution order."
     },
     {
@@ -1828,8 +1861,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "domain/runs.py"
     },
     {
@@ -1839,8 +1872,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_invalidruntransition",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "invalidruntransition"
     },
     {
@@ -1850,8 +1883,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "valueerror",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "valueerror"
     },
     {
@@ -1883,8 +1916,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_run",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "run"
     },
     {
@@ -1894,8 +1927,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_run_transition",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": ".transition()"
     },
     {
@@ -1905,8 +1938,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_py_datetime",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "datetime"
     },
     {
@@ -1916,8 +1949,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_rationale_1",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "run state and transition invariants."
     },
     {
@@ -1927,8 +1960,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_rationale_9",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "raised when a run attempts an invalid state transition."
     },
     {
@@ -1938,8 +1971,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_rationale_59",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "one execution request pinned to an immutable agent version."
     },
     {
@@ -1949,8 +1982,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_rationale_69",
-      "community": 23,
-      "community_name": "domain/runs.py",
+      "community": 7,
+      "community_name": "RunRepository",
       "norm_label": "return a new run state after validating the transition."
     },
     {
@@ -2051,6 +2084,358 @@
       "community": 7,
       "community_name": "RunRepository",
       "norm_label": "one ordered, inspectable operation belonging to a run."
+    },
+    {
+      "label": "runtime/__init__.py",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_init",
+      "community": 43,
+      "community_name": "runtime/__init__.py",
+      "norm_label": "runtime/__init__.py"
+    },
+    {
+      "label": "Forge's deterministic execution path.",
+      "file_type": "rationale",
+      "source_file": "backend/src/forge/runtime/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_init_rationale_1",
+      "community": 43,
+      "community_name": "runtime/__init__.py",
+      "norm_label": "forge's deterministic execution path."
+    },
+    {
+      "label": "engine.py",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_engine",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": "engine.py"
+    },
+    {
+      "label": "_fail_step()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_engine_fail_step",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": "_fail_step()"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "exception",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": "exception"
+    },
+    {
+      "label": "execute_fake_run()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_engine_execute_fake_run",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "execute_fake_run()"
+    },
+    {
+      "label": "Execute a queued no-tool run through a provider and planner.",
+      "file_type": "rationale",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_engine_rationale_1",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": "execute a queued no-tool run through a provider and planner."
+    },
+    {
+      "label": "Persist each boundary; never keep a DB transaction open during a model call.",
+      "file_type": "rationale",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_engine_rationale_31",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "persist each boundary; never keep a db transaction open during a model call."
+    },
+    {
+      "label": "fake.py",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_fake",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "fake.py"
+    },
+    {
+      "label": "FakeProvider",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_fake_fakeprovider",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "fakeprovider"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_fake_fakeprovider_init",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".complete()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_fake_fakeprovider_complete",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": ".complete()"
+    },
+    {
+      "label": "FinalPlanner",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_fake_finalplanner",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "finalplanner"
+    },
+    {
+      "label": ".decide()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_fake_finalplanner_decide",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": ".decide()"
+    },
+    {
+      "label": "Scripted provider and finish-only planner for no-key runtime tests.",
+      "file_type": "rationale",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_fake_rationale_1",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "scripted provider and finish-only planner for no-key runtime tests."
+    },
+    {
+      "label": "ports.py",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "ports.py"
+    },
+    {
+      "label": "FinalAction",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_finalaction",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "finalaction"
+    },
+    {
+      "label": "ModelProvider",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_modelprovider",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "modelprovider"
+    },
+    {
+      "label": "Protocol",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "protocol",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "protocol"
+    },
+    {
+      "label": ".complete()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_modelprovider_complete",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": ".complete()"
+    },
+    {
+      "label": "Planner",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_planner",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "planner"
+    },
+    {
+      "label": ".decide()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_planner_decide",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": ".decide()"
+    },
+    {
+      "label": "Minimal boundaries for deterministic, no-tool execution.",
+      "file_type": "rationale",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_rationale_1",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "minimal boundaries for deterministic, no-tool execution."
+    },
+    {
+      "label": "supervisor.py",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": "supervisor.py"
+    },
+    {
+      "label": "RunSupervisor",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": "runsupervisor"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor_runsupervisor_init",
+      "community": 6,
+      "community_name": "app.py",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".start()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": ".start()"
+    },
+    {
+      "label": "._execute()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "._execute()"
+    },
+    {
+      "label": ".recover()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": ".recover()"
+    },
+    {
+      "label": ".close()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor_runsupervisor_close",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": ".close()"
+    },
+    {
+      "label": "Own in-process fake runs independently of HTTP connections.",
+      "file_type": "rationale",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor_rationale_1",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": "own in-process fake runs independently of http connections."
+    },
+    {
+      "label": "Mark abandoned running work interrupted at API startup.",
+      "file_type": "rationale",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_supervisor_rationale_49",
+      "community": 7,
+      "community_name": "RunRepository",
+      "norm_label": "mark abandoned running work interrupted at api startup."
     },
     {
       "label": "conftest.py",
@@ -2207,6 +2592,116 @@
       "norm_label": "test_steps_for_missing_run_return_structured_404()"
     },
     {
+      "label": "test_fake_runtime.py",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "test_fake_runtime.py"
+    },
+    {
+      "label": "test_fake_runtime_persists_model_step_and_final_trace()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_test_fake_runtime_persists_model_step_and_final_trace",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "test_fake_runtime_persists_model_step_and_final_trace()"
+    },
+    {
+      "label": "TestClient",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_py_testclient",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "testclient"
+    },
+    {
+      "label": "test_fake_provider_failure_leaves_durable_failed_trace()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_test_fake_provider_failure_leaves_durable_failed_trace",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "test_fake_provider_failure_leaves_durable_failed_trace()"
+    },
+    {
+      "label": "test_start_endpoint_runs_fake_agent_without_a_model_key()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_test_start_endpoint_runs_fake_agent_without_a_model_key",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "test_start_endpoint_runs_fake_agent_without_a_model_key()"
+    },
+    {
+      "label": "test_start_rejects_non_fake_agent_without_changing_run()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_test_start_rejects_non_fake_agent_without_changing_run",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "test_start_rejects_non_fake_agent_without_changing_run()"
+    },
+    {
+      "label": "test_start_rejects_unsupported_planner_without_scheduling()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_test_start_rejects_unsupported_planner_without_scheduling",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "test_start_rejects_unsupported_planner_without_scheduling()"
+    },
+    {
+      "label": "test_planner_failure_does_not_mark_successful_model_failed()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L138",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_test_planner_failure_does_not_mark_successful_model_failed",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "test_planner_failure_does_not_mark_successful_model_failed()"
+    },
+    {
+      "label": "test_abandoned_running_run_is_interrupted_on_restart()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_test_abandoned_running_run_is_interrupted_on_restart",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "test_abandoned_running_run_is_interrupted_on_restart()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_fake_runtime_py_path",
+      "community": 40,
+      "community_name": "execute_fake_run",
+      "norm_label": "path"
+    },
+    {
       "label": "test_migrations.py",
       "file_type": "code",
       "source_file": "backend/tests/integration/test_migrations.py",
@@ -2290,19 +2785,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_tests_test_health",
-      "community": 31,
-      "community_name": "test_health.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": "test_health.py"
     },
     {
       "label": "test_health_endpoint_returns_service_and_database_metadata()",
       "file_type": "code",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L6",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "backend_tests_test_health_test_health_endpoint_returns_service_and_database_metadata",
-      "community": 31,
-      "community_name": "test_health.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": "test_health_endpoint_returns_service_and_database_metadata()"
     },
     {
@@ -2312,31 +2807,42 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_tests_test_health_py_testclient",
-      "community": 31,
-      "community_name": "test_health.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": "testclient"
     },
     {
       "label": "test_requests_receive_distinct_server_generated_ids()",
       "file_type": "code",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L20",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "backend_tests_test_health_test_requests_receive_distinct_server_generated_ids",
-      "community": 31,
-      "community_name": "test_health.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": "test_requests_receive_distinct_server_generated_ids()"
     },
     {
       "label": "test_request_id_is_exposed_to_dashboard_origin()",
       "file_type": "code",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L30",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "backend_tests_test_health_test_request_id_is_exposed_to_dashboard_origin",
-      "community": 31,
-      "community_name": "test_health.py",
+      "community": 6,
+      "community_name": "app.py",
       "norm_label": "test_request_id_is_exposed_to_dashboard_origin()"
+    },
+    {
+      "label": "test_unhandled_errors_keep_request_id_without_leaking_details()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_health.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
+      "community": 6,
+      "community_name": "app.py",
+      "norm_label": "test_unhandled_errors_keep_request_id_without_leaking_details()"
     },
     {
       "label": "test_run_state.py",
@@ -2346,7 +2852,7 @@
       "_origin": "ast",
       "id": "backend_tests_unit_test_run_state",
       "community": 23,
-      "community_name": "domain/runs.py",
+      "community_name": "make_run",
       "norm_label": "test_run_state.py"
     },
     {
@@ -2357,7 +2863,7 @@
       "_origin": "ast",
       "id": "backend_tests_unit_test_run_state_make_run",
       "community": 23,
-      "community_name": "domain/runs.py",
+      "community_name": "make_run",
       "norm_label": "make_run()"
     },
     {
@@ -2368,7 +2874,7 @@
       "_origin": "ast",
       "id": "run",
       "community": 23,
-      "community_name": "domain/runs.py",
+      "community_name": "make_run",
       "norm_label": "run"
     },
     {
@@ -2379,7 +2885,7 @@
       "_origin": "ast",
       "id": "backend_tests_unit_test_run_state_test_queued_run_can_start",
       "community": 23,
-      "community_name": "domain/runs.py",
+      "community_name": "make_run",
       "norm_label": "test_queued_run_can_start()"
     },
     {
@@ -2390,7 +2896,7 @@
       "_origin": "ast",
       "id": "backend_tests_unit_test_run_state_test_terminal_run_cannot_transition",
       "community": 23,
-      "community_name": "domain/runs.py",
+      "community_name": "make_run",
       "norm_label": "test_terminal_run_cannot_transition()"
     },
     {
@@ -3237,7 +3743,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_agents_create_agent_form",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "create-agent-form.tsx"
     },
     {
@@ -3248,7 +3754,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_agents_create_agent_form_createagentform",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "createagentform()"
     },
     {
@@ -3259,7 +3765,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_agents_page",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "agents/page.tsx"
     },
     {
@@ -3270,7 +3776,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_agents_page_agentspage",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "agentspage()"
     },
     {
@@ -3336,7 +3842,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_page",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "app/page.tsx"
     },
     {
@@ -3347,8 +3853,63 @@
       "_origin": "ast",
       "id": "frontend_src_app_page_home",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "home()"
+    },
+    {
+      "label": "[id]/page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_app_runs_id_page",
+      "community": 3,
+      "community_name": "run-inspector.tsx",
+      "norm_label": "[id]/page.tsx"
+    },
+    {
+      "label": "RunPage()",
+      "file_type": "code",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_src_app_runs_id_page_runpage",
+      "community": 3,
+      "community_name": "run-inspector.tsx",
+      "norm_label": "runpage()"
+    },
+    {
+      "label": "run-inspector.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_app_runs_id_run_inspector",
+      "community": 3,
+      "community_name": "run-inspector.tsx",
+      "norm_label": "run-inspector.tsx"
+    },
+    {
+      "label": "terminal",
+      "file_type": "code",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "frontend_src_app_runs_id_run_inspector_terminal",
+      "community": 3,
+      "community_name": "run-inspector.tsx",
+      "norm_label": "terminal"
+    },
+    {
+      "label": "RunInspector()",
+      "file_type": "code",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "frontend_src_app_runs_id_run_inspector_runinspector",
+      "community": 3,
+      "community_name": "run-inspector.tsx",
+      "norm_label": "runinspector()"
     },
     {
       "label": "runs/page.tsx",
@@ -3358,7 +3919,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_runs_page",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "runs/page.tsx"
     },
     {
@@ -3369,7 +3930,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_runs_page_runspage",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "runspage()"
     },
     {
@@ -3380,7 +3941,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_runs_queue_run_form",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "queue-run-form.tsx"
     },
     {
@@ -3391,7 +3952,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_runs_queue_run_form_queuerunform",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "queuerunform()"
     },
     {
@@ -3402,7 +3963,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_shell",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "shell.tsx"
     },
     {
@@ -3413,7 +3974,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_shell_shell",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "shell()"
     },
     {
@@ -3424,7 +3985,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_badge",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "badge.tsx"
     },
     {
@@ -3435,7 +3996,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_badge_badgevariants",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "badgevariants"
     },
     {
@@ -3446,7 +4007,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_badge_badge",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "badge()"
     },
     {
@@ -3457,7 +4018,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_button",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "button.tsx"
     },
     {
@@ -3468,7 +4029,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_button_buttonvariants",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "buttonvariants"
     },
     {
@@ -3479,7 +4040,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_button_button",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "button()"
     },
     {
@@ -3490,7 +4051,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_card",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "card.tsx"
     },
     {
@@ -3501,7 +4062,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_card_card",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "card()"
     },
     {
@@ -3512,7 +4073,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_card_cardheader",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "cardheader()"
     },
     {
@@ -3523,7 +4084,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_card_cardtitle",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "cardtitle()"
     },
     {
@@ -3534,7 +4095,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_card_carddescription",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "carddescription()"
     },
     {
@@ -3545,7 +4106,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_card_cardaction",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "cardaction()"
     },
     {
@@ -3556,7 +4117,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_card_cardcontent",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "cardcontent()"
     },
     {
@@ -3567,7 +4128,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_card_cardfooter",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "cardfooter()"
     },
     {
@@ -3578,7 +4139,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_separator",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "separator.tsx"
     },
     {
@@ -3589,7 +4150,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_ui_separator_separator",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "separator()"
     },
     {
@@ -3600,7 +4161,7 @@
       "_origin": "ast",
       "id": "frontend_src_lib_api",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "api.ts"
     },
     {
@@ -3611,7 +4172,7 @@
       "_origin": "ast",
       "id": "frontend_src_lib_api_api_base",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "api_base"
     },
     {
@@ -3622,7 +4183,7 @@
       "_origin": "ast",
       "id": "frontend_src_lib_api_health",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "health"
     },
     {
@@ -3633,7 +4194,7 @@
       "_origin": "ast",
       "id": "frontend_src_lib_api_agent",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "agent"
     },
     {
@@ -3644,29 +4205,51 @@
       "_origin": "ast",
       "id": "frontend_src_lib_api_run",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "run"
+    },
+    {
+      "label": "RunEvent",
+      "file_type": "code",
+      "source_file": "frontend/src/lib/api.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "frontend_src_lib_api_runevent",
+      "community": 3,
+      "community_name": "run-inspector.tsx",
+      "norm_label": "runevent"
+    },
+    {
+      "label": "RunStep",
+      "file_type": "code",
+      "source_file": "frontend/src/lib/api.ts",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "frontend_src_lib_api_runstep",
+      "community": 3,
+      "community_name": "run-inspector.tsx",
+      "norm_label": "runstep"
     },
     {
       "label": "getApi()",
       "file_type": "code",
       "source_file": "frontend/src/lib/api.ts",
-      "source_location": "L19",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_src_lib_api_getapi",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "getapi()"
     },
     {
       "label": "postApi()",
       "file_type": "code",
       "source_file": "frontend/src/lib/api.ts",
-      "source_location": "L25",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "frontend_src_lib_api_postapi",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "postapi()"
     },
     {
@@ -3677,7 +4260,7 @@
       "_origin": "ast",
       "id": "frontend_src_lib_utils",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "utils.ts"
     },
     {
@@ -3688,7 +4271,7 @@
       "_origin": "ast",
       "id": "frontend_src_lib_utils_cn",
       "community": 3,
-      "community_name": "cn",
+      "community_name": "run-inspector.tsx",
       "norm_label": "cn()"
     },
     {
@@ -4289,7 +4872,7 @@
       "label": "Alternatives",
       "file_type": "document",
       "source_file": "docs/decisions/0002-request-correlation.md",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "docs_decisions_0002_request_correlation_alternatives",
       "community": 41,
@@ -4300,11 +4883,77 @@
       "label": "Consequences",
       "file_type": "document",
       "source_file": "docs/decisions/0002-request-correlation.md",
-      "source_location": "L32",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "docs_decisions_0002_request_correlation_consequences",
       "community": 41,
       "community_name": "ADR 0002: Correlate HTTP requests with queued runs",
+      "norm_label": "consequences"
+    },
+    {
+      "label": "0003-in-process-fake-run-supervision.md",
+      "file_type": "document",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_decisions_0003_in_process_fake_run_supervision",
+      "community": 42,
+      "community_name": "0003 \u2014 In-process supervision for deterministic runs",
+      "norm_label": "0003-in-process-fake-run-supervision.md"
+    },
+    {
+      "label": "0003 \u2014 In-process supervision for deterministic runs",
+      "file_type": "document",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_decisions_0003_in_process_fake_run_supervision_0003_in_process_supervision_for_deterministic_runs",
+      "community": 42,
+      "community_name": "0003 \u2014 In-process supervision for deterministic runs",
+      "norm_label": "0003 \u2014 in-process supervision for deterministic runs"
+    },
+    {
+      "label": "Context",
+      "file_type": "document",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "docs_decisions_0003_in_process_fake_run_supervision_context",
+      "community": 42,
+      "community_name": "0003 \u2014 In-process supervision for deterministic runs",
+      "norm_label": "context"
+    },
+    {
+      "label": "Decision",
+      "file_type": "document",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_decisions_0003_in_process_fake_run_supervision_decision",
+      "community": 42,
+      "community_name": "0003 \u2014 In-process supervision for deterministic runs",
+      "norm_label": "decision"
+    },
+    {
+      "label": "Alternatives",
+      "file_type": "document",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "docs_decisions_0003_in_process_fake_run_supervision_alternatives",
+      "community": 42,
+      "community_name": "0003 \u2014 In-process supervision for deterministic runs",
+      "norm_label": "alternatives"
+    },
+    {
+      "label": "Consequences",
+      "file_type": "document",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "docs_decisions_0003_in_process_fake_run_supervision_consequences",
+      "community": 42,
+      "community_name": "0003 \u2014 In-process supervision for deterministic runs",
       "norm_label": "consequences"
     },
     {
@@ -5446,6 +6095,30 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_adapters_sqlite_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_adapters_sqlite_database",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -5520,7 +6193,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L29",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app_create_app",
@@ -5599,7 +6272,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L30",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app_create_app",
@@ -5615,6 +6288,77 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_dependencies",
+      "target": "backend_src_forge_adapters_sqlite_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_adapters_sqlite_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "backend_src_forge_adapters_sqlite_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_fail_step",
+      "target": "backend_src_forge_adapters_sqlite_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_adapters_sqlite_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L8",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_adapters_sqlite_database_database",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_init",
       "target": "backend_src_forge_adapters_sqlite_database_database",
       "confidence_score": 1.0
     },
@@ -5635,11 +6379,71 @@
       "context": "argument",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "backend_src_forge_adapters_sqlite_database_database_session"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_fail_step",
+      "target": "backend_src_forge_adapters_sqlite_database_database_session"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
+      "target": "backend_src_forge_adapters_sqlite_database_database_session"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "target": "backend_src_forge_adapters_sqlite_database_database_session"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
       "source_location": "L89",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs_test_run_steps_are_persisted_and_returned_in_order",
+      "target": "backend_src_forge_adapters_sqlite_database_database_session"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L172",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_abandoned_running_run_is_interrupted_on_restart",
       "target": "backend_src_forge_adapters_sqlite_database_database_session"
     },
     {
@@ -5791,6 +6595,30 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_adapters_sqlite_models",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_adapters_sqlite_models",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
@@ -5825,6 +6653,54 @@
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create",
       "target": "backend_src_forge_adapters_sqlite_models_utc_now"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_transition",
+      "target": "backend_src_forge_adapters_sqlite_models_utc_now"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_adapters_sqlite_models_utc_now",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "backend_src_forge_adapters_sqlite_models_utc_now",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_fail_step",
+      "target": "backend_src_forge_adapters_sqlite_models_utc_now",
+      "confidence_score": 1.0
     },
     {
       "relation": "inherits",
@@ -6178,6 +7054,41 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_adapters_sqlite_models_agentversionrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_adapters_sqlite_models_agentversionrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_adapters_sqlite_models_agentversionrecord",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
       "source_location": "L8",
       "weight": 1.0,
@@ -6245,6 +7156,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_transition",
+      "target": "backend_src_forge_adapters_sqlite_models_runrecord",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -6296,6 +7219,41 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_adapters_sqlite_models_runrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_adapters_sqlite_models_runrecord",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "target": "backend_src_forge_adapters_sqlite_models_runrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
       "source_location": "L8",
       "weight": 1.0,
@@ -6331,7 +7289,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L159",
+      "source_location": "L197",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
@@ -6343,7 +7301,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L184",
+      "source_location": "L222",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_steps",
@@ -6371,6 +7329,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_application_runs_list_run_steps",
+      "target": "backend_src_forge_adapters_sqlite_models_steprecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
       "target": "backend_src_forge_adapters_sqlite_models_steprecord",
       "confidence_score": 1.0
     },
@@ -6407,6 +7377,18 @@
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
       "target": "backend_src_forge_adapters_sqlite_models_eventrecord",
       "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_append_event",
+      "target": "backend_src_forge_adapters_sqlite_models_eventrecord",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -6499,6 +7481,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories",
+      "target": "backend_src_forge_domain_runs_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories",
       "target": "backend_src_forge_domain_runs_runstatus",
       "confidence_score": 1.0
     },
@@ -6577,11 +7571,47 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_adapters_sqlite_repositories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_adapters_sqlite_repositories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_agents_and_runs",
+      "target": "backend_src_forge_adapters_sqlite_repositories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
       "target": "backend_src_forge_adapters_sqlite_repositories",
       "confidence_score": 1.0
     },
@@ -6661,6 +7691,17 @@
       "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
       "target": "backend_src_forge_adapters_sqlite_repositories_agentrepository_list_all",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_agentrepository",
+      "target": "backend_src_forge_domain_runs_run",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -6830,6 +7871,17 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository_append_event",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
       "source_location": "L117",
       "weight": 1.0,
       "_origin": "ast",
@@ -6841,7 +7893,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L159",
+      "source_location": "L197",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
@@ -6896,12 +7948,34 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L184",
+      "source_location": "L222",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
       "target": "backend_src_forge_adapters_sqlite_repositories_runrepository_steps",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository_transition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository",
+      "target": "backend_src_forge_domain_runs_run",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -7009,6 +8083,89 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_fail_step",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -7021,11 +8178,59 @@
       "target": "backend_src_forge_adapters_sqlite_repositories_runrepository"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L172",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_abandoned_running_run_is_interrupted_on_restart",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_transition",
+      "target": "backend_src_forge_adapters_sqlite_repositories_runrepository_append_event",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_transition",
+      "target": "backend_src_forge_domain_runs_run"
+    },
+    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L159",
+      "source_location": "L177",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_transition",
+      "target": "backend_src_forge_domain_runs_runstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
+      "source_location": "L197",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
@@ -7037,7 +8242,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/adapters/sqlite/repositories.py",
-      "source_location": "L159",
+      "source_location": "L197",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
@@ -7059,7 +8264,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app",
@@ -7070,7 +8275,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L101",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app",
@@ -7202,6 +8407,54 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_app",
+      "target": "backend_src_forge_domain_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/app.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_app",
+      "target": "backend_src_forge_domain_runs_invalidruntransition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/app.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_app",
+      "target": "backend_src_forge_runtime_supervisor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/app.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_app",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/app.py",
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
@@ -7236,6 +8489,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_src_forge_api_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_persistence.py",
       "source_location": "L5",
       "weight": 1.0,
@@ -7245,11 +8510,23 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_health.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_test_health",
+      "target": "backend_src_forge_api_app",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L65",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app_create_app",
@@ -7261,7 +8538,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L86",
+      "source_location": "L110",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app_create_app",
@@ -7273,7 +8550,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app_create_app",
@@ -7281,11 +8558,23 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/app.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_app_create_app",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_app_create_app",
@@ -7296,10 +8585,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L22",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_src_forge_api_app_rationale_22",
+      "source": "backend_src_forge_api_app_rationale_24",
       "target": "backend_src_forge_api_app_create_app",
       "confidence_score": 1.0
     },
@@ -7313,6 +8602,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_conftest_client",
+      "target": "backend_src_forge_api_app_create_app"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_abandoned_running_run_is_interrupted_on_restart",
       "target": "backend_src_forge_api_app_create_app"
     },
     {
@@ -7337,6 +8638,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_persistence_test_run_creation_request_id_survives_restart",
+      "target": "backend_src_forge_api_app_create_app"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/test_health.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
       "target": "backend_src_forge_api_app_create_app"
     },
     {
@@ -7379,10 +8692,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/app.py",
-      "source_location": "L102",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_src_forge_api_app_rationale_102",
+      "source": "backend_src_forge_api_app_rationale_126",
       "target": "backend_src_forge_api_app_run",
       "confidence_score": 1.0
     },
@@ -8040,7 +9353,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L37",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
@@ -8051,7 +9364,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L32",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
@@ -8062,7 +9375,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L27",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
@@ -8073,7 +9386,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L44",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
@@ -8084,11 +9397,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs",
       "target": "backend_src_forge_api_routes_runs_post_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs",
+      "target": "backend_src_forge_api_routes_runs_start_run",
       "confidence_score": 1.0
     },
     {
@@ -8224,6 +9548,30 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs",
+      "target": "backend_src_forge_domain_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs",
+      "target": "backend_src_forge_domain_runs_invalidruntransition",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
@@ -8238,7 +9586,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -8248,10 +9596,22 @@
     },
     {
       "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs_start_run",
+      "target": "backend_src_forge_api_routes_runs_py_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -8263,7 +9623,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -8275,7 +9635,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -8287,7 +9647,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -8300,7 +9660,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_post_run",
@@ -8311,34 +9671,10 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L37",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_events",
-      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_run_by_id",
-      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_forge_api_routes_runs_get_runs",
       "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
       "confidence_score": 1.0
     },
@@ -8350,15 +9686,63 @@
       "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs_get_run_by_id",
+      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs_get_runs",
+      "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_steps",
       "target": "backend_src_forge_api_routes_runs_py_sessiondependency",
       "confidence_score": 1.0
     },
     {
       "relation": "references",
+      "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L36",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs_start_run",
+      "target": "backend_src_forge_api_routes_runs_py_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_api_routes_runs_start_run",
+      "target": "backend_src_forge_api_schemas_runresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/api/routes/runs.py",
+      "source_location": "L48",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -8370,7 +9754,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L31",
+      "source_location": "L43",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -8382,7 +9766,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L26",
+      "source_location": "L38",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -8394,7 +9778,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L43",
+      "source_location": "L55",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -8407,7 +9791,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L27",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_runs",
@@ -8420,7 +9804,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L28",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_runs",
@@ -8431,7 +9815,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L32",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_run_by_id",
@@ -8444,7 +9828,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L33",
+      "source_location": "L45",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_run_by_id",
@@ -8455,7 +9839,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L37",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_events",
@@ -8468,7 +9852,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L39",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_events",
@@ -8479,7 +9863,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L44",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_steps",
@@ -8492,7 +9876,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/api/routes/runs.py",
-      "source_location": "L46",
+      "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_api_routes_runs_get_steps",
@@ -8994,6 +10378,30 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_application_errors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_application_errors",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/application/errors.py",
@@ -9050,6 +10458,77 @@
       "source": "backend_src_forge_application_runs_get_run",
       "target": "backend_src_forge_application_errors_resourcenotfounderror",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_application_errors_resourcenotfounderror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "backend_src_forge_application_errors_resourcenotfounderror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_fail_step",
+      "target": "backend_src_forge_application_errors_resourcenotfounderror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_application_errors_resourcenotfounderror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_application_errors_resourcenotfounderror",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "target": "backend_src_forge_application_errors_resourcenotfounderror"
     },
     {
       "relation": "contains",
@@ -9250,11 +10729,35 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_src_forge_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_persistence.py",
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_persistence",
+      "target": "backend_src_forge_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_health.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_test_health",
       "target": "backend_src_forge_config",
       "confidence_score": 1.0
     },
@@ -9319,6 +10822,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L163",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_abandoned_running_run_is_interrupted_on_restart",
+      "target": "backend_src_forge_config_settings"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "backend/tests/integration/test_persistence.py",
       "source_location": "L10",
       "weight": 1.0,
@@ -9336,6 +10851,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_persistence_test_run_creation_request_id_survives_restart",
+      "target": "backend_src_forge_config_settings"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/test_health.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
       "target": "backend_src_forge_config_settings"
     },
     {
@@ -9520,6 +11047,42 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_domain_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_domain_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_src_forge_domain_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/unit/test_run_state.py",
       "source_location": "L5",
       "weight": 1.0,
@@ -9563,6 +11126,65 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_domain_runs_invalidruntransition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L12",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_domain_runs_invalidruntransition",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "target": "backend_src_forge_domain_runs_invalidruntransition"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "valueerror"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "target": "valueerror"
+    },
+    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -9584,6 +11206,41 @@
       "source": "backend_src_forge_domain_runs_runstatus",
       "target": "backend_src_forge_domain_runs_py_strenum",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_domain_runs_runstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_domain_runs_runstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L12",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_domain_runs_runstatus",
+      "confidence_score": 0.5
     },
     {
       "relation": "references",
@@ -9690,6 +11347,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_domain_steps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_agents_and_runs.py",
       "source_location": "L4",
       "weight": 1.0,
@@ -9721,6 +11390,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_domain_steps_stepkind",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/domain/steps.py",
@@ -9743,6 +11424,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_domain_steps_stepstatus",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/domain/steps.py",
@@ -9751,6 +11444,719 @@
       "_origin": "ast",
       "source": "backend_src_forge_domain_steps_rationale_33",
       "target": "backend_src_forge_domain_steps_step",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/__init__.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_init_rationale_1",
+      "target": "backend_src_forge_runtime_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_runtime_engine_execute_fake_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_runtime_engine_fail_step",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_runtime_ports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_runtime_ports_modelprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine",
+      "target": "backend_src_forge_runtime_ports_planner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_rationale_1",
+      "target": "backend_src_forge_runtime_engine",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_engine",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_src_forge_runtime_engine",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "backend_src_forge_runtime_engine_fail_step",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_fail_step",
+      "target": "exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "backend_src_forge_runtime_ports_modelprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_execute_fake_run",
+      "target": "backend_src_forge_runtime_ports_planner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/engine.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_engine_rationale_31",
+      "target": "backend_src_forge_runtime_engine_execute_fake_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_engine_execute_fake_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
+      "target": "backend_src_forge_runtime_engine_execute_fake_run"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_fake_provider_failure_leaves_durable_failed_trace",
+      "target": "backend_src_forge_runtime_engine_execute_fake_run"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_fake_runtime_persists_model_step_and_final_trace",
+      "target": "backend_src_forge_runtime_engine_execute_fake_run"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_planner_failure_does_not_mark_successful_model_failed",
+      "target": "backend_src_forge_runtime_engine_execute_fake_run"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake",
+      "target": "backend_src_forge_runtime_fake_fakeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake",
+      "target": "backend_src_forge_runtime_fake_finalplanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake",
+      "target": "backend_src_forge_runtime_ports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake",
+      "target": "backend_src_forge_runtime_ports_finalaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_rationale_1",
+      "target": "backend_src_forge_runtime_fake",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_fake",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_src_forge_runtime_fake",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_fakeprovider",
+      "target": "backend_src_forge_runtime_fake_fakeprovider_complete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_fakeprovider",
+      "target": "backend_src_forge_runtime_fake_fakeprovider_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L2",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_fakeprovider",
+      "target": "backend_src_forge_runtime_ports_finalaction",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_fake_fakeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L14",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_fake_fakeprovider",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
+      "target": "backend_src_forge_runtime_fake_fakeprovider"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_fake_runtime_persists_model_step_and_final_trace",
+      "target": "backend_src_forge_runtime_fake_fakeprovider"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_planner_failure_does_not_mark_successful_model_failed",
+      "target": "backend_src_forge_runtime_fake_fakeprovider"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_finalplanner",
+      "target": "backend_src_forge_runtime_fake_finalplanner_decide",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L2",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_finalplanner",
+      "target": "backend_src_forge_runtime_ports_finalaction",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_fake_finalplanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L14",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_fake_finalplanner",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
+      "target": "backend_src_forge_runtime_fake_finalplanner"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_fake_provider_failure_leaves_durable_failed_trace",
+      "target": "backend_src_forge_runtime_fake_finalplanner"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_fake_runtime_persists_model_step_and_final_trace",
+      "target": "backend_src_forge_runtime_fake_finalplanner"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_finalplanner_decide",
+      "target": "backend_src_forge_runtime_ports_finalaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports",
+      "target": "backend_src_forge_runtime_ports_finalaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports",
+      "target": "backend_src_forge_runtime_ports_modelprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports",
+      "target": "backend_src_forge_runtime_ports_planner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_rationale_1",
+      "target": "backend_src_forge_runtime_ports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_src_forge_runtime_ports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_planner_decide",
+      "target": "backend_src_forge_runtime_ports_finalaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_modelprovider",
+      "target": "backend_src_forge_runtime_ports_modelprovider_complete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_modelprovider",
+      "target": "protocol",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_planner",
+      "target": "protocol",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_planner",
+      "target": "backend_src_forge_runtime_ports_planner_decide",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_rationale_1",
+      "target": "backend_src_forge_runtime_supervisor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor_close",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_rationale_49",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_close",
+      "target": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
       "confidence_score": 1.0
     },
     {
@@ -10000,6 +12406,179 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_tests_integration_test_fake_runtime_test_abandoned_running_run_is_interrupted_on_restart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_tests_integration_test_fake_runtime_test_fake_provider_failure_leaves_durable_failed_trace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_tests_integration_test_fake_runtime_test_fake_runtime_persists_model_step_and_final_trace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_tests_integration_test_fake_runtime_test_planner_failure_does_not_mark_successful_model_failed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_tests_integration_test_fake_runtime_test_start_endpoint_runs_fake_agent_without_a_model_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_tests_integration_test_fake_runtime_test_start_rejects_non_fake_agent_without_changing_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_tests_integration_test_fake_runtime_test_start_rejects_unsupported_planner_without_scheduling",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_fake_runtime_persists_model_step_and_final_trace",
+      "target": "backend_tests_integration_test_fake_runtime_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_abandoned_running_run_is_interrupted_on_restart",
+      "target": "backend_tests_integration_test_fake_runtime_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_fake_provider_failure_leaves_durable_failed_trace",
+      "target": "backend_tests_integration_test_fake_runtime_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_planner_failure_does_not_mark_successful_model_failed",
+      "target": "backend_tests_integration_test_fake_runtime_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_start_endpoint_runs_fake_agent_without_a_model_key",
+      "target": "backend_tests_integration_test_fake_runtime_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_start_rejects_non_fake_agent_without_changing_run",
+      "target": "backend_tests_integration_test_fake_runtime_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_start_rejects_unsupported_planner_without_scheduling",
+      "target": "backend_tests_integration_test_fake_runtime_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_fake_runtime.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_fake_runtime_test_abandoned_running_run_is_interrupted_on_restart",
+      "target": "backend_tests_integration_test_fake_runtime_py_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_migrations.py",
       "source_location": "L9",
       "weight": 1.0,
@@ -10070,7 +12649,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L6",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health",
@@ -10081,7 +12660,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L30",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health",
@@ -10092,7 +12671,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L20",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health",
@@ -10100,11 +12679,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_health.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_test_health",
+      "target": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L6",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health_test_health_endpoint_returns_service_and_database_metadata",
@@ -10116,7 +12706,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L30",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health_test_request_id_is_exposed_to_dashboard_origin",
@@ -10128,10 +12718,22 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_health.py",
-      "source_location": "L20",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_test_health_test_requests_receive_distinct_server_generated_ids",
+      "target": "backend_tests_test_health_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_health.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
       "target": "backend_tests_test_health_py_testclient",
       "confidence_score": 1.0
     },
@@ -11407,6 +14009,327 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_app_runs_id_page_runpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_app_runs_id_run_inspector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_app_runs_id_run_inspector_runinspector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_components_shell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_components_shell_shell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_lib_api_getapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_lib_api_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_lib_api_runevent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page",
+      "target": "frontend_src_lib_api_runstep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/app/runs/[id]/page.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_page_runpage",
+      "target": "frontend_src_lib_api_getapi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_app_runs_id_run_inspector_runinspector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_app_runs_id_run_inspector_terminal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_components_ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_components_ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_components_ui_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_components_ui_card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_components_ui_card_cardcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_components_ui_card_cardheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_components_ui_card_cardtitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_lib_api_getapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_lib_api_postapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_lib_api_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_lib_api_runevent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector",
+      "target": "frontend_src_lib_api_runstep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/app/runs/[id]/run-inspector.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_app_runs_id_run_inspector_runinspector",
+      "target": "frontend_src_lib_api_getapi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/app/runs/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -12075,7 +14998,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/lib/api.ts",
-      "source_location": "L19",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_lib_api",
@@ -12097,7 +15020,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/lib/api.ts",
-      "source_location": "L25",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_lib_api",
@@ -12113,6 +15036,28 @@
       "_origin": "ast",
       "source": "frontend_src_lib_api",
       "target": "frontend_src_lib_api_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/lib/api.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_lib_api",
+      "target": "frontend_src_lib_api_runevent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/lib/api.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_lib_api",
+      "target": "frontend_src_lib_api_runstep",
       "confidence_score": 1.0
     },
     {
@@ -12668,7 +15613,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/decisions/0002-request-correlation.md",
-      "source_location": "L23",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_decisions_0002_request_correlation_adr_0002_correlate_http_requests_with_queued_runs",
@@ -12679,7 +15624,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/decisions/0002-request-correlation.md",
-      "source_location": "L32",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_decisions_0002_request_correlation_adr_0002_correlate_http_requests_with_queued_runs",
@@ -12706,6 +15651,61 @@
       "_origin": "ast",
       "source": "docs_decisions_0002_request_correlation_adr_0002_correlate_http_requests_with_queued_runs",
       "target": "docs_decisions_0002_request_correlation_decision",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0003_in_process_fake_run_supervision",
+      "target": "docs_decisions_0003_in_process_fake_run_supervision_0003_in_process_supervision_for_deterministic_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0003_in_process_fake_run_supervision_0003_in_process_supervision_for_deterministic_runs",
+      "target": "docs_decisions_0003_in_process_fake_run_supervision_alternatives",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0003_in_process_fake_run_supervision_0003_in_process_supervision_for_deterministic_runs",
+      "target": "docs_decisions_0003_in_process_fake_run_supervision_consequences",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0003_in_process_fake_run_supervision_0003_in_process_supervision_for_deterministic_runs",
+      "target": "docs_decisions_0003_in_process_fake_run_supervision_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0003-in-process-fake-run-supervision.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0003_in_process_fake_run_supervision_0003_in_process_supervision_for_deterministic_runs",
+      "target": "docs_decisions_0003_in_process_fake_run_supervision_decision",
       "confidence_score": 1.0
     },
     {
@@ -13412,5 +16412,5 @@
       "source_file": "plan.md"
     }
   ],
-  "built_at_commit": "61c6c58c036f8c60b52c56ccf4e28524e742002f"
+  "built_at_commit": "535eee589629b7103144b5431c4280634563c1cc"
 }

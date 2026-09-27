@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shell } from "@/components/shell";
 import { getApi, type Agent } from "@/lib/api";
 import { CreateAgentForm } from "./create-agent-form";
+import { LaunchRunForm } from "./launch-run-form";
 
 export default async function AgentsPage() {
   let agents: Agent[] = [];
@@ -24,6 +25,7 @@ export default async function AgentsPage() {
                   <p>{agent.description || "No description"}</p>
                   <p className="text-xs">Version {agent.latest_version.version} · {agent.latest_version.provider} / {agent.latest_version.model}</p>
                   <p className="break-all font-mono text-xs text-slate-500">{agent.id}</p>
+                  <LaunchRunForm agentId={agent.id} agentName={agent.name} />
                 </CardContent></Card>
               ))}
         </section>

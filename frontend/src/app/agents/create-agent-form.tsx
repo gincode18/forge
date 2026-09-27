@@ -39,7 +39,7 @@ export function CreateAgentForm() {
       <div><label htmlFor="agent-name" className="mb-1 block text-sm font-medium">Name</label><input id="agent-name" name="name" required maxLength={120} className={fieldClass} placeholder="Home Agent" /></div>
       <div><label htmlFor="agent-description" className="mb-1 block text-sm font-medium">Description</label><input id="agent-description" name="description" className={fieldClass} placeholder="What this agent is for" /></div>
       <div><label htmlFor="agent-instructions" className="mb-1 block text-sm font-medium">Instructions</label><textarea id="agent-instructions" name="instructions" required rows={4} className={fieldClass} placeholder="Explain what the agent should do" /></div>
-      <p className="text-xs text-slate-500">Creates version 1 with the fake provider. No model execution is available yet.</p>
+      <p className="text-xs text-slate-500">Creates version 1 with the deterministic fake provider. Launch it from the agent list without an API key.</p>
       {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
       <Button type="submit" disabled={pending}>{pending ? "Creating…" : "Create agent"}</Button>
     </form>
