@@ -19,7 +19,7 @@ Forge separates three related records:
 - **Step**: one ordered operation inside the run, such as a model request or
   tool execution.
 - **Event**: an append-only fact explaining what happened, such as
-  `run.created` or a future `model.response.completed` event.
+  `run.created` or `model.completed`.
 
 Steps hold queryable current results. Events form the chronological audit
 trail. Forge intentionally uses both instead of making the database fully
@@ -27,7 +27,7 @@ event-sourced.
 
 ## Request flow in the current code
 
-Creating a run follows this path:
+Creating and executing a run follows this path:
 
 ```text
 POST /api/v1/runs
@@ -36,6 +36,13 @@ POST /api/v1/runs
   -> sqlite/repositories.py     writes records through SQLAlchemy
   -> models.py                  maps Python records to SQLite tables
   -> runs + events tables       persist the run and run.created event
+POST /api/v1/runs/{id}/start
+  -> runtime/supervisor.py       atomically claims the run and owns the task
+  -> runtime/engine.py           loads the immutable version; enforces limits
+  -> runtime/fake.py             scripted model response and final decision
+  -> sqlite/repositories.py     persists transitions, steps, and events
+GET /api/v1/runs/{id}/stream
+  -> routes/runs.py              replays committed events after a sequence
 ```
 
 Reading steps follows the same direction:
@@ -87,6 +94,14 @@ database session per request, and `app.py` assembles the service.
 
 The API layer should translate, not contain planner or runtime behavior.
 
+### `runtime/`
+
+`ports.py` defines the provider/planner contracts. `fake.py` implements the
+no-key provider and finish-only planner. `engine.py` persists meaningful
+boundaries, enforces step/time limits, and completes or fails a run.
+`supervisor.py` owns in-process tasks, cancellation, and startup recovery.
+It is not a distributed worker or durable mid-step resume engine.
+
 ### `alembic/`
 
 Version-controlled database changes. Migration `0001` created agents, versions,
@@ -101,28 +116,28 @@ agent/run lifecycle.
 
 ## Frontend
 
-`frontend/src/app/` is the Next.js application. It is currently a dashboard
-shell describing the intended experience. The next UI slice will replace its
-static status with API data and add real agent and run views.
+`frontend/src/app/` is the Next.js dashboard. Agents can create and launch
+fake runs; Runs lists persisted executions; `runs/[id]` streams the committed
+event timeline via SSE and reloads status/steps. Disconnecting the page does
+not cancel the supervisor task. The trace remains readable after completion.
 
-## How the future runtime fits
+## How the current runtime fits
 
-The next phase will insert a runtime between the application use case and
-external systems:
+Phase 2 inserts the first runtime between the API and a deterministic provider:
 
 ```text
-application starts run
+supervisor claims and starts run
   -> runtime loads immutable AgentVersion
   -> planner prepares a model turn
   -> provider returns a deterministic fake response
   -> runtime creates/updates Step records
   -> runtime appends typed Event records
-  -> run completes, fails, pauses, or is cancelled
+  -> run completes, fails, or is cancelled
 ```
 
-The fake provider comes first so the harness can be tested deterministically
-without an API key. Once that contract is stable, a real model provider can use
-the same runtime path.
+The fake provider makes the harness testable without a key or network. The
+`react` configuration name currently uses a finish-only planner, not tool
+calling; Phase 3 adds one real provider and a fuller planning loop.
 
 ## A useful reading order
 
@@ -132,7 +147,8 @@ the same runtime path.
 4. `backend/src/forge/application/runs.py` — see the use cases.
 5. `backend/src/forge/adapters/sqlite/repositories.py` — see persistence logic.
 6. `backend/src/forge/adapters/sqlite/models.py` — see the database mapping.
-7. `backend/tests/integration/test_agents_and_runs.py` — see executable examples.
+7. `backend/src/forge/runtime/engine.py` and `supervisor.py` — follow execution.
+8. `backend/tests/integration/test_fake_runtime.py` — see executable examples.
 
 ## How to verify changes
 

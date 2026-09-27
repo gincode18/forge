@@ -16,6 +16,8 @@ from forge.api.routes.runs import router as runs_router
 from forge.api.schemas import ErrorResponse, HealthResponse
 from forge.application.errors import ResourceNotFoundError
 from forge.config import Settings
+from forge.domain.runs import InvalidRunTransition
+from forge.runtime.supervisor import RunSupervisor
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
@@ -31,9 +33,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         database.ping()
         app.state.database = database
         app.state.settings = app_settings
+        supervisor = RunSupervisor(database)
+        supervisor.recover()
+        app.state.supervisor = supervisor
         try:
             yield
         finally:
+            await supervisor.close()
             database.close()
 
     application = FastAPI(
@@ -77,6 +83,15 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             status_code=500,
             content={"detail": "Internal server error", "request_id": request_id},
             headers={"X-Request-ID": request_id},
+        )
+
+    @application.exception_handler(InvalidRunTransition)
+    async def invalid_run_transition(
+        request: Request, error: InvalidRunTransition
+    ) -> JSONResponse:
+        return JSONResponse(
+            status_code=409,
+            content={"detail": str(error), "request_id": request.state.request_id},
         )
 
     @application.get("/", tags=["system"])

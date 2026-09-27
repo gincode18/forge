@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "backend/tests/test_health.py": {
-    "mtime": 1790522702.1292615,
-    "ast_hash": "29e5285172d4066a45957faffc7eb95a",
+    "mtime": 1790522790.9059868,
+    "ast_hash": "23bc63cca5b0e4fe199edda238f2bacc",
     "semantic_hash": ""
   },
   "frontend/components.json": {
@@ -50,8 +50,8 @@
     "semantic_hash": "46242c854a44d9f8dc55c4f96d21ada7"
   },
   "frontend/src/app/page.tsx": {
-    "mtime": 1790521182.6667356,
-    "ast_hash": "2d597eaf03a5fd3fe3fab6df84258f06",
+    "mtime": 1790523930.0050561,
+    "ast_hash": "32617b62faabb01a0f821de0f0cc860a",
     "semantic_hash": ""
   },
   "frontend/src/components/ui/badge.tsx": {
@@ -90,8 +90,8 @@
     "semantic_hash": "6a47d64fcc136324ca395065a707ef76"
   },
   "README.md": {
-    "mtime": 1790522744.496827,
-    "ast_hash": "07021ba59656884f1283a2a21a1a66c3",
+    "mtime": 1790524191.4372292,
+    "ast_hash": "21274d6549de938402f30d6ad8ff0936",
     "semantic_hash": ""
   },
   "architecture.md": {
@@ -115,8 +115,8 @@
     "semantic_hash": "074e68c45e35d78130ebc1779448d4a8"
   },
   "plan.md": {
-    "mtime": 1790522744.362476,
-    "ast_hash": "f37ea2a9cbbc8003f657bac6c808fd54",
+    "mtime": 1790524183.0357778,
+    "ast_hash": "c8c9241321303b81e8fcaaa72f58258c",
     "semantic_hash": ""
   },
   "scope.md": {
@@ -185,8 +185,8 @@
     "semantic_hash": ""
   },
   "backend/src/forge/adapters/sqlite/repositories.py": {
-    "mtime": 1790522630.4478023,
-    "ast_hash": "b457bcf20edd83b58cf53a875e6edcc5",
+    "mtime": 1790523546.6250682,
+    "ast_hash": "4d58b5d251611566119c250d2d0b4c48",
     "semantic_hash": ""
   },
   "backend/src/forge/api/__init__.py": {
@@ -195,8 +195,8 @@
     "semantic_hash": ""
   },
   "backend/src/forge/api/app.py": {
-    "mtime": 1790522591.134536,
-    "ast_hash": "2bcdd9ffcb21a3eb611dea5e95676662",
+    "mtime": 1790523724.1314163,
+    "ast_hash": "a11996c8d9fc8c093d7be66ee1c37be0",
     "semantic_hash": ""
   },
   "backend/src/forge/api/dependencies.py": {
@@ -215,8 +215,8 @@
     "semantic_hash": ""
   },
   "backend/src/forge/api/routes/runs.py": {
-    "mtime": 1790522629.1709104,
-    "ast_hash": "584a57be51a2dbaad67046d7e4035712",
+    "mtime": 1790523724.9678266,
+    "ast_hash": "7af2594834d9bb5918ed98e7441eb5e3",
     "semantic_hash": ""
   },
   "backend/src/forge/api/schemas.py": {
@@ -325,13 +325,13 @@
     "semantic_hash": ""
   },
   "frontend/src/app/runs/page.tsx": {
-    "mtime": 1790521271.8162313,
-    "ast_hash": "27fffc1a24c0744436024b272f604ca0",
+    "mtime": 1790523919.8681877,
+    "ast_hash": "8223ad2375475399208a079c2d2fd93a",
     "semantic_hash": ""
   },
   "frontend/src/app/runs/queue-run-form.tsx": {
-    "mtime": 1790521255.0616455,
-    "ast_hash": "a71578722995df6acba39d85a9bff405",
+    "mtime": 1790523914.2185004,
+    "ast_hash": "2f813beeda2103fb5bbb482975012976",
     "semantic_hash": ""
   },
   "frontend/src/components/shell.tsx": {
@@ -340,13 +340,58 @@
     "semantic_hash": ""
   },
   "frontend/src/lib/api.ts": {
-    "mtime": 1790521123.4991999,
-    "ast_hash": "1cea8423a0c7db56c551995bf93398fc",
+    "mtime": 1790523858.1485481,
+    "ast_hash": "351e720182021fb0af7c15ce5e5a69fc",
     "semantic_hash": ""
   },
   "docs/decisions/0002-request-correlation.md": {
-    "mtime": 1790522727.3535955,
-    "ast_hash": "686e3c92c804c91f69e3bee75d78bb78",
+    "mtime": 1790522831.097981,
+    "ast_hash": "efd553183a49539e97354bfa23b8ba1e",
+    "semantic_hash": ""
+  },
+  "backend/src/forge/runtime/__init__.py": {
+    "mtime": 1790523556.5741203,
+    "ast_hash": "7452139129f9584a2e2cf9b7f86fd56c",
+    "semantic_hash": ""
+  },
+  "backend/src/forge/runtime/engine.py": {
+    "mtime": 1790524047.9313862,
+    "ast_hash": "fc92de26f61037a94902ab3000e76276",
+    "semantic_hash": ""
+  },
+  "backend/src/forge/runtime/fake.py": {
+    "mtime": 1790523507.417751,
+    "ast_hash": "63fdf6ffbb78762073ccf0ecd7439199",
+    "semantic_hash": ""
+  },
+  "backend/src/forge/runtime/ports.py": {
+    "mtime": 1790523496.140103,
+    "ast_hash": "d6e9a767b953e98bcdbd5d4f8d5d52d6",
+    "semantic_hash": ""
+  },
+  "backend/src/forge/runtime/supervisor.py": {
+    "mtime": 1790524158.3877363,
+    "ast_hash": "1010709d871918ab2fe4e1e5cf60afbd",
+    "semantic_hash": ""
+  },
+  "backend/tests/integration/test_fake_runtime.py": {
+    "mtime": 1790524141.002168,
+    "ast_hash": "699621ed5b712cfd5b89d4cf323a66e0",
+    "semantic_hash": ""
+  },
+  "frontend/src/app/runs/[id]/page.tsx": {
+    "mtime": 1790523957.4521434,
+    "ast_hash": "ba1625154857bfa22ad33042b3cb68cf",
+    "semantic_hash": ""
+  },
+  "frontend/src/app/runs/[id]/run-inspector.tsx": {
+    "mtime": 1790523894.3538375,
+    "ast_hash": "20d87777ec0b19fd4f481228e2297b23",
+    "semantic_hash": ""
+  },
+  "docs/decisions/0003-in-process-fake-run-supervision.md": {
+    "mtime": 1790524202.1593745,
+    "ast_hash": "0f793650a62485cd93c27fed21e7a396",
     "semantic_hash": ""
   }
 }

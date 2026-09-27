@@ -2,7 +2,7 @@
 
 from uuid import uuid4
 
-from sqlalchemy import func, select
+from sqlalchemy import func, select, update
 from sqlalchemy.orm import Session, selectinload
 
 from forge.adapters.sqlite.models import (
@@ -13,7 +13,7 @@ from forge.adapters.sqlite.models import (
     StepRecord,
     utc_now,
 )
-from forge.domain.runs import RunStatus
+from forge.domain.runs import InvalidRunTransition, Run, RunStatus
 from forge.domain.steps import StepKind, StepStatus
 
 
@@ -155,6 +155,59 @@ class RunRepository:
             .order_by(EventRecord.sequence)
         )
         return list(self.session.scalars(statement))
+
+    def events_after(self, run_id: str, sequence: int) -> list[EventRecord]:
+        return list(self.session.scalars(
+            select(EventRecord)
+            .where(EventRecord.run_id == run_id, EventRecord.sequence > sequence)
+            .order_by(EventRecord.sequence)
+        ))
+
+    def append_event(
+        self, run_id: str, type: str, payload: dict[str, object]
+    ) -> EventRecord:
+        last_sequence = self.session.scalar(
+            select(func.max(EventRecord.sequence)).where(EventRecord.run_id == run_id)
+        )
+        event = EventRecord(
+            id=str(uuid4()),
+            run_id=run_id,
+            sequence=(last_sequence or 0) + 1,
+            type=type,
+            payload=payload,
+            schema_version=1,
+        )
+        self.session.add(event)
+        self.session.flush()
+        return event
+
+    def transition(
+        self,
+        record: RunRecord,
+        target: RunStatus,
+        event_type: str,
+        payload: dict[str, object] | None = None,
+    ) -> None:
+        now = utc_now()
+        run = Run(
+            id=record.id,
+            agent_version_id=record.agent_version_id,
+            input=record.input,
+            status=RunStatus(record.status),
+            created_at=record.created_at,
+            updated_at=record.updated_at,
+        ).transition(target, at=now)
+        result = self.session.execute(
+            update(RunRecord)
+            .where(RunRecord.id == record.id, RunRecord.status == record.status)
+            .values(status=target.value, updated_at=now)
+            .execution_options(synchronize_session=False)
+        )
+        if result.rowcount != 1:
+            raise InvalidRunTransition("run status changed concurrently")
+        record.status = run.status.value
+        record.updated_at = now
+        self.append_event(record.id, event_type, payload or {"status": target.value})
 
     def create_step(
         self,

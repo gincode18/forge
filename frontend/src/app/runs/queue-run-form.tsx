@@ -18,12 +18,12 @@ export function QueueRunForm({ agents }: { agents: Agent[] }) {
     setPending(true);
     setError("");
     try {
-      await postApi<Run>("/runs", {
+      const run = await postApi<Run>("/runs", {
         agent_id: String(data.get("agent_id")),
         input: String(data.get("input") ?? "").trim(),
       });
       form.reset();
-      router.refresh();
+      router.push(`/runs/${run.id}`);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Could not queue run.");
     } finally {
@@ -35,7 +35,7 @@ export function QueueRunForm({ agents }: { agents: Agent[] }) {
     <form onSubmit={submit} className="space-y-4">
       <div><label htmlFor="run-agent" className="mb-1 block text-sm font-medium">Agent</label><select id="run-agent" name="agent_id" required disabled={!agents.length} className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus-visible:ring-2 focus-visible:ring-blue-500"><option value="">Choose an agent</option>{agents.map((agent) => <option key={agent.id} value={agent.id}>{agent.name} · v{agent.latest_version.version}</option>)}</select></div>
       <div><label htmlFor="run-input" className="mb-1 block text-sm font-medium">Input</label><textarea id="run-input" name="input" required rows={3} className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus-visible:ring-2 focus-visible:ring-blue-500" placeholder="What should this run do?" /></div>
-      <p className="text-xs text-slate-500">This records a queued run pinned to the latest agent version. It does not execute.</p>
+      <p className="text-xs text-slate-500">Queue a run pinned to the latest agent version. You can start a fake run from its detail page.</p>
       {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
       <Button type="submit" disabled={pending || !agents.length}>{pending ? "Queuing…" : "Queue run"}</Button>
     </form>

@@ -15,6 +15,21 @@ export type Run = {
   status: string;
   created_at: string;
 };
+export type RunEvent = {
+  id: string;
+  sequence: number;
+  type: string;
+  payload: Record<string, unknown>;
+};
+export type RunStep = {
+  id: string;
+  sequence: number;
+  kind: string;
+  status: string;
+  input: Record<string, unknown>;
+  output: Record<string, unknown> | null;
+  error: Record<string, unknown> | null;
+};
 
 export async function getApi<T>(path: string): Promise<T> {
   const response = await fetch(`${API_BASE}/api/v1${path}`, { cache: "no-store" });
