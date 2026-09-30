@@ -16,7 +16,7 @@ from forge.domain.runs import RunStatus
 from forge.domain.steps import StepKind, StepStatus
 from forge.runtime.engine import execute_fake_run
 from forge.runtime.fake import FakeProvider, FinalPlanner
-from forge.runtime.ports import FinalAction
+from forge.runtime.ports import FinalAction, ModelResult
 from forge.runtime.supervisor import RunSupervisor
 
 
@@ -64,7 +64,7 @@ def test_fake_provider_failure_leaves_durable_failed_trace(client: TestClient) -
     ).json()["id"]
 
     class FailingProvider:
-        async def complete(self, *, instructions: str, input: str) -> str:
+        async def complete(self, *, instructions: str, input: str) -> ModelResult:
             raise RuntimeError("provider unavailable")
 
     with pytest.raises(RuntimeError, match="provider unavailable"):
@@ -158,9 +158,9 @@ def test_queued_run_cancellation_is_durable_and_cannot_start(client: TestClient)
 
 def test_running_cancellation_closes_active_step_without_late_completion(client: TestClient) -> None:
     class WaitingProvider:
-        async def complete(self, *, instructions: str, input: str) -> str:
+        async def complete(self, *, instructions: str, input: str) -> ModelResult:
             await asyncio.Event().wait()
-            return "too late"
+            return ModelResult(text="too late", provider="fake", model="deterministic")
 
     client.app.state.supervisor.provider = WaitingProvider()
     agent = client.post("/api/v1/agents", json={"name": "Slow", "instructions": "Wait."}).json()
@@ -190,9 +190,9 @@ def test_max_steps_limits_model_and_planner_boundaries(client: TestClient) -> No
 
 def test_wall_clock_timeout_closes_model_step(client: TestClient) -> None:
     class WaitingProvider:
-        async def complete(self, *, instructions: str, input: str) -> str:
+        async def complete(self, *, instructions: str, input: str) -> ModelResult:
             await asyncio.Event().wait()
-            return "never"
+            return ModelResult(text="never", provider="fake", model="deterministic")
 
     agent = client.post("/api/v1/agents", json={"name": "Timeout", "instructions": "Wait."}).json()
     run_id = client.post("/api/v1/runs", json={"agent_id": agent["id"], "input": "Hi"}).json()["id"]
@@ -210,7 +210,7 @@ def test_provider_error_after_cancellation_cannot_overwrite_terminal_trace(clien
     run_id = client.post("/api/v1/runs", json={"agent_id": agent["id"], "input": "Hi"}).json()["id"]
 
     class CancellingProvider:
-        async def complete(self, *, instructions: str, input: str) -> str:
+        async def complete(self, *, instructions: str, input: str) -> ModelResult:
             client.app.state.supervisor.cancel(run_id)
             raise RuntimeError("late error")
 
@@ -296,9 +296,9 @@ def test_sse_initial_cursor_can_be_passed_in_query_for_eventsource(client: TestC
 
 def test_sse_follows_live_run_until_terminal_event(client: TestClient) -> None:
     class SlowProvider:
-        async def complete(self, *, instructions: str, input: str) -> str:
+        async def complete(self, *, instructions: str, input: str) -> ModelResult:
             await asyncio.sleep(0.08)
-            return "live result"
+            return ModelResult(text="live result", provider="fake", model="deterministic")
 
     client.app.state.supervisor.provider = SlowProvider()
     agent = client.post("/api/v1/agents", json={"name": "Live", "instructions": "Go."}).json()

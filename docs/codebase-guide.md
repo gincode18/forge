@@ -96,8 +96,9 @@ The API layer should translate, not contain planner or runtime behavior.
 
 ### `runtime/`
 
-`ports.py` defines the provider/planner contracts. `fake.py` implements the
-no-key provider and finish-only planner. `engine.py` persists meaningful
+`ports.py` defines the normalized provider/planner contracts. `fake.py`
+implements the no-key provider and finish-only planner; `gemini.py` adapts
+the official Google Gen AI SDK. `engine.py` persists meaningful
 boundaries, enforces step/time limits, and completes or fails a run.
 `supervisor.py` owns in-process tasks, cancellation, and startup recovery.
 It is not a distributed worker or durable mid-step resume engine.
@@ -123,13 +124,13 @@ not cancel the supervisor task. The trace remains readable after completion.
 
 ## How the current runtime fits
 
-Phase 2 inserts the first runtime between the API and a deterministic provider:
+The runtime sits between the API and either the fake or Gemini provider:
 
 ```text
 supervisor claims and starts run
   -> runtime loads immutable AgentVersion
   -> planner prepares a model turn
-  -> provider returns a deterministic fake response
+  -> provider returns normalized text, usage, and metadata when available
   -> runtime creates/updates Step records
   -> runtime appends typed Event records
   -> run completes, fails, or is cancelled
@@ -137,7 +138,8 @@ supervisor claims and starts run
 
 The fake provider makes the harness testable without a key or network. The
 `react` configuration name currently uses a finish-only planner, not tool
-calling; Phase 3 adds one real provider and a fuller planning loop.
+calling; Phase 3 has begun with Gemini single-turn completions, with the
+multi-turn planner and streaming still outstanding.
 
 ## A useful reading order
 

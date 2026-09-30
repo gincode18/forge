@@ -9,7 +9,9 @@ from forge.config import Settings
 
 
 @pytest.fixture
-def client(tmp_path: Path) -> Iterator[TestClient]:
-    settings = Settings(data_dir=tmp_path)
+def client(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Iterator[TestClient]:
+    # Default API tests must never read developer credentials or call a real model.
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    settings = Settings(_env_file=None, data_dir=tmp_path)
     with TestClient(create_app(settings)) as test_client:
         yield test_client
