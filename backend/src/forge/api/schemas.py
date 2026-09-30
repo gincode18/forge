@@ -3,7 +3,13 @@
 from datetime import datetime
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
+
+
+class ProviderResponse(BaseModel):
+    id: str
+    configured: bool
+    default_model: str
 
 
 class HealthResponse(BaseModel):
@@ -20,6 +26,27 @@ class AgentConfigRequest(BaseModel):
     planner: str = Field(default="react", min_length=1, max_length=80)
     tools: list[str] = Field(default_factory=list)
     max_steps: int = Field(default=12, ge=1, le=100)
+    timeout_seconds: float = Field(default=30, gt=0, allow_inf_nan=False)
+    max_tokens: int | None = Field(default=None, gt=0)
+    max_cost_usd: float | None = Field(default=None, gt=0, allow_inf_nan=False)
+    max_retries: int = Field(default=2, ge=0, le=5)
+    max_output_tokens: int = Field(default=2048, gt=0)
+    input_cost_per_million: float | None = Field(
+        default=None, ge=0, allow_inf_nan=False
+    )
+    output_cost_per_million: float | None = Field(
+        default=None, ge=0, allow_inf_nan=False
+    )
+
+    @model_validator(mode="after")
+    def cost_requires_rates(self) -> "AgentConfigRequest":
+        if self.max_cost_usd is not None and (
+            self.input_cost_per_million is None or self.output_cost_per_million is None
+        ):
+            raise ValueError(
+                "max_cost_usd requires explicit input and output cost rates"
+            )
+        return self
 
 
 class CreateAgentRequest(AgentConfigRequest):
@@ -39,6 +66,13 @@ class AgentVersionResponse(BaseModel):
     planner: str
     tools: list[str]
     max_steps: int
+    timeout_seconds: float
+    max_tokens: int | None
+    max_cost_usd: float | None
+    max_retries: int
+    max_output_tokens: int
+    input_cost_per_million: float | None
+    output_cost_per_million: float | None
     created_at: datetime
 
 

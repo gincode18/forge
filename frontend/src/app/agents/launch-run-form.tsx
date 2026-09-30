@@ -36,7 +36,7 @@ export function LaunchRunForm({ agentId, agentName }: { agentId: string; agentNa
       <label htmlFor={`launch-input-${agentId}`} className="block text-sm font-medium text-slate-900">Run {agentName}</label>
       <textarea id={`launch-input-${agentId}`} name="input" required rows={2} disabled={pending || !!queuedId} className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:opacity-50" placeholder="Enter an input for this agent" />
       {error && <p role="alert" className="text-sm text-red-700">{error}{queuedId && <> The run was queued; <Link className="underline" href={`/runs/${queuedId}`}>open it to retry starting</Link>.</>}</p>}
-      <Button type="submit" disabled={pending || !!queuedId}>{pending ? "Launching…" : queuedId ? "Run queued" : "Launch fake run"}</Button>
+      <Button type="submit" disabled={pending || !!queuedId}>{pending ? "Launching…" : queuedId ? "Run queued" : "Launch run"}</Button>
     </form>
   );
 }

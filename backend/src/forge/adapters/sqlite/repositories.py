@@ -32,6 +32,13 @@ class AgentRepository:
         planner: str,
         tools: list[str],
         max_steps: int,
+        timeout_seconds: float = 30,
+        max_tokens: int | None = None,
+        max_cost_usd: float | None = None,
+        max_retries: int = 2,
+        max_output_tokens: int = 2048,
+        input_cost_per_million: float | None = None,
+        output_cost_per_million: float | None = None,
     ) -> AgentRecord:
         agent = AgentRecord(id=str(uuid4()), name=name, description=description)
         agent.versions.append(
@@ -44,6 +51,13 @@ class AgentRepository:
                 planner=planner,
                 tools=tools,
                 max_steps=max_steps,
+                timeout_seconds=timeout_seconds,
+                max_tokens=max_tokens,
+                max_cost_usd=max_cost_usd,
+                max_retries=max_retries,
+                max_output_tokens=max_output_tokens,
+                input_cost_per_million=input_cost_per_million,
+                output_cost_per_million=output_cost_per_million,
             )
         )
         self.session.add(agent)
@@ -76,6 +90,13 @@ class AgentRepository:
         planner: str,
         tools: list[str],
         max_steps: int,
+        timeout_seconds: float = 30,
+        max_tokens: int | None = None,
+        max_cost_usd: float | None = None,
+        max_retries: int = 2,
+        max_output_tokens: int = 2048,
+        input_cost_per_million: float | None = None,
+        output_cost_per_million: float | None = None,
     ) -> AgentVersionRecord:
         latest = self.session.scalar(
             select(func.max(AgentVersionRecord.version)).where(
@@ -92,6 +113,13 @@ class AgentRepository:
             planner=planner,
             tools=tools,
             max_steps=max_steps,
+            timeout_seconds=timeout_seconds,
+            max_tokens=max_tokens,
+            max_cost_usd=max_cost_usd,
+            max_retries=max_retries,
+            max_output_tokens=max_output_tokens,
+            input_cost_per_million=input_cost_per_million,
+            output_cost_per_million=output_cost_per_million,
         )
         self.session.add(version)
         self.session.flush()
@@ -142,7 +170,9 @@ class RunRepository:
 
     def list_all(self) -> list[RunRecord]:
         return list(
-            self.session.scalars(select(RunRecord).order_by(RunRecord.created_at.desc()))
+            self.session.scalars(
+                select(RunRecord).order_by(RunRecord.created_at.desc())
+            )
         )
 
     def get(self, run_id: str) -> RunRecord | None:
@@ -157,11 +187,13 @@ class RunRepository:
         return list(self.session.scalars(statement))
 
     def events_after(self, run_id: str, sequence: int) -> list[EventRecord]:
-        return list(self.session.scalars(
-            select(EventRecord)
-            .where(EventRecord.run_id == run_id, EventRecord.sequence > sequence)
-            .order_by(EventRecord.sequence)
-        ))
+        return list(
+            self.session.scalars(
+                select(EventRecord)
+                .where(EventRecord.run_id == run_id, EventRecord.sequence > sequence)
+                .order_by(EventRecord.sequence)
+            )
+        )
 
     def append_event(
         self, run_id: str, type: str, payload: dict[str, object]

@@ -46,12 +46,17 @@ def test_fake_runtime_persists_model_step_and_final_trace(client: TestClient) ->
         ("model", "completed"), ("planner", "completed")
     ]
     assert steps[0]["input"] == {"instructions": "Be clear.", "input": "Hello"}
-    assert steps[0]["output"] == {"text": "Hello from the fake model."}
+    assert steps[0]["output"] == {
+        "text": "Hello from the fake model.", "provider": "fake", "model": "deterministic",
+        "finish_reason": "STOP", "usage": {"input_tokens": 3, "output_tokens": 5, "total_tokens": 8},
+        "latency_ms": 0.0, "request_id": None, "metadata": {}, "tool_calls": [],
+        "content_blocks": [{"type": "text", "text": "Hello from the fake model."}],
+    }
     assert [event["type"] for event in events] == [
-        "run.created", "run.started", "model.requested", "model.completed",
+        "run.created", "run.started", "model.requested", "model.delta", "model.delta", "model.completed",
         "planner.started", "planner.decided", "run.completed",
     ]
-    assert [event["sequence"] for event in events] == list(range(1, 8))
+    assert [event["sequence"] for event in events] == list(range(1, 10))
     assert events[-1]["payload"]["result"] == "Hello from the fake model."
 
 
@@ -264,12 +269,12 @@ def test_sse_replays_persisted_events_after_sequence_and_ends(client: TestClient
     assert response.headers["content-type"].startswith("text/event-stream")
     frames = [dict(line.split(": ", 1) for line in frame.splitlines())
               for frame in response.text.strip().split("\n\n")]
-    assert [int(frame["id"]) for frame in frames] == [4, 5, 6, 7]
+    assert [int(frame["id"]) for frame in frames] == [4, 5, 6, 7, 8, 9]
     assert [frame["event"] for frame in frames] == [
-        "model.completed", "planner.started", "planner.decided", "run.completed"
+        "model.delta", "model.delta", "model.completed", "planner.started", "planner.decided", "run.completed"
     ]
     assert json.loads(frames[-1]["data"])["payload"]["result"] == "Fake response to: Hi"
-    assert client.get(f"/api/v1/runs/{run_id}/stream", headers={"Last-Event-ID": "7"}).text == ""
+    assert client.get(f"/api/v1/runs/{run_id}/stream", headers={"Last-Event-ID": "9"}).text == ""
     assert client.get(f"/api/v1/runs/{run_id}/stream", headers={"Last-Event-ID": "nope"}).status_code == 422
     assert client.get("/api/v1/runs/missing/stream").status_code == 404
 
@@ -281,7 +286,7 @@ def test_sse_initial_cursor_can_be_passed_in_query_for_eventsource(client: TestC
 
     response = client.get(f"/api/v1/runs/{run_id}/stream?since=5")
     assert [line for line in response.text.splitlines() if line.startswith("id: ")] == [
-        "id: 6", "id: 7"
+        "id: 6", "id: 7", "id: 8", "id: 9"
     ]
     assert client.get(f"/api/v1/runs/{run_id}/stream?since=-1").status_code == 422
     assert client.get(f"/api/v1/runs/{run_id}/stream?since=oops").status_code == 422
@@ -289,9 +294,9 @@ def test_sse_initial_cursor_can_be_passed_in_query_for_eventsource(client: TestC
     # Native EventSource reconnects provide Last-Event-ID; it overrides the
     # initial query cursor and must not replay events the browser already saw.
     response = client.get(
-        f"/api/v1/runs/{run_id}/stream?since=1", headers={"Last-Event-ID": "6"}
+        f"/api/v1/runs/{run_id}/stream?since=1", headers={"Last-Event-ID": "8"}
     )
-    assert [line for line in response.text.splitlines() if line.startswith("id: ")] == ["id: 7"]
+    assert [line for line in response.text.splitlines() if line.startswith("id: ")] == ["id: 9"]
 
 
 def test_sse_follows_live_run_until_terminal_event(client: TestClient) -> None:

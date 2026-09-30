@@ -27,13 +27,14 @@ contract. Default API test settings explicitly ignore local `.env` files and
 clear ambient Gemini credentials; synthetic-key regressions check persisted
 errors, events, and captured supervisor logs without live calls.
 
-## Consequences and next slices
+## Original slice and subsequent implementation
 
 The initial Gemini path is a single no-tool completion with the existing
 finish-only planner, not a complete ReAct loop. The run limit still counts
 model/planner boundaries; token, cost, retries, live text deltas, provider
 settings in the dashboard, and a real multi-turn planner are remaining Phase 3
-work. The result carries no invented cost estimate: prices must be versioned
+work at the time of this decision. ADR `0005` now documents their implementation
+and remaining live acceptance. The result carries no invented cost estimate: prices must be versioned
 and verified before cost is calculated. No transaction spans the async SDK
 call. We use one vendor SDK rather than a general provider framework or an
 HTTP implementation of Google's wire protocol.

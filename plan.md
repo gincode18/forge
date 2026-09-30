@@ -2,9 +2,9 @@
 
 ## Current position
 
-**Current phase: Phase 3 in progress — real model provider and planning loop.**
+**Current phase: Phase 3 complete — local checks and live Gemini acceptance passed.**
 
-**Current slice: normalized Gemini no-tool completion through the existing runtime.**
+**Current slice: streaming no-tool model runtime with bounded multi-turn planning.**
 
 The repository now contains a packaged FastAPI service, Alembic-managed SQLite
 persistence, durable agent definitions and immutable versions, queued run and
@@ -12,8 +12,15 @@ event and step records, a Next.js/Shadcn dashboard with live API health and
 persisted agent/run views, `uv` for Python dependencies, and pnpm for frontend
 dependencies. A no-tool deterministic fake runtime executes queued runs through
 an in-process supervisor, with cancellation, step/time limits, durable event
-replay over SSE, and a live run inspector. Gemini completion is available via
-the API when explicitly configured; the default offline suite needs no key.
+replay over SSE, and a live run inspector. Fake and Gemini providers now share
+normalized streaming results. The runtime supports continue/finish decisions,
+bounded transient retries, per-version step/time/output/token/cost limits, and
+inspectable usage, latency, and estimated cost. The dashboard selects providers,
+models, and immutable configurations. Offline tests include the real Google SDK
+with a mock HTTP transport; browser smoke checks cover creation, launch, metrics,
+and historical replay. An operator-approved live Gemini run passed on September
+30, 2026, including usage, latency, committed SSE, and trace preservation after
+application restart. See `docs/phase-three-verification.md`. Phase 4 has not started.
 
 This plan is organized around working vertical slices rather than dates. A phase
 is complete only when its exit criteria pass. We should not start several future
@@ -41,7 +48,7 @@ the current phase has at least one real implementation and the boundary matters.
 | 0. Vision and foundation | Shared vision, local stack, repository, architecture | Complete |
 | 1. Domain and storage | Durable agent versions, runs, events, and clean modules | Complete |
 | 2. End-to-end fake agent | Create and run a deterministic agent through the UI | Complete |
-| 3. Real model runtime | Provider adapter, streaming, planner loop, limits | In progress |
+| 3. Real model runtime | Provider adapter, streaming, planner loop, limits | Complete |
 | 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Planned |
 | 5. Trace-first observability | Complete live run inspector and failure debugging | Planned |
 | 6. Conversation and memory | Threads, context building, working memory | Planned |
@@ -168,10 +175,14 @@ Choose the first reference provider based on the model you intend to use while
 dogfooding. Implement one adapter well before adding a second.
 
 The first reference provider is Google's Gemini API with
-`gemini-3.5-flash-lite`. The first slice adds the official SDK, normalized
-no-tool responses, environment-backed credentials, and offline integration
-tests. Live token streaming, a real multi-turn planner, cost/retry accounting,
-and the provider-selection UI remain to be built; Phase 3 is **not complete**.
+`gemini-3.5-flash-lite`. The official SDK adapter now streams normalized text,
+tool requests, usage, finish reasons, request IDs, and allowlisted metadata.
+Credentials remain environment-backed. Fake and Gemini contract tests stay
+offline, including real SDK wire serialization through a mock HTTP transport.
+The multi-turn planner and provider-selection/metrics UI are implemented.
+Phase 3's implementation is verified locally and by an explicitly opted-in live
+Gemini run with the operator's credentials. Evidence is recorded in
+`docs/phase-three-verification.md`; the default suite remains offline.
 
 ### Concepts to learn
 
@@ -181,27 +192,40 @@ and the provider-selection UI remain to be built; Phase 3 is **not complete**.
 
 ### Build
 
-1. Define normalized messages, content blocks, tool calls, usage, and errors.
-2. Implement one real provider adapter using its official SDK.
-3. Stream text deltas to connected clients while persisting the final response.
-4. Implement a basic ReAct planner behind the planner protocol.
-5. Record model inputs, outputs, latency, usage, finish reason, and retry events.
-6. Add configurable run limits for steps, tokens, cost, and duration.
-7. Redact credentials and sensitive headers from logs and events.
+1. [x] Normalize messages, text/tool content blocks, deltas, tool calls, usage, and errors.
+2. [x] Implement one real provider adapter using its official SDK.
+3. [x] Stream coalesced committed text deltas and persist the final response.
+4. [x] Implement a basic no-tool ReAct continue/finish planner behind the protocol.
+5. [x] Record model inputs, outputs, latency, usage, finish reason, and retry events.
+6. [x] Add immutable run limits for steps, tokens, estimated cost, and duration.
+7. [x] Keep credentials and sensitive SDK headers/errors out of logs and events.
 
 ### UI slice
 
-- Configure a provider through environment-backed settings.
-- Select provider and model on an agent version.
-- Watch a real response stream.
-- Inspect normalized and raw provider metadata.
+- [x] Configure a provider through environment-backed settings and inspect availability.
+- [x] Select provider and model on creation and new immutable agent versions.
+- [x] Render committed response deltas with replay-idempotent SSE handling.
+- [x] Inspect normalized results and allowlisted provider metadata; never raw headers.
 
 ### Exit criteria
 
-- [ ] One real provider can complete a no-tool agent run.
-- [ ] The fake provider still passes the same contract tests.
-- [ ] Provider failures are normalized into clear Forge errors.
-- [ ] Usage and latency appear on the run page.
+- [x] One real provider can complete a live no-tool agent run (Gemini, September 30, 2026).
+- [x] The fake provider still passes the same contract tests.
+- [x] Provider failures are normalized into clear Forge errors.
+- [x] Usage and latency appear on the run page.
+
+### Accounting and scope
+
+Delta persistence is capped at 128 coalesced events per model attempt, not one
+row per token. Every successful final response is stored. Unknown usage/cost
+stays unknown, including after failed retry attempts. Enabled token/cost budgets
+fail closed when usage is unavailable. Cost requires explicit per-version input
+and output USD-per-million rates and is an estimate, not a billing guarantee:
+usage is checked after a response and a single request can exceed the budget.
+The output cap is sent before each request. Retries count against the step budget
+and share the run deadline. Tool requests are recorded but fail `tool_disabled`;
+policy, execution, and observations remain Phase 4. See ADR `0005` for tradeoffs
+and the comparison with durable orchestration frameworks.
 
 ## Phase 4 — Controlled tool execution
 

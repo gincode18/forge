@@ -1,12 +1,19 @@
 export const API_BASE = process.env.NEXT_PUBLIC_FORGE_API_URL ?? "http://localhost:8000";
 
 export type Health = { status: "ok"; database: "ready"; version: string };
+export type Provider = { id: string; configured: boolean; default_model: string };
+export type AgentVersion = {
+  id: string; version: number; instructions: string; provider: string; model: string;
+  planner: string; tools: string[]; max_steps: number; timeout_seconds: number;
+  max_tokens: number | null; max_cost_usd: number | null; max_retries: number;
+  max_output_tokens: number; input_cost_per_million: number | null; output_cost_per_million: number | null;
+};
 export type Agent = {
   id: string;
   name: string;
   description: string | null;
   created_at: string;
-  latest_version: { id: string; version: number; provider: string; model: string };
+  latest_version: AgentVersion;
 };
 export type Run = {
   id: string;
@@ -24,6 +31,7 @@ export type RunEvent = {
 export type RunStep = {
   id: string;
   sequence: number;
+  attempt: number;
   kind: string;
   status: string;
   input: Record<string, unknown>;

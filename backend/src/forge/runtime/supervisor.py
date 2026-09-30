@@ -19,9 +19,10 @@ from forge.config import Settings
 from forge.domain.runs import InvalidRunTransition, RunStatus
 from forge.domain.steps import StepStatus
 from forge.runtime.engine import execute_fake_run
-from forge.runtime.fake import FakeProvider, FinalPlanner
+from forge.runtime.fake import FakeProvider
 from forge.runtime.gemini import GeminiProvider
-from forge.runtime.ports import ModelProvider
+from forge.runtime.ports import ModelProvider, ProviderError
+from forge.runtime.react import ReActPlanner
 
 logger = logging.getLogger(__name__)
 
@@ -32,8 +33,8 @@ class RunSupervisor:
         self.settings = settings
         self.tasks: dict[str, asyncio.Task[None]] = {}
         self.provider = FakeProvider()
-        self.planner = FinalPlanner()
-        self.timeout_seconds = 30.0
+        self.planner = ReActPlanner()
+        self.timeout_seconds: float | None = None
 
     def start(self, run_id: str) -> RunRecord:
         if run_id in self.tasks:
@@ -88,8 +89,10 @@ class RunSupervisor:
                 self.database, run_id, provider, self.planner,
                 timeout_seconds=self.timeout_seconds, claimed=True,
             )
-        except Exception:
-            logger.exception("Run failed: %s", run_id)
+        except Exception as exc:
+            # Never render arbitrary SDK exception chains or transport headers.
+            safe = RuntimeError(str(exc) if isinstance(exc, ProviderError) else "run execution failed")
+            logger.error("Run failed: %s", run_id, exc_info=(RuntimeError, safe, None))
             with Session(self.database.engine) as session:
                 runs = RunRepository(session)
                 run = runs.get(run_id)

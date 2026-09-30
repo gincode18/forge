@@ -30,6 +30,13 @@ def _config(request: AgentConfigRequest) -> AgentConfig:
         planner=request.planner,
         tools=request.tools,
         max_steps=request.max_steps,
+        timeout_seconds=request.timeout_seconds,
+        max_tokens=request.max_tokens,
+        max_cost_usd=request.max_cost_usd,
+        max_retries=request.max_retries,
+        max_output_tokens=request.max_output_tokens,
+        input_cost_per_million=request.input_cost_per_million,
+        output_cost_per_million=request.output_cost_per_million,
     )
 
 
@@ -44,7 +51,9 @@ def _agent_response(agent: AgentRecord) -> AgentResponse:
     )
 
 
-@router.post("", response_model=AgentDetailResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "", response_model=AgentDetailResponse, status_code=status.HTTP_201_CREATED
+)
 def post_agent(
     request: CreateAgentRequest, session: SessionDependency
 ) -> AgentDetailResponse:
