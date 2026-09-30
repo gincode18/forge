@@ -2,9 +2,9 @@
 
 ## Current position
 
-**Current phase: Phase 2 complete — end-to-end deterministic agent.**
+**Current phase: Phase 3 in progress — real model provider and planning loop.**
 
-**Next phase: Phase 3 — real model provider and planning loop.**
+**Current slice: normalized Gemini no-tool completion through the existing runtime.**
 
 The repository now contains a packaged FastAPI service, Alembic-managed SQLite
 persistence, durable agent definitions and immutable versions, queued run and
@@ -12,7 +12,8 @@ event and step records, a Next.js/Shadcn dashboard with live API health and
 persisted agent/run views, `uv` for Python dependencies, and pnpm for frontend
 dependencies. A no-tool deterministic fake runtime executes queued runs through
 an in-process supervisor, with cancellation, step/time limits, durable event
-replay over SSE, and a live run inspector. No real provider call is required.
+replay over SSE, and a live run inspector. Gemini completion is available via
+the API when explicitly configured; the default offline suite needs no key.
 
 This plan is organized around working vertical slices rather than dates. A phase
 is complete only when its exit criteria pass. We should not start several future
@@ -40,7 +41,7 @@ the current phase has at least one real implementation and the boundary matters.
 | 0. Vision and foundation | Shared vision, local stack, repository, architecture | Complete |
 | 1. Domain and storage | Durable agent versions, runs, events, and clean modules | Complete |
 | 2. End-to-end fake agent | Create and run a deterministic agent through the UI | Complete |
-| 3. Real model runtime | Provider adapter, streaming, planner loop, limits | Planned |
+| 3. Real model runtime | Provider adapter, streaming, planner loop, limits | In progress |
 | 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Planned |
 | 5. Trace-first observability | Complete live run inspector and failure debugging | Planned |
 | 6. Conversation and memory | Threads, context building, working memory | Planned |
@@ -165,6 +166,12 @@ This phase produces the first true Forge runtime, even though its model is fake.
 
 Choose the first reference provider based on the model you intend to use while
 dogfooding. Implement one adapter well before adding a second.
+
+The first reference provider is Google's Gemini API with
+`gemini-3.5-flash-lite`. The first slice adds the official SDK, normalized
+no-tool responses, environment-backed credentials, and offline integration
+tests. Live token streaming, a real multi-turn planner, cost/retry accounting,
+and the provider-selection UI remain to be built; Phase 3 is **not complete**.
 
 ### Concepts to learn
 

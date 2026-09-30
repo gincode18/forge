@@ -54,8 +54,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_alembic_env",
-      "community": 27,
-      "community_name": "env.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "env.py"
     },
     {
@@ -65,8 +65,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_alembic_env_run_migrations_offline",
-      "community": 27,
-      "community_name": "env.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "run_migrations_offline()"
     },
     {
@@ -76,8 +76,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "backend_alembic_env_run_migrations_online",
-      "community": 27,
-      "community_name": "env.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "run_migrations_online()"
     },
     {
@@ -87,8 +87,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_alembic_env_rationale_1",
-      "community": 27,
-      "community_name": "env.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "alembic migration environment for forge."
     },
     {
@@ -165,7 +165,7 @@
       "_origin": "ast",
       "id": "backend_main",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "main.py"
     },
     {
@@ -176,7 +176,7 @@
       "_origin": "ast",
       "id": "backend_main_rationale_1",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "compatibility entry point for ``uv run fastapi dev main.py``."
     },
     {
@@ -201,7 +201,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_init",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "forge/__init__.py"
     },
     {
@@ -212,7 +212,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_init_rationale_1",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "forge agent runtime and engineering platform."
     },
     {
@@ -267,7 +267,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "database.py"
     },
     {
@@ -278,7 +278,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_is_sqlite",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "_is_sqlite()"
     },
     {
@@ -289,7 +289,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_create_database_engine",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "create_database_engine()"
     },
     {
@@ -300,7 +300,7 @@
       "_origin": "ast",
       "id": "engine",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "engine"
     },
     {
@@ -311,7 +311,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_run_migrations",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "run_migrations()"
     },
     {
@@ -321,8 +321,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_database",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "database"
     },
     {
@@ -332,8 +332,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_database_init",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": ".__init__()"
     },
     {
@@ -343,8 +343,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_database_session",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": ".session()"
     },
     {
@@ -354,8 +354,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_py_session",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "session"
     },
     {
@@ -365,8 +365,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_database_ping",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": ".ping()"
     },
     {
@@ -376,8 +376,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_database_close",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": ".close()"
     },
     {
@@ -388,7 +388,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_rationale_1",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "database engine, sessions, migration, and sqlite configuration."
     },
     {
@@ -399,7 +399,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_rationale_18",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "create an engine with safe local sqlite defaults."
     },
     {
@@ -410,7 +410,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_rationale_36",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "upgrade the configured database to the latest schema revision."
     },
     {
@@ -420,8 +420,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_database_rationale_46",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "own the engine and produce short-lived transaction sessions."
     },
     {
@@ -442,8 +442,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_utc_now",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "utc_now()"
     },
     {
@@ -519,8 +519,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_models_steprecord",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "steprecord"
     },
     {
@@ -552,8 +552,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "repositories.py"
     },
     {
@@ -574,8 +574,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_agentrepository_init",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
     {
@@ -585,8 +585,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_py_session",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "session"
     },
     {
@@ -673,8 +673,8 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_init",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": ".__init__()"
     },
     {
@@ -761,8 +761,8 @@
       "source_location": "L212",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_runrepository_create_step",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": ".create_step()"
     },
     {
@@ -783,8 +783,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_adapters_sqlite_repositories_rationale_1",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "repository implementations backed by a sqlalchemy session."
     },
     {
@@ -817,7 +817,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_app",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "app.py"
     },
     {
@@ -827,8 +827,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_src_forge_api_app_create_app",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "create_app()"
     },
     {
@@ -838,8 +838,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "fastapi",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "fastapi"
     },
     {
@@ -850,7 +850,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_app_run",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "run()"
     },
     {
@@ -861,7 +861,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_app_rationale_1",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "fastapi application factory and local service entry point."
     },
     {
@@ -871,8 +871,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_src_forge_api_app_rationale_24",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "create an isolated application, allowing temporary settings in tests."
     },
     {
@@ -883,7 +883,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_app_rationale_126",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "run the local development service through the project script."
     },
     {
@@ -894,7 +894,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_dependencies",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "dependencies.py"
     },
     {
@@ -905,7 +905,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_dependencies_get_session",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "get_session()"
     },
     {
@@ -916,7 +916,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_dependencies_py_request",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "request"
     },
     {
@@ -927,7 +927,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_dependencies_py_session",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "session"
     },
     {
@@ -938,7 +938,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_dependencies_rationale_1",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "fastapi dependencies shared by api routes."
     },
     {
@@ -970,8 +970,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "routes/agents.py"
     },
     {
@@ -981,8 +981,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_config",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "_config()"
     },
     {
@@ -992,8 +992,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_agent_response",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "_agent_response()"
     },
     {
@@ -1003,8 +1003,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_py_post",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "post"
     },
     {
@@ -1014,8 +1014,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_post_agent",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "post_agent()"
     },
     {
@@ -1025,8 +1025,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_py_sessiondependency",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "sessiondependency"
     },
     {
@@ -1036,8 +1036,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_py_get",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "get"
     },
     {
@@ -1047,8 +1047,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_get_agents",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "get_agents()"
     },
     {
@@ -1058,8 +1058,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_get_agent_by_id",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "get_agent_by_id()"
     },
     {
@@ -1069,8 +1069,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_post_agent_version",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "post_agent_version()"
     },
     {
@@ -1080,8 +1080,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_agents_rationale_1",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "agent definition and immutable-version endpoints."
     },
     {
@@ -1091,8 +1091,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "routes/runs.py"
     },
     {
@@ -1102,8 +1102,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_post",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "post"
     },
     {
@@ -1113,8 +1113,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_post_run",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "post_run()"
     },
     {
@@ -1124,8 +1124,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_sessiondependency",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "sessiondependency"
     },
     {
@@ -1135,8 +1135,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_request",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "request"
     },
     {
@@ -1146,8 +1146,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_start_run",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "start_run()"
     },
     {
@@ -1157,8 +1157,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_cancel_run",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "cancel_run()"
     },
     {
@@ -1168,8 +1168,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_py_get",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "get"
     },
     {
@@ -1179,8 +1179,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_runs",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "get_runs()"
     },
     {
@@ -1190,8 +1190,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_run_by_id",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "get_run_by_id()"
     },
     {
@@ -1201,8 +1201,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_events",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "get_events()"
     },
     {
@@ -1212,8 +1212,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_stream_events",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "stream_events()"
     },
     {
@@ -1223,8 +1223,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "streamingresponse",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "streamingresponse"
     },
     {
@@ -1234,8 +1234,8 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_get_steps",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "get_steps()"
     },
     {
@@ -1245,8 +1245,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_api_routes_runs_rationale_1",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "queued run and persisted event endpoints."
     },
     {
@@ -1257,7 +1257,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "schemas.py"
     },
     {
@@ -1268,7 +1268,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_healthresponse",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "healthresponse"
     },
     {
@@ -1279,7 +1279,7 @@
       "_origin": "ast",
       "id": "basemodel",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "basemodel"
     },
     {
@@ -1289,8 +1289,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_agentconfigrequest",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "agentconfigrequest"
     },
     {
@@ -1300,8 +1300,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_createagentrequest",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "createagentrequest"
     },
     {
@@ -1311,8 +1311,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_agentversionresponse",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "agentversionresponse"
     },
     {
@@ -1322,8 +1322,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_agentresponse",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "agentresponse"
     },
     {
@@ -1333,8 +1333,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_agentdetailresponse",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 7,
+      "community_name": "AgentRepository",
       "norm_label": "agentdetailresponse"
     },
     {
@@ -1345,7 +1345,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_createrunrequest",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "createrunrequest"
     },
     {
@@ -1355,8 +1355,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_runresponse",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "runresponse"
     },
     {
@@ -1367,7 +1367,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_eventresponse",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "eventresponse"
     },
     {
@@ -1378,7 +1378,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_stepresponse",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "stepresponse"
     },
     {
@@ -1389,7 +1389,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_errorresponse",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "errorresponse"
     },
     {
@@ -1400,7 +1400,7 @@
       "_origin": "ast",
       "id": "backend_src_forge_api_schemas_rationale_1",
       "community": 6,
-      "community_name": "app.py",
+      "community_name": "routes/runs.py",
       "norm_label": "versioned http request and response contracts."
     },
     {
@@ -1575,8 +1575,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "application/runs.py"
     },
     {
@@ -1586,8 +1586,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_create_run",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "create_run()"
     },
     {
@@ -1597,8 +1597,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_py_session",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "session"
     },
     {
@@ -1608,8 +1608,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_runs",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "list_runs()"
     },
     {
@@ -1619,8 +1619,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_get_run",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "get_run()"
     },
     {
@@ -1630,8 +1630,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_run_events",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "list_run_events()"
     },
     {
@@ -1641,8 +1641,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_list_run_steps",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "list_run_steps()"
     },
     {
@@ -1652,8 +1652,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_rationale_1",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "queued run and event query use cases."
     },
     {
@@ -1663,8 +1663,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_src_forge_application_runs_rationale_52",
-      "community": 8,
-      "community_name": "RunRepository",
+      "community": 6,
+      "community_name": "routes/runs.py",
       "norm_label": "return a run's durable operations in execution order."
     },
     {
@@ -1674,8 +1674,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_config",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 31,
+      "community_name": "Settings",
       "norm_label": "config.py"
     },
     {
@@ -1704,7 +1704,7 @@
       "label": ".resolved_data_dir()",
       "file_type": "code",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "backend_src_forge_config_settings_resolved_data_dir",
       "community": 31,
@@ -1726,7 +1726,7 @@
       "label": ".resolved_database_url()",
       "file_type": "code",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "backend_src_forge_config_settings_resolved_database_url",
       "community": 31,
@@ -1740,8 +1740,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_config_rationale_1",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 31,
+      "community_name": "Settings",
       "norm_label": "application configuration for the local forge service."
     },
     {
@@ -1759,9 +1759,9 @@
       "label": "Return the absolute directory used for local Forge state.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
-      "id": "backend_src_forge_config_rationale_29",
+      "id": "backend_src_forge_config_rationale_30",
       "community": 31,
       "community_name": "Settings",
       "norm_label": "return the absolute directory used for local forge state."
@@ -1770,9 +1770,9 @@
       "label": "Return an explicit URL or the SQLite URL inside ``data_dir``.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
-      "id": "backend_src_forge_config_rationale_35",
+      "id": "backend_src_forge_config_rationale_36",
       "community": 31,
       "community_name": "Settings",
       "norm_label": "return an explicit url or the sqlite url inside ``data_dir``."
@@ -1905,8 +1905,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "domain/runs.py"
     },
     {
@@ -1938,8 +1938,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_runstatus",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "runstatus"
     },
     {
@@ -1949,8 +1949,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_py_strenum",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "strenum"
     },
     {
@@ -1993,8 +1993,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_domain_runs_rationale_1",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "run state and transition invariants."
     },
     {
@@ -2037,8 +2037,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "steps.py"
     },
     {
@@ -2048,8 +2048,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_stepkind",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "stepkind"
     },
     {
@@ -2059,8 +2059,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_py_strenum",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "strenum"
     },
     {
@@ -2070,8 +2070,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_stepstatus",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "stepstatus"
     },
     {
@@ -2081,8 +2081,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_step",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "step"
     },
     {
@@ -2092,8 +2092,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_rationale_1",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "typed units of work performed while executing a run."
     },
     {
@@ -2103,8 +2103,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_rationale_10",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "the runtime boundary represented by a step."
     },
     {
@@ -2114,8 +2114,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_rationale_22",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "lifecycle state of one runtime step."
     },
     {
@@ -2125,8 +2125,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "backend_src_forge_domain_steps_rationale_33",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "one ordered, inspectable operation belonging to a run."
     },
     {
@@ -2158,19 +2158,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_engine",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "engine.py"
     },
     {
       "label": "_fail_step()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_engine_fail_step",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "_fail_step()"
     },
     {
@@ -2179,20 +2179,20 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "exception",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "id": "backend_src_forge_runtime_engine_py_exception",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "exception"
     },
     {
       "label": "execute_fake_run()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_engine_execute_fake_run",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "execute_fake_run()"
     },
     {
@@ -2202,19 +2202,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_engine_rationale_1",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "execute a queued no-tool run through a provider and planner."
     },
     {
       "label": "Persist each boundary; never keep a DB transaction open during a model call.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
-      "id": "backend_src_forge_runtime_engine_rationale_37",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "id": "backend_src_forge_runtime_engine_rationale_38",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "persist each boundary; never keep a db transaction open during a model call."
     },
     {
@@ -2265,7 +2265,7 @@
       "label": "FinalPlanner",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/fake.py",
-      "source_location": "L13",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_fake_finalplanner",
       "community": 40,
@@ -2276,7 +2276,7 @@
       "label": ".decide()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/fake.py",
-      "source_location": "L14",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_fake_finalplanner_decide",
       "community": 40,
@@ -2295,14 +2295,80 @@
       "norm_label": "scripted provider and finish-only planner for no-key runtime tests."
     },
     {
+      "label": "gemini.py",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_gemini",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "gemini.py"
+    },
+    {
+      "label": "GeminiProvider",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_gemini_geminiprovider",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "geminiprovider"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_gemini_geminiprovider_init",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "Client",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "client",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "client"
+    },
+    {
+      "label": ".complete()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_gemini_geminiprovider_complete",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": ".complete()"
+    },
+    {
+      "label": "Google Gen AI adapter; secrets remain outside persisted run state.",
+      "file_type": "rationale",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_gemini_rationale_1",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "google gen ai adapter; secrets remain outside persisted run state."
+    },
+    {
       "label": "ports.py",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/ports.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_ports",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 23,
+      "community_name": "GeminiProvider",
       "norm_label": "ports.py"
     },
     {
@@ -2317,14 +2383,69 @@
       "norm_label": "finalaction"
     },
     {
+      "label": "ModelUsage",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_modelusage",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "modelusage"
+    },
+    {
+      "label": "ModelResult",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_modelresult",
+      "community": 40,
+      "community_name": "test_fake_runtime.py",
+      "norm_label": "modelresult"
+    },
+    {
+      "label": "ProviderError",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_providererror",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "providererror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_py_exception",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "exception"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "backend_src_forge_runtime_ports_providererror_init",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": ".__init__()"
+    },
+    {
       "label": "ModelProvider",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L11",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_ports_modelprovider",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "modelprovider"
     },
     {
@@ -2334,15 +2455,15 @@
       "source_location": "",
       "_origin": "ast",
       "id": "protocol",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "protocol"
     },
     {
       "label": ".complete()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L12",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_ports_modelprovider_complete",
       "community": 40,
@@ -2353,34 +2474,34 @@
       "label": "Planner",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L15",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_ports_planner",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "planner"
     },
     {
       "label": ".decide()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L16",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_ports_planner_decide",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": ".decide()"
     },
     {
-      "label": "Minimal boundaries for deterministic, no-tool execution.",
+      "label": "Provider-neutral results for no-tool execution.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/runtime/ports.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_ports_rationale_1",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
-      "norm_label": "minimal boundaries for deterministic, no-tool execution."
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "provider-neutral results for no-tool execution."
     },
     {
       "label": "supervisor.py",
@@ -2389,26 +2510,26 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor",
-      "community": 7,
-      "community_name": "AgentRepository",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "supervisor.py"
     },
     {
       "label": "RunSupervisor",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L25",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_runsupervisor",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "runsupervisor"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L26",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_runsupervisor_init",
       "community": 40,
@@ -2419,7 +2540,7 @@
       "label": ".start()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L33",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_runsupervisor_start",
       "community": 8,
@@ -2430,77 +2551,77 @@
       "label": ".cancel()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L53",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_runsupervisor_cancel",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": ".cancel()"
     },
     {
       "label": "._execute()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L73",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "._execute()"
     },
     {
       "label": "._close_steps()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L90",
+      "source_location": "L102",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_runsupervisor_close_steps",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "._close_steps()"
     },
     {
       "label": ".recover()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L100",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": ".recover()"
     },
     {
       "label": ".close()",
       "file_type": "code",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L112",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_runsupervisor_close",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": ".close()"
     },
     {
-      "label": "Own in-process fake runs independently of HTTP connections.",
+      "label": "Own in-process runs independently of HTTP connections.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/runtime/supervisor.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_forge_runtime_supervisor_rationale_1",
-      "community": 7,
-      "community_name": "AgentRepository",
-      "norm_label": "own in-process fake runs independently of http connections."
+      "community": 8,
+      "community_name": "RunRepository",
+      "norm_label": "own in-process runs independently of http connections."
     },
     {
       "label": "Mark abandoned running work interrupted at API startup.",
       "file_type": "rationale",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L101",
+      "source_location": "L113",
       "_origin": "ast",
-      "id": "backend_src_forge_runtime_supervisor_rationale_101",
-      "community": 40,
-      "community_name": "test_fake_runtime.py",
+      "id": "backend_src_forge_runtime_supervisor_rationale_113",
+      "community": 8,
+      "community_name": "RunRepository",
       "norm_label": "mark abandoned running work interrupted at api startup."
     },
     {
@@ -2510,8 +2631,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_tests_conftest",
-      "community": 6,
-      "community_name": "app.py",
+      "community": 31,
+      "community_name": "Settings",
       "norm_label": "conftest.py"
     },
     {
@@ -2546,6 +2667,17 @@
       "community": 31,
       "community_name": "Settings",
       "norm_label": "path"
+    },
+    {
+      "label": "MonkeyPatch",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "monkeypatch",
+      "community": 31,
+      "community_name": "Settings",
+      "norm_label": "monkeypatch"
     },
     {
       "label": "TestClient",
@@ -2911,6 +3043,127 @@
       "norm_label": "test_recovery_closes_abandoned_active_step()"
     },
     {
+      "label": "test_gemini_runtime.py",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_gemini_runtime.py"
+    },
+    {
+      "label": "test_fake_provider_uses_normalized_contract()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_test_fake_provider_uses_normalized_contract",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_fake_provider_uses_normalized_contract()"
+    },
+    {
+      "label": "test_dotenv_key_is_secret_and_reaches_supervisor()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_test_dotenv_key_is_secret_and_reaches_supervisor",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_dotenv_key_is_secret_and_reaches_supervisor()"
+    },
+    {
+      "label": "test_environment_key_overrides_dotenv()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_test_environment_key_overrides_dotenv",
+      "community": 31,
+      "community_name": "Settings",
+      "norm_label": "test_environment_key_overrides_dotenv()"
+    },
+    {
+      "label": "test_gemini_adapter_normalizes_sdk_response_without_network()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_test_gemini_adapter_normalizes_sdk_response_without_network",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_gemini_adapter_normalizes_sdk_response_without_network()"
+    },
+    {
+      "label": "test_gemini_start_requires_key_and_keeps_run_queued()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_test_gemini_start_requires_key_and_keeps_run_queued",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_gemini_start_requires_key_and_keeps_run_queued()"
+    },
+    {
+      "label": "test_gemini_sdk_error_never_exposes_sensitive_response()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_test_gemini_sdk_error_never_exposes_sensitive_response",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_gemini_sdk_error_never_exposes_sensitive_response()"
+    },
+    {
+      "label": "test_gemini_run_persists_normalized_usage_and_trace()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_test_gemini_run_persists_normalized_usage_and_trace",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_gemini_run_persists_normalized_usage_and_trace()"
+    },
+    {
+      "label": "parametrize",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_py_parametrize",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "parametrize"
+    },
+    {
+      "label": "test_gemini_failure_never_persists_or_logs_credentials()",
+      "file_type": "code",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_test_gemini_failure_never_persists_or_logs_credentials",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_gemini_failure_never_persists_or_logs_credentials()"
+    },
+    {
+      "label": "Offline Phase 3 contract and first real-provider runtime slice.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_tests_integration_test_gemini_runtime_rationale_1",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "offline phase 3 contract and first real-provider runtime slice."
+    },
+    {
       "label": "test_migrations.py",
       "file_type": "code",
       "source_file": "backend/tests/integration/test_migrations.py",
@@ -3054,13 +3307,112 @@
       "norm_label": "test_unhandled_errors_keep_request_id_without_leaking_details()"
     },
     {
+      "label": "test_gemini_provider.py",
+      "file_type": "code",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_gemini_provider.py"
+    },
+    {
+      "label": "response()",
+      "file_type": "code",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider_response",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "response()"
+    },
+    {
+      "label": "offline_client()",
+      "file_type": "code",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider_offline_client",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "offline_client()"
+    },
+    {
+      "label": "parametrize",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider_py_parametrize",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "parametrize"
+    },
+    {
+      "label": "test_ordinary_sdk_failures_are_safe()",
+      "file_type": "code",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider_test_ordinary_sdk_failures_are_safe",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_ordinary_sdk_failures_are_safe()"
+    },
+    {
+      "label": "test_owned_cleanup_preserves_primary_outcome()",
+      "file_type": "code",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider_test_owned_cleanup_preserves_primary_outcome",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_owned_cleanup_preserves_primary_outcome()"
+    },
+    {
+      "label": "test_injected_clients_are_never_closed()",
+      "file_type": "code",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider_test_injected_clients_are_never_closed",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_injected_clients_are_never_closed()"
+    },
+    {
+      "label": "test_real_cancellation_and_deadline_survive_cleanup_failure()",
+      "file_type": "code",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider_test_real_cancellation_and_deadline_survive_cleanup_failure",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "test_real_cancellation_and_deadline_survive_cleanup_failure()"
+    },
+    {
+      "label": "Gemini security boundaries, using only synthetic credentials and offline SDK\u2026",
+      "file_type": "rationale",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_tests_unit_test_gemini_provider_rationale_1",
+      "community": 23,
+      "community_name": "GeminiProvider",
+      "norm_label": "gemini security boundaries, using only synthetic credentials and offline sdk..."
+    },
+    {
       "label": "test_run_state.py",
       "file_type": "code",
       "source_file": "backend/tests/unit/test_run_state.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_tests_unit_test_run_state",
-      "community": 23,
+      "community": 44,
       "community_name": "make_run",
       "norm_label": "test_run_state.py"
     },
@@ -3071,7 +3423,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_tests_unit_test_run_state_make_run",
-      "community": 23,
+      "community": 44,
       "community_name": "make_run",
       "norm_label": "make_run()"
     },
@@ -3082,7 +3434,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "run",
-      "community": 23,
+      "community": 44,
       "community_name": "make_run",
       "norm_label": "run"
     },
@@ -3093,7 +3445,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_tests_unit_test_run_state_test_queued_run_can_start",
-      "community": 23,
+      "community": 44,
       "community_name": "make_run",
       "norm_label": "test_queued_run_can_start()"
     },
@@ -3104,7 +3456,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_tests_unit_test_run_state_test_terminal_run_cannot_transition",
-      "community": 23,
+      "community": 44,
       "community_name": "make_run",
       "norm_label": "test_terminal_run_cannot_transition()"
     },
@@ -3402,7 +3754,7 @@
       "_origin": "ast",
       "id": "frontend_package",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "package.json"
     },
     {
@@ -3413,7 +3765,7 @@
       "_origin": "ast",
       "id": "frontend_package_name",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "name"
     },
     {
@@ -3424,7 +3776,7 @@
       "_origin": "ast",
       "id": "frontend_package_version",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "version"
     },
     {
@@ -3435,7 +3787,7 @@
       "_origin": "ast",
       "id": "frontend_package_private",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "private"
     },
     {
@@ -3446,7 +3798,7 @@
       "_origin": "ast",
       "id": "frontend_package_packagemanager",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "packagemanager"
     },
     {
@@ -3457,7 +3809,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "scripts"
     },
     {
@@ -3468,7 +3820,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_dev",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "dev"
     },
     {
@@ -3479,7 +3831,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_build",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "build"
     },
     {
@@ -3490,7 +3842,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_start",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "start"
     },
     {
@@ -3501,7 +3853,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_lint",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "lint"
     },
     {
@@ -3511,7 +3863,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "frontend_package_dependencies",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "dependencies"
     },
@@ -3522,7 +3874,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_dependencies_base_ui_react",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "@base-ui/react"
     },
@@ -3533,7 +3885,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "base_ui_react",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "@base-ui/react"
     },
@@ -3544,7 +3896,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "frontend_package_dependencies_class_variance_authority",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "class-variance-authority"
     },
@@ -3555,7 +3907,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "class_variance_authority",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "class-variance-authority"
     },
@@ -3566,7 +3918,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "frontend_package_dependencies_clsx",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "clsx"
     },
@@ -3577,7 +3929,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "clsx",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "clsx"
     },
@@ -3588,7 +3940,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "frontend_package_dependencies_lucide_react",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "lucide-react"
     },
@@ -3599,7 +3951,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "lucide_react",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "lucide-react"
     },
@@ -3610,7 +3962,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "frontend_package_dependencies_next",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "next"
     },
@@ -3621,7 +3973,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "next",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "next"
     },
@@ -3632,7 +3984,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "react"
     },
@@ -3643,7 +3995,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "react",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "react"
     },
@@ -3654,7 +4006,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_dom",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "react-dom"
     },
@@ -3665,7 +4017,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "react_dom",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "react-dom"
     },
@@ -3676,7 +4028,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "frontend_package_dependencies_shadcn",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "shadcn"
     },
@@ -3687,7 +4039,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "shadcn",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "shadcn"
     },
@@ -3698,7 +4050,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "frontend_package_dependencies_tailwind_merge",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "tailwind-merge"
     },
@@ -3709,7 +4061,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "tailwind_merge",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "tailwind-merge"
     },
@@ -3720,7 +4072,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "frontend_package_dependencies_tw_animate_css",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "tw-animate-css"
     },
@@ -3731,7 +4083,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tw_animate_css",
-      "community": 2,
+      "community": 5,
       "community_name": "dependencies",
       "norm_label": "tw-animate-css"
     },
@@ -3743,7 +4095,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "devdependencies"
     },
     {
@@ -3754,7 +4106,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies_tailwindcss_postcss",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "@tailwindcss/postcss"
     },
     {
@@ -3765,7 +4117,7 @@
       "_origin": "ast",
       "id": "tailwindcss_postcss",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "@tailwindcss/postcss"
     },
     {
@@ -3776,7 +4128,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies_types_node",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "@types/node"
     },
     {
@@ -3787,7 +4139,7 @@
       "_origin": "ast",
       "id": "types_node",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "@types/node"
     },
     {
@@ -3798,7 +4150,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies_types_react",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "@types/react"
     },
     {
@@ -3809,7 +4161,7 @@
       "_origin": "ast",
       "id": "types_react",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "@types/react"
     },
     {
@@ -3820,7 +4172,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies_types_react_dom",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "@types/react-dom"
     },
     {
@@ -3831,7 +4183,7 @@
       "_origin": "ast",
       "id": "types_react_dom",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "@types/react-dom"
     },
     {
@@ -3842,7 +4194,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies_eslint",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "eslint"
     },
     {
@@ -3853,7 +4205,7 @@
       "_origin": "ast",
       "id": "eslint",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "eslint"
     },
     {
@@ -3864,7 +4216,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies_eslint_config_next",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "eslint-config-next"
     },
     {
@@ -3875,7 +4227,7 @@
       "_origin": "ast",
       "id": "eslint_config_next",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "eslint-config-next"
     },
     {
@@ -3886,7 +4238,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies_tailwindcss",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "tailwindcss"
     },
     {
@@ -3897,7 +4249,7 @@
       "_origin": "ast",
       "id": "tailwindcss",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "tailwindcss"
     },
     {
@@ -3908,7 +4260,7 @@
       "_origin": "ast",
       "id": "frontend_package_devdependencies_typescript",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "typescript"
     },
     {
@@ -3919,7 +4271,7 @@
       "_origin": "ast",
       "id": "typescript",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "dependencies",
       "norm_label": "typescript"
     },
     {
@@ -4960,7 +5312,7 @@
       "label": "`alembic/`",
       "file_type": "document",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L105",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "docs_codebase_guide_alembic",
       "community": 38,
@@ -4971,7 +5323,7 @@
       "label": "`tests/`",
       "file_type": "document",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L111",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "docs_codebase_guide_tests",
       "community": 38,
@@ -4982,7 +5334,7 @@
       "label": "Frontend",
       "file_type": "document",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L117",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "docs_codebase_guide_frontend",
       "community": 38,
@@ -4993,7 +5345,7 @@
       "label": "How the current runtime fits",
       "file_type": "document",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L124",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "docs_codebase_guide_how_the_current_runtime_fits",
       "community": 38,
@@ -5004,7 +5356,7 @@
       "label": "A useful reading order",
       "file_type": "document",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L142",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "docs_codebase_guide_a_useful_reading_order",
       "community": 38,
@@ -5015,7 +5367,7 @@
       "label": "How to verify changes",
       "file_type": "document",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L153",
+      "source_location": "L155",
       "_origin": "ast",
       "id": "docs_codebase_guide_how_to_verify_changes",
       "community": 38,
@@ -5219,6 +5571,105 @@
       "community": 42,
       "community_name": "0003 \u2014 In-process supervision for deterministic runs",
       "norm_label": "consequences"
+    },
+    {
+      "label": "0004-gemini-first-provider.md",
+      "file_type": "document",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_decisions_0004_gemini_first_provider",
+      "community": 2,
+      "community_name": "0004: Gemini as the first real model adapter",
+      "norm_label": "0004-gemini-first-provider.md"
+    },
+    {
+      "label": "0004: Gemini as the first real model adapter",
+      "file_type": "document",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_decisions_0004_gemini_first_provider_0004_gemini_as_the_first_real_model_adapter",
+      "community": 2,
+      "community_name": "0004: Gemini as the first real model adapter",
+      "norm_label": "0004: gemini as the first real model adapter"
+    },
+    {
+      "label": "Context",
+      "file_type": "document",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "docs_decisions_0004_gemini_first_provider_context",
+      "community": 2,
+      "community_name": "0004: Gemini as the first real model adapter",
+      "norm_label": "context"
+    },
+    {
+      "label": "Decision",
+      "file_type": "document",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "docs_decisions_0004_gemini_first_provider_decision",
+      "community": 2,
+      "community_name": "0004: Gemini as the first real model adapter",
+      "norm_label": "decision"
+    },
+    {
+      "label": "Consequences and next slices",
+      "file_type": "document",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "docs_decisions_0004_gemini_first_provider_consequences_and_next_slices",
+      "community": 2,
+      "community_name": "0004: Gemini as the first real model adapter",
+      "norm_label": "consequences and next slices"
+    },
+    {
+      "label": "gemini-model-selection.md",
+      "file_type": "document",
+      "source_file": "docs/gemini-model-selection.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_gemini_model_selection",
+      "community": 45,
+      "community_name": "Gemini model selection for Forge",
+      "norm_label": "gemini-model-selection.md"
+    },
+    {
+      "label": "Gemini model selection for Forge",
+      "file_type": "document",
+      "source_file": "docs/gemini-model-selection.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_gemini_model_selection_gemini_model_selection_for_forge",
+      "community": 45,
+      "community_name": "Gemini model selection for Forge",
+      "norm_label": "gemini model selection for forge"
+    },
+    {
+      "label": "Sources",
+      "file_type": "document",
+      "source_file": "docs/gemini-model-selection.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "docs_gemini_model_selection_sources",
+      "community": 45,
+      "community_name": "Gemini model selection for Forge",
+      "norm_label": "sources"
+    },
+    {
+      "label": "Scope",
+      "file_type": "document",
+      "source_file": "docs/gemini-model-selection.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "docs_gemini_model_selection_scope",
+      "community": 45,
+      "community_name": "Gemini model selection for Forge",
+      "norm_label": "scope"
     },
     {
       "label": "Graphify-First Codebase Workflow",
@@ -6363,7 +6814,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -6375,7 +6826,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -6560,7 +7011,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -6572,7 +7023,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -6584,7 +7035,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_fail_step",
@@ -6596,7 +7047,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -6607,7 +7058,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -6619,7 +7070,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L26",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_init",
@@ -6656,7 +7107,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -6668,7 +7119,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_fail_step",
@@ -6680,7 +7131,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L55",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_cancel",
@@ -6692,7 +7143,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L82",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
@@ -6704,7 +7155,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L103",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
@@ -6716,7 +7167,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L37",
+      "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
@@ -6911,7 +7362,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -6923,7 +7374,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -6983,7 +7434,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -6995,7 +7446,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L62",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -7007,7 +7458,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_fail_step",
@@ -7019,7 +7470,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -7032,7 +7483,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L64",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_cancel",
@@ -7044,7 +7495,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L97",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_close_steps",
@@ -7403,7 +7854,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -7415,7 +7866,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -7426,7 +7877,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -7568,7 +8019,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -7579,7 +8030,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -7591,7 +8042,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L53",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_cancel",
@@ -7603,7 +8054,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L33",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
@@ -7697,7 +8148,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -7709,7 +8160,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -7720,7 +8171,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -7991,7 +8442,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -8003,7 +8454,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -8563,7 +9014,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -8575,7 +9026,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -8587,7 +9038,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_fail_step",
@@ -8599,7 +9050,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -8610,7 +9061,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -8622,7 +9073,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L55",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_cancel",
@@ -8634,7 +9085,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L90",
+      "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_close_steps",
@@ -8646,7 +9097,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L82",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
@@ -8658,7 +9109,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L103",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
@@ -8670,7 +9121,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L37",
+      "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
@@ -9134,7 +9585,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/tests/conftest.py",
-      "source_location": "L14",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_conftest_client",
@@ -9162,6 +9613,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_fake_runtime_test_recovery_closes_abandoned_active_step",
+      "target": "backend_src_forge_api_app_create_app"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime_test_dotenv_key_is_secret_and_reaches_supervisor",
       "target": "backend_src_forge_api_app_create_app"
     },
     {
@@ -11096,7 +11559,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -11108,7 +11571,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -11178,7 +11641,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -11190,7 +11653,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -11202,7 +11665,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_fail_step",
@@ -11214,7 +11677,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -11225,7 +11688,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -11238,7 +11701,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L58",
+      "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_cancel",
@@ -11250,7 +11713,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L39",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
@@ -11443,6 +11906,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/conftest.py",
       "source_location": "L8",
       "weight": 1.0,
@@ -11502,7 +11977,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_config_settings",
@@ -11513,7 +11988,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_config_settings",
@@ -11532,12 +12007,47 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_config_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_config_settings",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_init",
+      "target": "backend_src_forge_config_settings",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/tests/conftest.py",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_conftest_client",
@@ -11565,6 +12075,30 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_fake_runtime_test_recovery_closes_abandoned_active_step",
+      "target": "backend_src_forge_config_settings"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime_test_dotenv_key_is_secret_and_reaches_supervisor",
+      "target": "backend_src_forge_config_settings"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime_test_environment_key_overrides_dotenv",
       "target": "backend_src_forge_config_settings"
     },
     {
@@ -11607,10 +12141,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_src_forge_config_rationale_29",
+      "source": "backend_src_forge_config_rationale_30",
       "target": "backend_src_forge_config_settings_resolved_data_dir",
       "confidence_score": 1.0
     },
@@ -11619,7 +12153,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_config_settings_resolved_data_dir",
@@ -11630,10 +12164,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/config.py",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_src_forge_config_rationale_35",
+      "source": "backend_src_forge_config_rationale_36",
       "target": "backend_src_forge_config_settings_resolved_database_url",
       "confidence_score": 1.0
     },
@@ -11786,7 +12320,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -11798,7 +12332,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -11868,7 +12402,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -11879,7 +12413,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -11892,7 +12426,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L35",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
@@ -11904,7 +12438,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -11915,8 +12449,20 @@
       "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider_init",
+      "target": "valueerror"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L46",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
@@ -11950,7 +12496,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -11962,7 +12508,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -11973,7 +12519,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -12086,7 +12632,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -12098,7 +12644,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -12156,7 +12702,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -12190,7 +12736,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -12202,7 +12748,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -12213,7 +12759,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -12246,7 +12792,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -12257,7 +12803,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -12269,7 +12815,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -12281,7 +12827,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -12293,7 +12839,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine",
@@ -12316,7 +12862,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -12340,7 +12886,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L74",
+      "source_location": "L75",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -12352,11 +12898,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_fail_step",
-      "target": "exception",
+      "target": "backend_src_forge_runtime_engine_py_exception",
       "confidence_score": 1.0
     },
     {
@@ -12364,7 +12910,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -12376,7 +12922,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_engine_execute_fake_run",
@@ -12387,10 +12933,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/engine.py",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_src_forge_runtime_engine_rationale_37",
+      "source": "backend_src_forge_runtime_engine_rationale_38",
       "target": "backend_src_forge_runtime_engine_execute_fake_run",
       "confidence_score": 1.0
     },
@@ -12399,7 +12945,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -12412,7 +12958,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L75",
+      "source_location": "L87",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
@@ -12541,7 +13087,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/fake.py",
-      "source_location": "L13",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_fake",
@@ -12573,6 +13119,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/fake.py",
@@ -12588,7 +13146,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -12604,6 +13162,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_tests_integration_test_fake_runtime",
+      "target": "backend_src_forge_runtime_fake",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
       "target": "backend_src_forge_runtime_fake",
       "confidence_score": 1.0
     },
@@ -12641,11 +13211,22 @@
       "confidence_score": 0.5
     },
     {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L2",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_fakeprovider",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 0.5
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -12656,7 +13237,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -12669,7 +13250,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L29",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_init",
@@ -12748,10 +13329,34 @@
       "target": "backend_src_forge_runtime_fake_fakeprovider"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime_test_fake_provider_uses_normalized_contract",
+      "target": "backend_src_forge_runtime_fake_fakeprovider"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_fakeprovider_complete",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/fake.py",
-      "source_location": "L14",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_fake_finalplanner",
@@ -12770,11 +13375,22 @@
       "confidence_score": 0.5
     },
     {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/fake.py",
+      "source_location": "L2",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_fake_finalplanner",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 0.5
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -12785,7 +13401,7 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 0.8,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -12798,7 +13414,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L30",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_init",
@@ -12893,12 +13509,328 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/fake.py",
-      "source_location": "L14",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_fake_finalplanner_decide",
       "target": "backend_src_forge_runtime_ports_finalaction",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini",
+      "target": "backend_src_forge_runtime_ports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini",
+      "target": "backend_src_forge_runtime_ports_modelusage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini",
+      "target": "backend_src_forge_runtime_ports_providererror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_rationale_1",
+      "target": "backend_src_forge_runtime_gemini",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_gemini",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_src_forge_runtime_gemini",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider",
+      "target": "backend_src_forge_runtime_gemini",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider_complete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L7",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L7",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider",
+      "target": "backend_src_forge_runtime_ports_modelusage",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L7",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider",
+      "target": "backend_src_forge_runtime_ports_providererror",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L23",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime_test_gemini_adapter_normalizes_sdk_response_without_network",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime_test_gemini_sdk_error_never_exposes_sensitive_response",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_injected_clients_are_never_closed",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_ordinary_sdk_failures_are_safe",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_owned_cleanup_preserves_primary_outcome",
+      "target": "backend_src_forge_runtime_gemini_geminiprovider"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider_init",
+      "target": "client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider_complete",
+      "target": "client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider_complete",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider_complete",
+      "target": "backend_src_forge_runtime_ports_modelusage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/forge/runtime/gemini.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_gemini_geminiprovider_complete",
+      "target": "backend_src_forge_runtime_ports_providererror"
     },
     {
       "relation": "contains",
@@ -12915,7 +13847,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L11",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_ports",
@@ -12926,11 +13858,44 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L15",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports",
+      "target": "backend_src_forge_runtime_ports_modelusage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_ports",
       "target": "backend_src_forge_runtime_ports_planner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports",
+      "target": "backend_src_forge_runtime_ports_providererror",
       "confidence_score": 1.0
     },
     {
@@ -12948,6 +13913,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_ports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_fake_runtime.py",
       "source_location": "L19",
       "weight": 1.0,
@@ -12957,11 +13934,35 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_src_forge_runtime_ports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider",
+      "target": "backend_src_forge_runtime_ports",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L16",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_ports_planner_decide",
@@ -12969,10 +13970,44 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_modelprovider_complete",
+      "target": "backend_src_forge_runtime_ports_modelresult",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L12",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_providererror",
+      "target": "backend_src_forge_runtime_ports_providererror_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_ports_providererror",
+      "target": "backend_src_forge_runtime_ports_py_exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/ports.py",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_ports_modelprovider",
@@ -12983,7 +14018,7 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L11",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_ports_modelprovider",
@@ -12991,10 +14026,45 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor",
+      "target": "backend_src_forge_runtime_ports_modelprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L24",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor",
+      "target": "backend_src_forge_runtime_ports_modelprovider",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/forge/runtime/supervisor.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
+      "target": "backend_src_forge_runtime_ports_modelprovider",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L15",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_ports_planner",
@@ -13005,7 +14075,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/ports.py",
-      "source_location": "L16",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_ports_planner",
@@ -13016,7 +14086,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L25",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor",
@@ -13050,7 +14120,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L53",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -13061,7 +14131,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L112",
+      "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -13072,7 +14142,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L90",
+      "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -13083,7 +14153,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L73",
+      "source_location": "L85",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -13094,7 +14164,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L26",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -13105,7 +14175,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L100",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -13116,7 +14186,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L33",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor",
@@ -13140,7 +14210,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L49",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_start",
@@ -13152,7 +14222,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L115",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_close",
@@ -13164,7 +14234,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L85",
+      "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_execute",
@@ -13176,7 +14246,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L108",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
@@ -13187,10 +14257,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L101",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_src_forge_runtime_supervisor_rationale_101",
+      "source": "backend_src_forge_runtime_supervisor_rationale_113",
       "target": "backend_src_forge_runtime_supervisor_runsupervisor_recover",
       "confidence_score": 1.0
     },
@@ -13199,7 +14269,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/forge/runtime/supervisor.py",
-      "source_location": "L118",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_forge_runtime_supervisor_runsupervisor_close",
@@ -13251,6 +14321,18 @@
       "_origin": "ast",
       "source": "backend_tests_conftest_client",
       "target": "backend_tests_conftest_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/conftest.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_conftest_client",
+      "target": "monkeypatch",
       "confidence_score": 1.0
     },
     {
@@ -13937,6 +15019,117 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_tests_integration_test_gemini_runtime_test_dotenv_key_is_secret_and_reaches_supervisor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_tests_integration_test_gemini_runtime_test_environment_key_overrides_dotenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_tests_integration_test_gemini_runtime_test_fake_provider_uses_normalized_contract",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_tests_integration_test_gemini_runtime_test_gemini_adapter_normalizes_sdk_response_without_network",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_tests_integration_test_gemini_runtime_test_gemini_failure_never_persists_or_logs_credentials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_tests_integration_test_gemini_runtime_test_gemini_run_persists_normalized_usage_and_trace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_tests_integration_test_gemini_runtime_test_gemini_sdk_error_never_exposes_sensitive_response",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime",
+      "target": "backend_tests_integration_test_gemini_runtime_test_gemini_start_requires_key_and_keeps_run_queued",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime_rationale_1",
+      "target": "backend_tests_integration_test_gemini_runtime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/integration/test_gemini_runtime.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "backend_tests_integration_test_gemini_runtime_test_gemini_failure_never_persists_or_logs_credentials",
+      "target": "backend_tests_integration_test_gemini_runtime_py_parametrize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "backend/tests/integration/test_migrations.py",
       "source_location": "L9",
       "weight": 1.0,
@@ -14093,6 +15286,191 @@
       "_origin": "ast",
       "source": "backend_tests_test_health_test_unhandled_errors_keep_request_id_without_leaking_details",
       "target": "backend_tests_test_health_py_testclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider",
+      "target": "backend_tests_unit_test_gemini_provider_offline_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider",
+      "target": "backend_tests_unit_test_gemini_provider_response",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider",
+      "target": "backend_tests_unit_test_gemini_provider_test_injected_clients_are_never_closed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider",
+      "target": "backend_tests_unit_test_gemini_provider_test_ordinary_sdk_failures_are_safe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider",
+      "target": "backend_tests_unit_test_gemini_provider_test_owned_cleanup_preserves_primary_outcome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider",
+      "target": "backend_tests_unit_test_gemini_provider_test_real_cancellation_and_deadline_survive_cleanup_failure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_rationale_1",
+      "target": "backend_tests_unit_test_gemini_provider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_offline_client",
+      "target": "backend_tests_unit_test_gemini_provider_response",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_injected_clients_are_never_closed",
+      "target": "backend_tests_unit_test_gemini_provider_offline_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_ordinary_sdk_failures_are_safe",
+      "target": "backend_tests_unit_test_gemini_provider_offline_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_owned_cleanup_preserves_primary_outcome",
+      "target": "backend_tests_unit_test_gemini_provider_offline_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_real_cancellation_and_deadline_survive_cleanup_failure",
+      "target": "backend_tests_unit_test_gemini_provider_offline_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_injected_clients_are_never_closed",
+      "target": "backend_tests_unit_test_gemini_provider_py_parametrize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_ordinary_sdk_failures_are_safe",
+      "target": "backend_tests_unit_test_gemini_provider_py_parametrize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_owned_cleanup_preserves_primary_outcome",
+      "target": "backend_tests_unit_test_gemini_provider_py_parametrize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/unit/test_gemini_provider.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "backend_tests_unit_test_gemini_provider_test_real_cancellation_and_deadline_survive_cleanup_failure",
+      "target": "backend_tests_unit_test_gemini_provider_py_parametrize",
       "confidence_score": 1.0
     },
     {
@@ -16903,7 +18281,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L142",
+      "source_location": "L144",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_codebase_guide_forge_codebase_guide",
@@ -16925,7 +18303,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L117",
+      "source_location": "L118",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_codebase_guide_forge_codebase_guide",
@@ -16936,7 +18314,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L124",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_codebase_guide_forge_codebase_guide",
@@ -16947,7 +18325,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L153",
+      "source_location": "L155",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_codebase_guide_forge_codebase_guide",
@@ -16991,7 +18369,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L105",
+      "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_codebase_guide_backend_directories",
@@ -17046,7 +18424,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/codebase-guide.md",
-      "source_location": "L111",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_codebase_guide_backend_directories",
@@ -17216,6 +18594,83 @@
       "_origin": "ast",
       "source": "docs_decisions_0003_in_process_fake_run_supervision_0003_in_process_supervision_for_deterministic_runs",
       "target": "docs_decisions_0003_in_process_fake_run_supervision_decision",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0004_gemini_first_provider",
+      "target": "docs_decisions_0004_gemini_first_provider_0004_gemini_as_the_first_real_model_adapter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0004_gemini_first_provider_0004_gemini_as_the_first_real_model_adapter",
+      "target": "docs_decisions_0004_gemini_first_provider_consequences_and_next_slices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0004_gemini_first_provider_0004_gemini_as_the_first_real_model_adapter",
+      "target": "docs_decisions_0004_gemini_first_provider_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/decisions/0004-gemini-first-provider.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_decisions_0004_gemini_first_provider_0004_gemini_as_the_first_real_model_adapter",
+      "target": "docs_decisions_0004_gemini_first_provider_decision",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/gemini-model-selection.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_gemini_model_selection",
+      "target": "docs_gemini_model_selection_gemini_model_selection_for_forge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/gemini-model-selection.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_gemini_model_selection_gemini_model_selection_for_forge",
+      "target": "docs_gemini_model_selection_scope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/gemini-model-selection.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_gemini_model_selection_gemini_model_selection_for_forge",
+      "target": "docs_gemini_model_selection_sources",
       "confidence_score": 1.0
     },
     {
@@ -17922,5 +19377,5 @@
       "source_file": "plan.md"
     }
   ],
-  "built_at_commit": "535eee589629b7103144b5431c4280634563c1cc"
+  "built_at_commit": "8fe2cf8a2efa50052650489a8c740959ec9d0abc"
 }

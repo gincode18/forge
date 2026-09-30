@@ -1,11 +1,11 @@
 {
   "0": "Runtime Execution Loop",
   "1": "components.json",
-  "2": "dependencies",
+  "2": "0004: Gemini as the first real model adapter",
   "3": "run-inspector.tsx",
   "4": "compilerOptions",
-  "5": "devDependencies",
-  "6": "app.py",
+  "5": "dependencies",
+  "6": "routes/runs.py",
   "7": "AgentRepository",
   "8": "RunRepository",
   "9": "Application Interface",
@@ -22,11 +22,10 @@
   "20": "next.config.ts",
   "21": "postcss.config.mjs",
   "22": "forge-api",
-  "23": "make_run",
+  "23": "GeminiProvider",
   "24": "domain/agents.py",
   "25": "test_agents_and_runs.py",
   "26": "ADR 0001: Python for the Forge control plane and runtime",
-  "27": "env.py",
   "28": "0001_initial_schema.py",
   "29": "events.py",
   "30": "test_initial_migration_upgrades_and_downgrades",
@@ -42,5 +41,7 @@
   "40": "test_fake_runtime.py",
   "41": "ADR 0002: Correlate HTTP requests with queued runs",
   "42": "0003 — In-process supervision for deterministic runs",
-  "43": "runtime/__init__.py"
+  "43": "runtime/__init__.py",
+  "44": "make_run",
+  "45": "Gemini model selection for Forge"
 }

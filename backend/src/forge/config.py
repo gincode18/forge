@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from pydantic import Field
+from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -17,6 +17,7 @@ class Settings(BaseSettings):
 
     data_dir: Path = Field(default=Path("data"))
     database_url: str | None = None
+    gemini_api_key: SecretStr | None = Field(default=None, validation_alias="GEMINI_API_KEY")
     allowed_origins: list[str] = Field(
         default_factory=lambda: [
             "http://localhost:3000",

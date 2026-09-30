@@ -33,7 +33,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         database.ping()
         app.state.database = database
         app.state.settings = app_settings
-        supervisor = RunSupervisor(database)
+        supervisor = RunSupervisor(database, app_settings)
         supervisor.recover()
         app.state.supervisor = supervisor
         try:

@@ -1,5 +1,6 @@
 """Execute a queued no-tool run through a provider and planner."""
 import asyncio
+from dataclasses import asdict
 
 from sqlalchemy.orm import Session
 
@@ -46,8 +47,8 @@ async def execute_fake_run(
         version = session.get(AgentVersionRecord, run.agent_version_id)
         if version is None:
             raise ResourceNotFoundError("agent version", run.agent_version_id)
-        if version.provider != "fake" or version.tools or version.planner != "react":
-            raise ValueError("only no-tool fake agents can run in this slice")
+        if version.provider not in {"fake", "gemini"} or version.tools or version.planner != "react":
+            raise ValueError("only no-tool fake or Gemini agents with the react planner can run")
         instructions, input, max_steps = version.instructions, run.input, version.max_steps
         if not claimed and run.status == RunStatus.QUEUED.value:
             runs.transition(run, RunStatus.RUNNING, "run.started")
@@ -85,9 +86,13 @@ async def execute_fake_run(
         if step is None:
             raise ResourceNotFoundError("run", run_id)
         step.status = StepStatus.COMPLETED.value
-        step.output = {"text": response}
+        step.output = {"text": response.text} if response.provider == "fake" else asdict(response)
         step.finished_at = utc_now()
-        runs.append_event(run_id, "model.completed", {"step_id": step_id, "text": response})
+        runs.append_event(run_id, "model.completed", {
+            "step_id": step_id, "text": response.text,
+            **({"usage": asdict(response.usage), "latency_ms": response.latency_ms,
+                "finish_reason": response.finish_reason} if response.usage else {}),
+        })
         if max_steps < 2:
             runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "max_steps"})
             session.commit()
@@ -99,7 +104,7 @@ async def execute_fake_run(
         planner_step = runs.create_step(
             run_id=run_id,
             kind=StepKind.PLANNER,
-            input={"response": response},
+            input={"response": response.text},
             status=StepStatus.RUNNING,
         )
         planner_step.started_at = utc_now()
@@ -108,7 +113,7 @@ async def execute_fake_run(
         session.commit()
 
     try:
-        action = planner.decide(response)
+        action = planner.decide(response.text)
         if asyncio.get_running_loop().time() >= deadline:
             raise TimeoutError("run wall-clock limit exceeded")
     except Exception as exc:
