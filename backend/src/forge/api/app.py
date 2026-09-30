@@ -12,6 +12,7 @@ from forge import __version__
 from forge.adapters.sqlite.database import Database, run_migrations
 from forge.api.dependencies import SessionDependency
 from forge.api.routes.agents import router as agents_router
+from forge.api.routes.providers import router as providers_router
 from forge.api.routes.runs import router as runs_router
 from forge.api.schemas import ErrorResponse, HealthResponse
 from forge.application.errors import ResourceNotFoundError
@@ -102,9 +103,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "health": "/api/v1/health",
         }
 
-    @application.get(
-        "/api/v1/health", response_model=HealthResponse, tags=["system"]
-    )
+    @application.get("/api/v1/health", response_model=HealthResponse, tags=["system"])
     def health(session: SessionDependency) -> HealthResponse:
         session.connection().exec_driver_sql("SELECT 1")
         return HealthResponse(
@@ -116,6 +115,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     application.include_router(agents_router, prefix="/api/v1")
     application.include_router(runs_router, prefix="/api/v1")
+    application.include_router(providers_router, prefix="/api/v1")
     return application
 
 

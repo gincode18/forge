@@ -129,7 +129,8 @@ def test_gemini_run_persists_normalized_usage_and_trace(client, monkeypatch):
             assert api_key == "test-key-not-real"
 
         async def complete(self, *, instructions, input):
-            assert instructions == "Be brief"
+            from forge.runtime.react import ReActPlanner
+            assert instructions == ReActPlanner().prepare("Be brief")
             assert input == "Hi"
             from forge.runtime.ports import ModelUsage
             return ModelResult(

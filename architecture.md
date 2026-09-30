@@ -387,6 +387,19 @@ status. The runtime applies its decision.
 
 ### Provider contract
 
+The Phase 3 implementation uses normalized text messages, text/tool-call content
+blocks, deltas, usage, finish reasons, request IDs, latency, and allowlisted
+provider metadata. Gemini uses the official async SDK; the fake adapter shares
+the same streaming contract. The runtime persists bounded coalesced deltas for
+existing committed SSE replay and retains the final normalized result. ReAct
+supports continue/finish turns with chronological context; tool requests stop
+with `tool_disabled` until Phase 4. Immutable version budgets include steps,
+duration, output tokens, retries, total tokens, and user-priced estimated cost.
+Missing usage stays unknown and enabled budgets fail closed. Cost is checked
+after each response, not a hard billing guarantee. See
+`docs/decisions/0005-bounded-streaming-planner.md` for the implemented tradeoffs
+and the distinction between offline SDK verification and live acceptance.
+
 Provider adapters normalize vendor-specific behavior into one Forge contract:
 
 - messages and roles;

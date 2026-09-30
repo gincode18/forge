@@ -6,6 +6,7 @@ from typing import Any
 from sqlalchemy import (
     JSON,
     DateTime,
+    Float,
     ForeignKey,
     Index,
     Integer,
@@ -43,9 +44,7 @@ class AgentRecord(Base):
 
 class AgentVersionRecord(Base):
     __tablename__ = "agent_versions"
-    __table_args__ = (
-        UniqueConstraint("agent_id", "version", name="uq_agent_version"),
-    )
+    __table_args__ = (UniqueConstraint("agent_id", "version", name="uq_agent_version"),)
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     agent_id: Mapped[str] = mapped_column(
@@ -58,6 +57,21 @@ class AgentVersionRecord(Base):
     planner: Mapped[str] = mapped_column(String(80), nullable=False)
     tools: Mapped[list[str]] = mapped_column(JSON(), default=list, nullable=False)
     max_steps: Mapped[int] = mapped_column(Integer(), default=12, nullable=False)
+    timeout_seconds: Mapped[float] = mapped_column(
+        Float(), default=30, server_default="30", nullable=False
+    )
+    max_tokens: Mapped[int | None] = mapped_column(Integer(), nullable=True)
+    max_cost_usd: Mapped[float | None] = mapped_column(Float(), nullable=True)
+    max_retries: Mapped[int] = mapped_column(
+        Integer(), default=2, server_default="2", nullable=False
+    )
+    max_output_tokens: Mapped[int] = mapped_column(
+        Integer(), default=2048, server_default="2048", nullable=False
+    )
+    input_cost_per_million: Mapped[float | None] = mapped_column(Float(), nullable=True)
+    output_cost_per_million: Mapped[float | None] = mapped_column(
+        Float(), nullable=True
+    )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=utc_now, nullable=False
     )
@@ -139,7 +153,9 @@ class EventRecord(Base):
     )
     sequence: Mapped[int] = mapped_column(Integer(), nullable=False)
     type: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
-    payload: Mapped[dict[str, Any]] = mapped_column(JSON(), default=dict, nullable=False)
+    payload: Mapped[dict[str, Any]] = mapped_column(
+        JSON(), default=dict, nullable=False
+    )
     schema_version: Mapped[int] = mapped_column(Integer(), default=1, nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=utc_now, nullable=False

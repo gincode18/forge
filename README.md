@@ -35,20 +35,20 @@ pnpm dev
 The API is available at `http://localhost:8000`, with interactive API docs at
 `http://localhost:8000/docs`. The dashboard runs at `http://localhost:3000`.
 Its status, Agents, and Runs pages read from the API. Create an agent, queue a
-run from Agents, or queue one from Runs and select **Start fake run** on its
+run from Agents, or queue one from Runs and select **Start run** on its
 detail page. No model key is needed. The detail page streams persisted events
 over SSE and shows the run status, steps, result, and cancellation controls.
 The API accepts `POST /api/v1/runs/{run_id}/start` (202 on acceptance),
 `POST /api/v1/runs/{run_id}/cancel`, and `GET /api/v1/runs/{run_id}/stream`
 (`Last-Event-ID` or `?since=N` replays events after sequence N). No-tool fake
-and Gemini versions using the current finish-only `react` planner are runnable.
+and Gemini versions using the bounded continue/finish `react` planner are runnable.
 Set
 `NEXT_PUBLIC_FORGE_API_URL` for the dashboard if the API is not at
 `http://localhost:8000` (the URL must be reachable from both the browser and
 the Next.js server; configure `FORGE_ALLOWED_ORIGINS` on the API for a different
 dashboard origin).
 
-### First real-provider slice (Phase 3)
+### Streaming model runtime (Phase 3)
 
 To call Gemini, put `GEMINI_API_KEY=your-key` in **`backend/.env`**, or export
 it into the API process environment. `backend/.env.example` is the safe template;
@@ -57,16 +57,37 @@ directory's `.env`; restart the API after editing it. Environment variables
 override the file. Never put this key in Next.js, `NEXT_PUBLIC_*`, an agent
 definition, or a request. The key is masked in settings representations.
 
-Create an agent using
-`provider: "gemini"`, `model: "gemini-3.5-flash-lite"`, a nonempty
-`instructions` string and a name via `POST /api/v1/agents`; queue a run with
+Create an agent in the dashboard using provider `gemini` and model
+`gemini-3.5-flash-lite`, or submit a name, nonempty instructions, provider, and
+model via `POST /api/v1/agents`; queue a run with
 its `agent_id` via `POST /api/v1/runs`, then call
 `POST /api/v1/runs/{run_id}/start`. Without the key, start returns 422 and
 leaves the run queued. The model step persists normalized text, finish reason,
 token usage, request ID, and latency. The default fake provider and test suite
-remain offline and key-free. This is a no-tool single-turn completion, **not**
-yet live token streaming or a multi-turn ReAct planner; Gemini creation is
-currently API-only, not available from the dashboard form.
+remain offline and key-free. The run page displays coalesced streamed text,
+latency, usage, retry attempts, and safe provider metadata. ReAct accepts plain
+text as a final answer or explicit JSON continue/finish actions; tool actions
+are recorded and rejected until Phase 4. Disconnecting the browser does not
+cancel the run. Restarting the backend marks abandoned runs interrupted rather
+than resuming them.
+
+Provider availability is exposed by `GET /api/v1/providers` as a configuration
+boolean only, never credentials. Each immutable version stores maximum steps,
+duration, output tokens per request, retries, and optional cumulative token and
+estimated-cost budgets. Use **Create new immutable version** to change these;
+existing runs keep their original configuration. Cost is unknown unless both
+input/output USD-per-million rates are explicitly entered. Budgets are checked
+after each response; they are not a provider-side hard spending cap. Unknown
+usage fails closed when a token/cost budget is enabled, so an unmetered failed
+request is not automatically retried under those budgets.
+
+Local acceptance includes offline provider contracts, real Google SDK HTTP
+serialization/parsing with a mock transport, migrations in both directions,
+and a browser create/launch/reload smoke test. An operator-approved live Gemini
+run also passed on September 30, 2026; see
+[`docs/phase-three-verification.md`](docs/phase-three-verification.md) for evidence.
+Future live checks remain opt-in; the offline suite alone does not prove a
+particular account's key, quota, or model access.
 
 See [`docs/gemini-model-selection.md`](docs/gemini-model-selection.md) for the
 dated cost comparison and a stronger Flash candidate. Model IDs are selected
@@ -93,4 +114,10 @@ uv run alembic downgrade -1
 ```bash
 cd backend && uv run pytest && uv run ruff check .
 cd frontend && pnpm lint && pnpm build
+```
+
+Frontend replay/accounting regression tests:
+
+```bash
+cd frontend && node --experimental-strip-types --test tests/run-trace.test.ts
 ```

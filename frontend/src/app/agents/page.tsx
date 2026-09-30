@@ -1,11 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shell } from "@/components/shell";
-import { getApi, type Agent } from "@/lib/api";
+import { getApi, type Agent, type Provider } from "@/lib/api";
+import { NewVersionForm } from "./new-version-form";
 import { CreateAgentForm } from "./create-agent-form";
 import { LaunchRunForm } from "./launch-run-form";
 
 export default async function AgentsPage() {
   let agents: Agent[] = [];
+  let providers: Provider[] = [];
+  try { providers = await getApi<Provider[]>("/providers"); } catch { /* Status unknown; offline defaults remain available. */ }
   let unavailable = false;
   try {
     agents = await getApi<Agent[]>("/agents");
@@ -26,10 +29,11 @@ export default async function AgentsPage() {
                   <p className="text-xs">Version {agent.latest_version.version} · {agent.latest_version.provider} / {agent.latest_version.model}</p>
                   <p className="break-all font-mono text-xs text-slate-500">{agent.id}</p>
                   <LaunchRunForm agentId={agent.id} agentName={agent.name} />
+                  <NewVersionForm agent={agent} providers={providers} />
                 </CardContent></Card>
               ))}
         </section>
-        <Card><CardHeader><CardTitle>Create agent</CardTitle></CardHeader><CardContent><CreateAgentForm /></CardContent></Card>
+        <Card><CardHeader><CardTitle>Create agent</CardTitle></CardHeader><CardContent><CreateAgentForm providers={providers} /></CardContent></Card>
       </div>
     </Shell>
   );

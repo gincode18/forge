@@ -39,7 +39,8 @@ POST /api/v1/runs
 POST /api/v1/runs/{id}/start
   -> runtime/supervisor.py       atomically claims the run and owns the task
   -> runtime/engine.py           loads the immutable version; enforces limits
-  -> runtime/fake.py             scripted model response and final decision
+  -> runtime/fake.py or gemini.py normalized streaming model response
+  -> runtime/react.py            continue, finish, or unsupported tool decision
   -> sqlite/repositories.py     persists transitions, steps, and events
 GET /api/v1/runs/{id}/stream
   -> routes/runs.py              replays committed events after a sequence
@@ -97,17 +98,20 @@ The API layer should translate, not contain planner or runtime behavior.
 ### `runtime/`
 
 `ports.py` defines the normalized provider/planner contracts. `fake.py`
-implements the no-key provider and finish-only planner; `gemini.py` adapts
-the official Google Gen AI SDK. `engine.py` persists meaningful
-boundaries, enforces step/time limits, and completes or fails a run.
+implements the no-key streaming provider and the legacy final planner;
+`gemini.py` adapts the official Google Gen AI SDK. `react.py` interprets explicit
+continue/finish/tool decisions without requesting private reasoning.
+`engine.py` persists bounded text deltas and meaningful boundaries, enforces
+per-version step/time/output/token/cost limits, and records bounded retries.
 `supervisor.py` owns in-process tasks, cancellation, and startup recovery.
 It is not a distributed worker or durable mid-step resume engine.
 
 ### `alembic/`
 
 Version-controlled database changes. Migration `0001` created agents, versions,
-runs, and events. Migration `0002` adds ordered run steps. The API automatically
-upgrades the local database on startup.
+runs, and events. Migration `0002` adds ordered run steps; `0003` adds immutable
+run limits and explicit estimated-cost rates. The API upgrades the local database
+on startup. Tests preserve historical versions across upgrade and downgrade.
 
 ### `tests/`
 
@@ -117,8 +121,10 @@ agent/run lifecycle.
 
 ## Frontend
 
-`frontend/src/app/` is the Next.js dashboard. Agents can create and launch
-fake runs; Runs lists persisted executions; `runs/[id]` streams the committed
+`frontend/src/app/` is the Next.js dashboard. Agents can select fake/Gemini and a
+model, create new immutable configurations, and launch no-tool runs. Runs lists
+persisted executions; `runs/[id]` displays usage, latency, estimated cost, retries,
+and safe metadata while streaming the committed
 event timeline via SSE and reloads status/steps. Disconnecting the page does
 not cancel the supervisor task. The trace remains readable after completion.
 
@@ -137,9 +143,15 @@ supervisor claims and starts run
 ```
 
 The fake provider makes the harness testable without a key or network. The
-`react` configuration name currently uses a finish-only planner, not tool
-calling; Phase 3 has begun with Gemini single-turn completions, with the
-multi-turn planner and streaming still outstanding.
+`react` planner accepts plain-text final answers or explicit JSON continue/finish
+actions. Context is passed in chronological order on subsequent model turns.
+Normalized native or JSON tool requests are recorded and fail `tool_disabled`;
+tools and observations are Phase 4. Missing usage and unpriced cost remain
+unknown; enabled budgets stop instead of assuming unmetered requests are free.
+The real Google SDK also runs against a mock HTTP transport in offline tests.
+Live Gemini account/model access is a separate opt-in acceptance check; it passed
+on September 30, 2026 (see `docs/phase-three-verification.md`). The default tests
+remain offline and never require a live credential.
 
 ## A useful reading order
 
