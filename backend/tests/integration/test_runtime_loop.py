@@ -106,8 +106,10 @@ def test_tool_action_fails_without_execution(client):
     }), ReActPlanner()))
     assert client.get(f'/api/v1/runs/{run_id}').json()['status'] == 'failed'
     steps = trace(client, run_id, 'steps')
-    assert steps[-1]['output']['action'] == 'tool'
-    assert trace(client, run_id, 'events')[-1]['payload']['reason'] == 'tool_disabled'
+    assert any(step['output'] and step['output'].get('action') == 'tool' for step in steps)
+    assert any(e['type'] == 'tool.denied' for e in trace(client, run_id, 'events'))
+    assert not any(e['type'] == 'tool.started' for e in trace(client, run_id, 'events'))
+    assert trace(client, run_id, 'events')[-1]['payload']['reason'] == 'max_steps'
 
 
 def test_stream_coalesces_many_chunks_with_bounded_events(client):
@@ -318,8 +320,9 @@ def test_native_tool_call_cannot_be_mistaken_for_final_text(client):
             yield ModelResult('I will do it', 'fake', 'test', tool_calls=(ToolCall('shell', {}),))
     asyncio.run(execute_fake_run(client.app.state.database, run_id, Native(), FinalPlanner()))
     assert client.get(f'/api/v1/runs/{run_id}').json()['status'] == 'failed'
-    assert trace(client, run_id, 'events')[-1]['payload']['reason'] == 'tool_disabled'
-    assert trace(client, run_id, 'steps')[-1]['output']['action'] == 'tool'
+    assert trace(client, run_id, 'events')[-1]['payload']['reason'] == 'max_steps'
+    assert any(e['type'] == 'tool.denied' for e in trace(client, run_id, 'events'))
+    assert any(step['output'] and step['output'].get('action') == 'tool' for step in trace(client, run_id, 'steps'))
 
 
 def test_stream_rejects_multiple_final_results_and_closes(client):

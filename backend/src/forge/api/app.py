@@ -116,6 +116,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     application.include_router(agents_router, prefix="/api/v1")
     application.include_router(runs_router, prefix="/api/v1")
     application.include_router(providers_router, prefix="/api/v1")
+    from forge.api.routes.tools import router as tools_router
+    application.include_router(tools_router, prefix="/api/v1")
     return application
 
 

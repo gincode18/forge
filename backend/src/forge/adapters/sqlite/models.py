@@ -162,3 +162,32 @@ class EventRecord(Base):
     )
 
     run: Mapped[RunRecord] = relationship(back_populates="events")
+
+
+class RunCheckpointRecord(Base):
+    __tablename__ = 'run_checkpoints'
+    run_id: Mapped[str] = mapped_column(ForeignKey('runs.id', ondelete='CASCADE'), primary_key=True)
+    payload: Mapped[dict] = mapped_column(JSON(), nullable=False)
+
+
+class ApprovalRecord(Base):
+    __tablename__ = 'approvals'
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    run_id: Mapped[str] = mapped_column(ForeignKey('runs.id', ondelete='CASCADE'))
+    step_id: Mapped[str] = mapped_column(ForeignKey('steps.id'))
+    tool_name: Mapped[str] = mapped_column(String(80))
+    tool_version: Mapped[str] = mapped_column(String(80))
+    arguments: Mapped[dict] = mapped_column(JSON())
+    status: Mapped[str] = mapped_column(String(32))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+class ArtifactRecord(Base):
+    __tablename__ = 'artifacts'
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    run_id: Mapped[str] = mapped_column(ForeignKey('runs.id', ondelete='CASCADE'))
+    path: Mapped[str] = mapped_column(Text())
+    size_bytes: Mapped[int] = mapped_column(Integer())
+    media_type: Mapped[str] = mapped_column(String(100))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)

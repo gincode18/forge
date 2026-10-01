@@ -6,11 +6,12 @@ from forge.runtime.ports import ContinueAction, FinalAction, ToolAction
 
 
 class ReActPlanner:
-    def prepare(self, instructions: str) -> str:
+    def prepare(self, instructions: str, tools: tuple[dict, ...] = ()) -> str:
         return instructions + (
             '\n\nReturn a JSON object: {"action":"finish","text":"answer"} '
-            'or {"action":"continue","text":"brief next-turn context"}. '
-            'No tools are available. Do not request tools. '
+            'or {"action":"continue","text":"brief next-turn context"}. ' +
+            (('Available tools: ' + json.dumps([{'name': t['name'], 'input_schema': t['input_schema']} for t in tools]) + '. Request a native function call or {"action":"tool","name":"tool_name","arguments":{}}. ')
+             if tools else 'No tools are available. Do not request tools. ') +
             'No private reasoning or chain of thought is required.'
         )
 

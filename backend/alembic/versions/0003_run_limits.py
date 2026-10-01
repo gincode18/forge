@@ -45,11 +45,11 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    with op.batch_alter_table("agent_versions") as batch:
-        batch.drop_column("output_cost_per_million")
-        batch.drop_column("input_cost_per_million")
-        batch.drop_column("max_output_tokens")
-        batch.drop_column("max_retries")
-        batch.drop_column("max_cost_usd")
-        batch.drop_column("max_tokens")
-        batch.drop_column("timeout_seconds")
+    # Native DROP COLUMN keeps referenced version identities intact. SQLite's
+    # batch rebuild would DROP the parent table while historical runs reference it.
+    # Forge's supported SQLite must provide DROP COLUMN (SQLite >= 3.35).
+    for column in (
+        'output_cost_per_million', 'input_cost_per_million', 'max_output_tokens',
+        'max_retries', 'max_cost_usd', 'max_tokens', 'timeout_seconds',
+    ):
+        op.drop_column('agent_versions', column)

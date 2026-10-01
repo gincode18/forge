@@ -3,15 +3,22 @@ import asyncio
 import json
 from contextlib import aclosing
 from dataclasses import asdict
+from pathlib import Path
 
 from sqlalchemy.orm import Session
 
 from forge.adapters.sqlite.database import Database
-from forge.adapters.sqlite.models import AgentVersionRecord, StepRecord, utc_now
+from forge.adapters.sqlite.models import (
+    AgentVersionRecord,
+    RunCheckpointRecord,
+    StepRecord,
+    utc_now,
+)
 from forge.adapters.sqlite.repositories import RunRepository
 from forge.application.errors import ResourceNotFoundError
 from forge.domain.runs import RunStatus
 from forge.domain.steps import StepKind, StepStatus
+from forge.domain.tools import ToolContext
 from forge.runtime.ports import (
     ContinueAction,
     FinalAction,
@@ -21,7 +28,10 @@ from forge.runtime.ports import (
     Planner,
     ProviderError,
     ToolAction,
+    ToolCall,
 )
+from forge.runtime.tool_execution import execute_calls, restore_messages
+from forge.runtime.tools import ToolRegistry, scoped_path
 
 
 def _fail_step(
@@ -70,9 +80,10 @@ def _start_step(database, run_id, kind, input, max_steps, deadline, attempt=1):
         step = runs.create_step(run_id=run_id, kind=kind, input=input, status=StepStatus.RUNNING)
         step.started_at = utc_now()
         step.attempt = attempt
-        runs.append_event(run_id, "model.requested" if kind == StepKind.MODEL else "planner.started", {
-            "step_id": step.id,
-        })
+        if kind in (StepKind.MODEL, StepKind.PLANNER):
+            runs.append_event(run_id, "model.requested" if kind == StepKind.MODEL else "planner.started", {
+                "step_id": step.id,
+            })
         step_id = step.id
         session.commit()
         return step_id
@@ -87,7 +98,7 @@ def _delta(database, run_id, step_id, text):
             session.commit()
 
 
-async def _model(database, run_id, step_id, provider, instructions, input, messages, output_cap):
+async def _model(database, run_id, step_id, provider, instructions, input, messages, output_cap, tools=()):
     if not callable(getattr(provider, "stream", None)):
         context = input if not messages else json.dumps([
             {"role": "user", "text": input}, *[asdict(message) for message in messages],
@@ -113,9 +124,10 @@ async def _model(database, run_id, step_id, provider, instructions, input, messa
 
     timer = asyncio.create_task(ticker())
     try:
-        async with aclosing(provider.stream(
-            instructions=instructions, input=input, messages=messages, max_output_tokens=output_cap,
-        )) as stream:
+        kwargs = {'instructions': instructions, 'input': input, 'messages': messages, 'max_output_tokens': output_cap}
+        if tools:
+            kwargs['tools'] = tools
+        async with aclosing(provider.stream(**kwargs)) as stream:
             async for item in stream:
                 if response is not None:
                     raise ValueError("provider stream yielded after final result")
@@ -138,6 +150,7 @@ async def _model(database, run_id, step_id, provider, instructions, input, messa
 async def execute_fake_run(
     database: Database, run_id: str, provider: ModelProvider, planner: Planner,
     *, timeout_seconds: float | None = None, claimed: bool = False,
+    workspace_root: Path | None = None, subprocess_allowlist: tuple[tuple[str, ...], ...] = (),
 ) -> None:
     """Compatibility entry point for fake and real providers; no transaction spans awaits."""
     if timeout_seconds is not None and timeout_seconds <= 0:
@@ -152,7 +165,7 @@ async def execute_fake_run(
         version = session.get(AgentVersionRecord, run.agent_version_id)
         if version is None:
             raise ResourceNotFoundError("agent version", run.agent_version_id)
-        if version.provider not in {"fake", "gemini"} or version.tools or version.planner != "react":
+        if version.provider not in {"fake", "gemini"} or version.planner != "react":
             raise ValueError("only no-tool fake or Gemini agents with the react planner can run")
         instructions, input, max_steps = version.instructions, run.input, version.max_steps
         max_cost = version.max_cost_usd
@@ -162,6 +175,11 @@ async def execute_fake_run(
         max_retries = version.max_retries
         max_tokens = version.max_tokens
         max_output_tokens = version.max_output_tokens
+        enabled = tuple(version.tools)
+        registry = ToolRegistry()
+        definitions = tuple(t for t in registry.catalog() if t['key'] in enabled) if enabled else ()
+        checkpoint = session.get(RunCheckpointRecord, run_id)
+        pending = checkpoint.payload if checkpoint else None
         if not claimed and run.status == RunStatus.QUEUED.value:
             runs.transition(run, RunStatus.RUNNING, "run.started")
         elif not claimed or run.status != RunStatus.RUNNING.value:
@@ -169,12 +187,28 @@ async def execute_fake_run(
         session.commit()
     prepare = getattr(planner, "prepare", None)
     if callable(prepare):
-        instructions = prepare(instructions)
+        instructions = prepare(instructions, tools=definitions) if definitions else prepare(instructions)
     messages = ()
     total_tokens = 0
     total_cost = 0.0
     usage_known = True
     attempt = 1
+    context = ToolContext(run_id, (workspace_root or Path(database.engine.url.database).parent / 'workspaces') / run_id, subprocess_allowlist)
+    scoped_path(context.workspace, '__scope_probe__')
+    context.workspace.mkdir(parents=True, exist_ok=True)
+
+    def tool_start(call):
+        return _start_step(database, run_id, StepKind.TOOL, asdict(call), max_steps, deadline)
+
+    if pending:
+        messages = restore_messages(pending['messages'])
+        total_tokens, total_cost, usage_known = pending['accounting']
+        deadline = min(deadline, asyncio.get_running_loop().time() + pending['remaining_seconds'])
+        messages = await execute_calls(database, run_id, tuple(ToolCall(**c) for c in pending['calls']), messages,
+                                       enabled, registry, context, max_steps, deadline,
+                                       [total_tokens, total_cost, usage_known], tool_start, pending)
+        if messages is None:
+            return
     while True:
         model_input = {"instructions": instructions, "input": input}
         if messages:
@@ -188,7 +222,7 @@ async def execute_fake_run(
                 if max_tokens is not None:
                     output_cap = min(output_cap, max_tokens - total_tokens)
                 response = await _model(
-                    database, run_id, step_id, provider, instructions, input, messages, output_cap,
+                    database, run_id, step_id, provider, instructions, input, messages, output_cap, definitions,
                 )
                 if response.finish_reason not in {None, "STOP"}:
                     raise ProviderError(response.provider, "incomplete_response", "Model response was incomplete")
@@ -300,10 +334,17 @@ async def execute_fake_run(
             runs.append_event(run_id, "planner.decided", {"step_id": planner_step_id, "action": decision})
             if isinstance(action, FinalAction):
                 runs.transition(run, RunStatus.COMPLETED, "run.completed", {"result": action.text})
-            if isinstance(action, ToolAction):
-                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "tool_disabled"})
             session.commit()
-        if isinstance(action, (FinalAction, ToolAction)):
+        if isinstance(action, FinalAction):
             return
+        if isinstance(action, ToolAction):
+            calls = response.tool_calls or (ToolCall(action.name, action.arguments),)
+            messages += (ModelMessage('assistant', response.text, calls),)
+            messages = await execute_calls(database, run_id, calls, messages, enabled, registry, context,
+                                           max_steps, deadline, [total_tokens, total_cost, usage_known], tool_start)
+            if messages is None:
+                return
+            attempt = 1
+            continue
         messages += (ModelMessage("assistant", response.text), ModelMessage("user", action.text))
         attempt = 1

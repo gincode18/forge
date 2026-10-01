@@ -13,9 +13,11 @@ export function CreateAgentForm({ providers }: { providers: Provider[] }) {
   const router = useRouter();
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
+  const [toolsReady, setToolsReady] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (pending || !toolsReady) return;
     setPending(true);
     setError("");
     const form = event.currentTarget;
@@ -39,9 +41,9 @@ export function CreateAgentForm({ providers }: { providers: Provider[] }) {
     <form onSubmit={submit} className="space-y-4">
       <div><label htmlFor="agent-name" className="mb-1 block text-sm font-medium">Name</label><input id="agent-name" name="name" required maxLength={120} className={fieldClass} placeholder="Home Agent" /></div>
       <div><label htmlFor="agent-description" className="mb-1 block text-sm font-medium">Description</label><input id="agent-description" name="description" className={fieldClass} placeholder="What this agent is for" /></div>
-      <ConfigFields providers={providers} />
+      <fieldset disabled={pending} className="space-y-4"><ConfigFields providers={providers} onToolsReady={setToolsReady} /></fieldset>
       {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
-      <Button type="submit" disabled={pending}>{pending ? "Creating…" : "Create agent"}</Button>
+      <Button type="submit" disabled={pending || !toolsReady}>{pending ? "Creating…" : "Create agent"}</Button>
     </form>
   );
 }

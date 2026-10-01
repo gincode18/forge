@@ -1,4 +1,6 @@
 """Provider-neutral streaming values and planner actions."""
+from __future__ import annotations
+
 from collections.abc import AsyncIterator
 from dataclasses import dataclass, field
 from typing import Literal, Protocol
@@ -24,6 +26,9 @@ class ToolAction:
 class ModelMessage:
     role: str
     text: str
+    tool_calls: tuple[ToolCall, ...] = ()
+    tool_name: str | None = None
+    call_id: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -36,6 +41,7 @@ class ToolCall:
     name: str
     arguments: dict
     id: str | None = None
+    thought_signature: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -93,6 +99,7 @@ class ModelProvider(Protocol):
     def stream(
         self, *, instructions: str, input: str,
         messages: tuple[ModelMessage, ...] = (), max_output_tokens: int = 2048,
+        tools: tuple[dict, ...] = (),
     ) -> AsyncIterator[ModelDelta | ModelResult]:
         """Yield deltas followed by exactly one final result on success."""
         ...

@@ -2,9 +2,9 @@
 
 ## Current position
 
-**Current phase: Phase 3 complete — local checks and live Gemini acceptance passed.**
+**Current phase: Phase 4 complete — controlled local tools verified offline.**
 
-**Current slice: streaming no-tool model runtime with bounded multi-turn planning.**
+**Current slice: controlled tool execution, durable approvals, and unified local startup delivered.**
 
 The repository now contains a packaged FastAPI service, Alembic-managed SQLite
 persistence, durable agent definitions and immutable versions, queued run and
@@ -20,7 +20,13 @@ models, and immutable configurations. Offline tests include the real Google SDK
 with a mock HTTP transport; browser smoke checks cover creation, launch, metrics,
 and historical replay. An operator-approved live Gemini run passed on September
 30, 2026, including usage, latency, committed SSE, and trace preservation after
-application restart. See `docs/phase-three-verification.md`. Phase 4 has not started.
+application restart. See `docs/phase-three-verification.md`. Phase 4 now includes
+versioned tools, fail-closed policy, durable approvals, per-run workspaces,
+bounded subprocesses, downloadable artifacts, dashboard controls, and one local
+operator CLI. Parent verification passed 269 backend tests, 16 frontend tests,
+lint/build, and browser create/launch/approve/download/replay acceptance through
+the CLI with isolated offline data. Restart preserved the completed trace and
+artifact. See `docs/phase-four-verification.md`; local controls are not a sandbox.
 
 This plan is organized around working vertical slices rather than dates. A phase
 is complete only when its exit criteria pass. We should not start several future
@@ -49,7 +55,7 @@ the current phase has at least one real implementation and the boundary matters.
 | 1. Domain and storage | Durable agent versions, runs, events, and clean modules | Complete |
 | 2. End-to-end fake agent | Create and run a deterministic agent through the UI | Complete |
 | 3. Real model runtime | Provider adapter, streaming, planner loop, limits | Complete |
-| 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Planned |
+| 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Complete |
 | 5. Trace-first observability | Complete live run inspector and failure debugging | Planned |
 | 6. Conversation and memory | Threads, context building, working memory | Planned |
 | 7. Durable workflows | Checkpoints, retries, pause/resume, branches | Planned |
@@ -238,30 +244,36 @@ and the comparison with durable orchestration frameworks.
 
 ### Build
 
-1. Define the typed Tool and ToolContext contracts.
-2. Implement a registry with stable names and versions.
-3. Start with deterministic low-risk tools such as calculator and current time.
-4. Add scoped filesystem read/write tools using per-run workspaces.
-5. Add a policy engine returning allow, deny, or require-approval decisions.
-6. Add persisted approval requests and resolution endpoints.
-7. Implement restricted local subprocess execution with explicit limits.
-8. Record tool request, policy decision, output, timing, and failure events.
+1. [x] Define the typed Tool and ToolContext contracts.
+2. [x] Implement a registry with stable names and versions.
+3. [x] Start with low-risk calculator and current-time tools (fake scripted runs stay deterministic).
+4. [x] Add scoped filesystem read/write tools using per-run workspaces.
+5. [x] Add a policy engine returning allow, deny, or require-approval decisions.
+6. [x] Add persisted approval requests and resolution endpoints.
+7. [x] Implement restricted local subprocess execution with explicit limits.
+8. [x] Record tool request, policy decision, output, timing, and failure events.
 
 ### UI slice
 
-- Enable tools on an agent version.
-- Inspect tool schemas and risk classifications.
-- Approve or reject paused tool calls.
-- View file artifacts created inside the run workspace.
+- [x] Enable tools on an agent version.
+- [x] Inspect tool schemas and risk classifications.
+- [x] Approve or reject paused tool calls.
+- [x] View file artifacts created inside the run workspace.
 
 ### Exit criteria
 
-- [ ] A model can request a tool and continue from its observation.
-- [ ] Disabled tools cannot execute even if the model requests them.
-- [ ] Sensitive actions pause durably for approval.
-- [ ] Paths cannot escape the assigned run workspace.
-- [ ] Timeouts and output limits stop misbehaving tools.
-- [ ] The UI clearly states that local restrictions are not a security boundary.
+- [x] A model can request a tool and continue from its observation.
+- [x] Disabled tools cannot execute even if the model requests them.
+- [x] Sensitive actions pause durably for approval.
+- [x] Tool paths reject traversal, symlinks, and unsafe opened inodes outside the assigned workspace.
+- [x] Timeouts and output limits stop misbehaving tools under the local execution contract.
+- [x] The UI clearly states that local restrictions are not a security boundary.
+
+The path/output guarantees are local accident-reduction controls, not protection
+against hostile concurrent host processes or escaping subprocess descendants.
+ADR `0006` documents remaining races, mutable artifacts, uncertain side effects,
+execution-time budgeting, and safe rollback refusal. Acceptance evidence is in
+`docs/phase-four-verification.md`. No paid live tool call was required or claimed.
 
 At the end of this phase, Forge can host a small but genuinely useful personal
 agent.

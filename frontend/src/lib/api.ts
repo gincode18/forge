@@ -2,6 +2,27 @@ export const API_BASE = process.env.NEXT_PUBLIC_FORGE_API_URL ?? "http://localho
 
 export type Health = { status: "ok"; database: "ready"; version: string };
 export type Provider = { id: string; configured: boolean; default_model: string };
+export type Tool = {
+  name: string; version: string; key: string; description: string;
+  input_schema: Record<string, unknown>; output_schema: Record<string, unknown>;
+  capabilities: string[]; risk: "low" | "sensitive"; timeout_seconds: number;
+  max_output_bytes: number; default_policy: "allow" | "require_approval"; security_warning: string;
+};
+export type Approval = {
+  id: string; run_id: string; step_id: string;
+  tool_name: string; tool_version: string; arguments: Record<string, unknown>;
+  status: "pending" | "approved" | "rejected" | "cancelled";
+  created_at: string; resolved_at: string | null;
+};
+export type Artifact = {
+  id: string; run_id: string; path: string; size_bytes: number;
+  media_type: string; created_at: string;
+};
+
+export function artifactDownloadUrl(runId: string, artifactId: string): string {
+  return `${API_BASE}/api/v1/runs/${encodeURIComponent(runId)}/artifacts/${encodeURIComponent(artifactId)}`;
+}
+
 export type AgentVersion = {
   id: string; version: number; instructions: string; provider: string; model: string;
   planner: string; tools: string[]; max_steps: number; timeout_seconds: number;

@@ -17,6 +17,7 @@ class Settings(BaseSettings):
 
     data_dir: Path = Field(default=Path("data"))
     database_url: str | None = None
+    subprocess_allowlist: list[list[str]] = Field(default_factory=list)
     gemini_api_key: SecretStr | None = Field(default=None, validation_alias="GEMINI_API_KEY")
     allowed_origins: list[str] = Field(
         default_factory=lambda: [

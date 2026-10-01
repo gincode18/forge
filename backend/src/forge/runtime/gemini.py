@@ -1,4 +1,6 @@
 """Google Gen AI adapter; secrets remain outside persisted run state."""
+import base64
+import json
 import time
 from collections.abc import AsyncIterator
 
@@ -60,7 +62,9 @@ def _tool_calls(candidate) -> tuple[ToolCall, ...]:
     for part in (getattr(getattr(candidate, "content", None), "parts", None) or []):
         call = getattr(part, "function_call", None)
         if call is not None:
-            calls.append(ToolCall(call.name, dict(call.args or {}), call.id))
+            signature = getattr(part, 'thought_signature', None)
+            calls.append(ToolCall(call.name, dict(call.args or {}), call.id,
+                                  base64.b64encode(signature).decode() if signature else None))
     return tuple(calls)
 
 
@@ -103,6 +107,7 @@ class GeminiProvider:
     async def stream(
         self, *, instructions: str, input: str,
         messages: tuple[ModelMessage, ...] = (), max_output_tokens: int = 2048,
+        tools: tuple[dict, ...] = (),
     ) -> AsyncIterator[ModelDelta | ModelResult]:
         started = time.monotonic()
         client = self._client
@@ -114,13 +119,26 @@ class GeminiProvider:
                 api_key=self._api_key, vertexai=False
             )
             contents = [types.Content(role="user", parts=[types.Part(text=input)])]
-            contents.extend(types.Content(
-                role="model" if message.role == "assistant" else message.role,
-                parts=[types.Part(text=message.text)],
-            ) for message in messages)
+            for message in messages:
+                parts = [types.Part(text=message.text)] if message.text else []
+                if message.role == 'tool':
+                    parts = [types.Part(function_response=types.FunctionResponse(
+                        name=message.tool_name, id=message.call_id, response=json.loads(message.text),
+                    ))]
+                else:
+                    parts.extend(types.Part(function_call=types.FunctionCall(name=call.name, args=call.arguments, id=call.id),
+                                            thought_signature=base64.b64decode(call.thought_signature) if call.thought_signature else None) for call in message.tool_calls)
+                if (message.role == 'tool' and contents[-1].role == 'user'
+                        and all(part.function_response is not None for part in contents[-1].parts)):
+                    contents[-1].parts.extend(parts)
+                else:
+                    contents.append(types.Content(role='model' if message.role == 'assistant' else 'user', parts=parts))
             generate_stream = getattr(client.aio.models, "generate_content_stream", None)
             config = types.GenerateContentConfig(
                 system_instruction=instructions, max_output_tokens=max_output_tokens,
+                tools=[types.Tool(function_declarations=[types.FunctionDeclaration(
+                    name=tool['name'], description=tool['description'], parameters_json_schema=tool['input_schema'],
+                ) for tool in tools])] if tools else None,
             )
             if generate_stream is not None:
                 source = await generate_stream(model=self.model, contents=contents, config=config)

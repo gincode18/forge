@@ -392,8 +392,9 @@ blocks, deltas, usage, finish reasons, request IDs, latency, and allowlisted
 provider metadata. Gemini uses the official async SDK; the fake adapter shares
 the same streaming contract. The runtime persists bounded coalesced deltas for
 existing committed SSE replay and retains the final normalized result. ReAct
-supports continue/finish turns with chronological context; tool requests stop
-with `tool_disabled` until Phase 4. Immutable version budgets include steps,
+supports continue/finish turns with chronological context. Phase 4 advertises
+only enabled versioned tool schemas, authorizes each request through policy,
+and feeds structured observations back into the next model turn. Immutable version budgets include steps,
 duration, output tokens, retries, total tokens, and user-priced estimated cost.
 Missing usage stays unknown and enabled budgets fail closed. Cost is checked
 after each response, not a hard billing guarantee. See
@@ -479,6 +480,23 @@ Each run receives a workspace root. Filesystem tools resolve paths against that
 root, reject traversal outside it, and record changed files as events or
 artifacts. The runtime data directory and application source are not implicitly
 writable by an agent.
+
+The implemented Phase 4 registry enables exact `name@version` tokens. Calculator,
+current time, and workspace reads allow; workspace writes and subprocess require
+durable approval. Subprocess also requires an operator-owned, default-empty
+exact argv allowlist. Approval checkpoints retain conversation, call batch,
+accounting, and remaining execution time. Waiting/downtime does not consume that
+budget. Committed decisions resume on restart only before dispatch; uncertain
+started effects are interrupted rather than replayed. Descriptor-relative
+`O_NOFOLLOW` filesystem operations reduce path substitution races but do not
+provide isolation from hostile local processes. Artifacts reference mutable
+workspace files. Migration rollback refuses active approvals/checkpoints.
+See `docs/decisions/0006-controlled-tools.md` for the limits of these guarantees.
+
+The root `./forge` operator CLI manages setup, foreground/background development
+startup, readiness, status, logs, restart, stop, and verification for both local
+services. It is not a new execution host or the future public agent SDK CLI;
+Docker and production supervision remain separate later work.
 
 ## Persistence
 
