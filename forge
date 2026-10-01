@@ -1,0 +1,8 @@
+#!/bin/sh
+# Keep the operator CLI independent of the backend environment.
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+if ! command -v python3 >/dev/null 2>&1; then
+    printf '%s\n' 'Forge needs Python 3 (the backend needs Python >=3.12 via uv).' >&2
+    exit 1
+fi
+exec python3 "$ROOT/scripts/local_cli.py" "$@"

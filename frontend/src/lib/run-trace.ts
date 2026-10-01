@@ -1,5 +1,18 @@
 import type { RunEvent } from "./api";
 
+export const runEventTypes = [
+  "run.created", "run.started", "run.completed", "run.failed", "run.cancelled", "run.interrupted",
+  "run.paused", "run.resumed", "run.budget_exceeded",
+  "model.delta", "model.retry", "model.requested", "model.completed", "model.failed", "model.cancelled", "model.interrupted",
+  "planner.started", "planner.decided", "planner.failed", "planner.cancelled", "planner.interrupted",
+  "tool.requested", "tool.policy", "tool.started", "tool.completed", "tool.failed", "tool.denied", "tool.cancelled", "tool.interrupted",
+  "approval.requested", "approval.resolved", "approval.cancelled", "artifact.created",
+] as const;
+
+export function canResolveApproval(approval: { status: string }, runStatus: string, busy: boolean): boolean {
+  return approval.status === "pending" && runStatus === "waiting_for_approval" && !busy;
+}
+
 export function mergeEvents(current: RunEvent[], incoming: RunEvent[]): RunEvent[] {
   const bySequence = new Map(current.map((event) => [event.sequence, event]));
   for (const event of incoming) bySequence.set(event.sequence, event);

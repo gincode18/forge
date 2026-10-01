@@ -1,4 +1,5 @@
 """Scripted provider and finish-only planner for no-key runtime tests."""
+import json
 import re
 from collections.abc import AsyncIterator
 from dataclasses import replace
@@ -10,6 +11,7 @@ from forge.runtime.ports import (
     ModelResult,
     ModelUsage,
     ProviderError,
+    ToolCall,
 )
 
 
@@ -31,8 +33,22 @@ class FakeProvider:
     async def stream(
         self, *, instructions: str, input: str,
         messages: tuple[ModelMessage, ...] = (), max_output_tokens: int = 2048,
+        tools: tuple[dict, ...] = (),
     ) -> AsyncIterator[ModelDelta | ModelResult]:
         result = await self.complete(instructions=instructions, input=input)
+        try:
+            script = json.loads(input).get('forge_script')
+        except (ValueError, AttributeError):
+            script = None
+        if isinstance(script, list):
+            index = sum(message.role == 'tool' for message in messages)
+            if index < len(script):
+                call = script[index]
+                result = replace(result, text='', tool_calls=(ToolCall(
+                    call['name'], call['arguments'], f'fake-{index}',
+                ),))
+            else:
+                result = replace(result, text='Fake tool script completed')
         history_tokens = sum(len(message.text.split()) for message in messages)
         usage = result.usage
         if history_tokens:

@@ -203,7 +203,7 @@ def test_wall_clock_timeout_closes_model_step(client: TestClient) -> None:
     run_id = client.post("/api/v1/runs", json={"agent_id": agent["id"], "input": "Hi"}).json()["id"]
     with pytest.raises(TimeoutError):
         asyncio.run(execute_fake_run(
-            client.app.state.database, run_id, WaitingProvider(), FinalPlanner(), timeout_seconds=0.01
+            client.app.state.database, run_id, WaitingProvider(), FinalPlanner(), timeout_seconds=0.1
         ))
     assert client.get(f"/api/v1/runs/{run_id}").json()["status"] == "failed"
     assert client.get(f"/api/v1/runs/{run_id}/steps").json()[0]["error"]["type"] == "TimeoutError"

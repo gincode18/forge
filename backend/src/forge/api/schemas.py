@@ -139,3 +139,45 @@ class ErrorResponse(BaseModel):
     request_id: str
     resource: str | None = None
     resource_id: str | None = None
+
+
+class ApprovalResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: str
+    run_id: str
+    step_id: str
+    tool_name: str
+    tool_version: str
+    arguments: dict[str, Any]
+    status: Literal['pending', 'approved', 'rejected', 'cancelled']
+    created_at: datetime
+    resolved_at: datetime | None
+
+
+class ResolveApprovalRequest(BaseModel):
+    approved: bool
+
+
+class ToolResponse(BaseModel):
+    name: str
+    version: str
+    key: str
+    description: str
+    input_schema: dict[str, Any]
+    output_schema: dict[str, Any]
+    capabilities: list[str]
+    risk: Literal['low', 'sensitive']
+    timeout_seconds: float
+    max_output_bytes: int
+    default_policy: Literal['allow', 'require_approval']
+    security_warning: str
+
+
+class ArtifactResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: str
+    run_id: str
+    path: str
+    size_bytes: int
+    media_type: str
+    created_at: datetime

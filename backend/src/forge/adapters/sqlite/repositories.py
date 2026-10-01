@@ -13,6 +13,7 @@ from forge.adapters.sqlite.models import (
     StepRecord,
     utc_now,
 )
+from forge.domain.events import TOOL_EVENT_PAYLOADS
 from forge.domain.runs import InvalidRunTransition, Run, RunStatus
 from forge.domain.steps import StepKind, StepStatus
 
@@ -198,6 +199,8 @@ class RunRepository:
     def append_event(
         self, run_id: str, type: str, payload: dict[str, object]
     ) -> EventRecord:
+        if type in TOOL_EVENT_PAYLOADS:
+            payload = TOOL_EVENT_PAYLOADS[type].model_validate(payload).model_dump(mode='json')
         last_sequence = self.session.scalar(
             select(func.max(EventRecord.sequence)).where(EventRecord.run_id == run_id)
         )

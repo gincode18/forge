@@ -5,16 +5,11 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { API_BASE, getApi, postApi, type Run, type RunEvent, type RunStep } from "@/lib/api";
-import { mergeEvents, streamedOutputs, modelMetrics, safeMetadata } from "@/lib/run-trace";
+import { API_BASE, artifactDownloadUrl, getApi, postApi, type Approval, type Artifact, type Run, type RunEvent, type RunStep } from "@/lib/api";
+import { canResolveApproval, mergeEvents, streamedOutputs, modelMetrics, safeMetadata, runEventTypes } from "@/lib/run-trace";
 
 const terminal = new Set(["completed", "failed", "cancelled", "interrupted"]);
-const eventTypes = [
-  "run.created", "run.started", "run.completed", "run.failed", "run.cancelled", "run.interrupted",
-  "model.delta", "model.retry", "run.budget_exceeded",
-  "model.requested", "model.completed", "model.failed", "model.cancelled", "model.interrupted",
-  "planner.started", "planner.decided", "planner.failed", "planner.cancelled", "planner.interrupted",
-];
+
 
 export function RunInspector({ initialRun, initialEvents, initialSteps }: {
   initialRun: Run;
@@ -24,6 +19,12 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
   const [run, setRun] = useState(initialRun);
   const [events, setEvents] = useState(() => mergeEvents([], initialEvents));
   const [steps, setSteps] = useState(initialSteps);
+  const [approvals, setApprovals] = useState<Approval[]>([]);
+  const [artifacts, setArtifacts] = useState<Artifact[]>([]);
+  const [resolving, setResolving] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const commandInFlight = useRef(false);
+  const manualRefreshInFlight = useRef(false);
   const [connection, setConnection] = useState("connecting");
   const [error, setError] = useState("");
   const [starting, setStarting] = useState(false);
@@ -36,10 +37,12 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
 
   const refresh = useCallback(async (includeEvents = false) => {
     const request = ++refreshIssued.current;
-    const [nextRun, nextSteps, nextEvents] = await Promise.all([
+    const [nextRun, nextSteps, nextEvents, nextApprovals, nextArtifacts] = await Promise.all([
       getApi<Run>(`/runs/${initialRun.id}`),
       getApi<RunStep[]>(`/runs/${initialRun.id}/steps`),
       includeEvents ? getApi<RunEvent[]>(`/runs/${initialRun.id}/events`) : Promise.resolve(null),
+      getApi<Approval[]>(`/runs/${initialRun.id}/approvals`),
+      getApi<Artifact[]>(`/runs/${initialRun.id}/artifacts`),
     ]);
     if (request >= refreshApplied.current) {
       refreshApplied.current = request;
@@ -49,6 +52,8 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
         return nextRun;
       });
       setSteps(nextSteps);
+      setApprovals(nextApprovals);
+      setArtifacts(nextArtifacts);
     }
     if (nextEvents) {
       cursor.current = Math.max(cursor.current, ...nextEvents.map((event) => event.sequence));
@@ -56,6 +61,15 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
     }
     return nextRun;
   }, [initialRun.id]);
+
+  useEffect(() => {
+    // Finished runs have no SSE connection, but still need durable controls.
+    let active = true;
+    void Promise.resolve().then(async () => { if (active) await refresh(true); }).catch((cause) => {
+      if (active) setError(cause instanceof Error ? cause.message : "Could not refresh run");
+    });
+    return () => { active = false; };
+  }, [refresh]);
 
   useEffect(() => {
     if (finished) return;
@@ -87,7 +101,7 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
       }
     };
     // The API sends named SSE events, not the default `message` event.
-    for (const type of eventTypes) stream.addEventListener(type, onEvent);
+    for (const type of runEventTypes) stream.addEventListener(type, onEvent);
     stream.onerror = () => {
       if (!active) return;
       setConnection("reconnecting");
@@ -100,6 +114,8 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
   }, [initialRun.id, finished, refresh, retry]);
 
   async function start() {
+    if (commandInFlight.current) return;
+    commandInFlight.current = true;
     setStarting(true);
     setError("");
     try {
@@ -109,11 +125,14 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Could not start run");
     } finally {
+      commandInFlight.current = false;
       setStarting(false);
     }
   }
 
   async function cancel() {
+    if (commandInFlight.current) return;
+    commandInFlight.current = true;
     setCancelling(true);
     setError("");
     try {
@@ -125,8 +144,37 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
       // A conflicting cancellation may mean another client finished it first.
       try { await refresh(true); } catch { /* Retain the command error. */ }
     } finally {
+      commandInFlight.current = false;
       setCancelling(false);
     }
+  }
+
+  async function resolveApproval(approval: Approval, approved: boolean) {
+    if (!canResolveApproval(approval, run.status, commandInFlight.current)) return;
+    commandInFlight.current = true;
+    setResolving(approval.id);
+    setError("");
+    try {
+      await postApi<Approval>(`/approvals/${approval.id}/resolve`, { approved });
+      await refresh(true);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Could not resolve approval");
+      // Includes 409: another client may have resolved or cancelled this call.
+      try { await refresh(true); } catch { /* Retain the decision error. */ }
+    } finally {
+      commandInFlight.current = false;
+      setResolving(null);
+    }
+  }
+
+  async function refreshTrace() {
+    if (manualRefreshInFlight.current) return;
+    manualRefreshInFlight.current = true;
+    setRefreshing(true);
+    setError("");
+    try { await refresh(true); }
+    catch (cause) { setError(cause instanceof Error ? cause.message : "Could not refresh run"); }
+    finally { manualRefreshInFlight.current = false; setRefreshing(false); }
   }
 
   const partialOutputs = streamedOutputs(events);
@@ -139,10 +187,31 @@ export function RunInspector({ initialRun, initialEvents, initialSteps }: {
     <div className="space-y-7">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div><Link href="/runs" className="text-sm text-blue-700 hover:underline">← All runs</Link><h1 className="mt-2 text-3xl font-semibold tracking-tight">Run details</h1><p className="mt-2 break-all font-mono text-xs text-slate-500">{run.id} · version {run.agent_version_id}</p></div>
-        <div className="flex flex-wrap items-center gap-3"><span role="status" className="rounded-full bg-slate-100 px-3 py-1 text-sm capitalize">{run.status.replaceAll("_", " ")}</span>{run.status === "queued" && <Button onClick={start} disabled={starting || cancelling}>{starting ? "Starting…" : "Start run"}</Button>}{!finished && <Button variant="destructive" onClick={cancel} disabled={starting || cancelling}>{cancelling ? "Cancelling…" : "Cancel run"}</Button>}</div>
+        <div className="flex flex-wrap items-center gap-3"><span role="status" className="rounded-full bg-slate-100 px-3 py-1 text-sm capitalize">{run.status.replaceAll("_", " ")}</span>{run.status === "queued" && <Button onClick={start} disabled={starting || cancelling || resolving !== null}>{starting ? "Starting…" : "Start run"}</Button>}{!finished && <Button variant="destructive" onClick={cancel} disabled={starting || cancelling || resolving !== null}>{cancelling ? "Cancelling…" : "Cancel run"}</Button>}</div>
       </div>
-      <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600"><span role="status" aria-live="polite">{finished ? "Historical trace · run finished" : connection === "connected" ? "Live stream connected" : connection === "reconnecting" ? "Stream disconnected — reconnecting" : "Connecting to live stream…"}</span>{!finished && connection === "reconnecting" && <Button variant="outline" size="sm" onClick={() => setRetry((value) => value + 1)}>Retry now</Button>}</div>
+      <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600"><span role="status" aria-live="polite">{finished ? "Historical trace · run finished" : connection === "connected" ? "Live stream connected" : connection === "reconnecting" ? "Stream disconnected — reconnecting" : "Connecting to live stream…"}</span>{!finished && connection === "reconnecting" && <Button variant="outline" size="sm" onClick={() => setRetry((value) => value + 1)}>Retry now</Button>}<Button variant="outline" size="sm" onClick={refreshTrace} disabled={refreshing}>{refreshing ? "Refreshing…" : "Refresh trace"}</Button></div>
       {error && <p role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</p>}
+      <section aria-label="Tool approvals" className="space-y-3">
+        <h2 className="text-lg font-semibold">Tool approvals</h2>
+        <p className="text-sm text-slate-600">Review the exact arguments before allowing a sensitive tool. Local controls are not a sandbox or security boundary.</p>
+        {approvals.length ? approvals.map((approval) => <Card key={approval.id}><CardContent className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2"><h3 className="break-all font-mono text-sm font-medium">{approval.tool_name}@{approval.tool_version}</h3><span className="text-sm capitalize">{approval.status}</span></div>
+          <p className="break-all text-xs text-slate-500">Step {approval.step_id} · requested {approval.created_at}{approval.resolved_at && ` · resolved ${approval.resolved_at}`}</p>
+          <pre aria-label="Approval arguments" className="overflow-x-auto whitespace-pre-wrap break-words rounded-lg bg-slate-50 p-3 text-xs">{JSON.stringify(safeMetadata(approval.arguments), null, 2)}</pre>
+          {approval.status === "pending" && <div className="flex flex-wrap items-center gap-3">
+            <Button onClick={() => resolveApproval(approval, true)} disabled={!canResolveApproval(approval, run.status, starting || cancelling || resolving !== null)}>Approve</Button>
+            <Button variant="destructive" onClick={() => resolveApproval(approval, false)} disabled={!canResolveApproval(approval, run.status, starting || cancelling || resolving !== null)}>Reject</Button>
+            {resolving === approval.id && <span role="status" className="text-sm text-slate-500">Resolving…</span>}
+          </div>}
+        </CardContent></Card>) : <p className="text-sm text-slate-500">No approvals recorded.</p>}
+      </section>
+      <section aria-label="Artifacts" className="space-y-3">
+        <h2 className="text-lg font-semibold">Artifacts</h2>
+        {artifacts.length ? <ul className="space-y-2">{artifacts.map((artifact) => <li key={artifact.id} className="flex flex-wrap items-center justify-between gap-3 rounded-lg border bg-white p-3">
+          <div className="min-w-0"><p className="break-all font-mono text-sm">{artifact.path}</p><p className="mt-1 text-xs text-slate-500">{artifact.size_bytes.toLocaleString()} bytes · {artifact.media_type} · {artifact.created_at}</p></div>
+          <a href={artifactDownloadUrl(run.id, artifact.id)} download className="rounded text-sm font-medium text-blue-700 hover:underline focus-visible:outline-2 focus-visible:outline-blue-500" aria-label={`Download ${artifact.path}`}>Download</a>
+        </li>)}</ul> : <p className="text-sm text-slate-500">No artifacts recorded.</p>}
+      </section>
       {terminalEvent && <div role="status" className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900"><p className="font-medium">Terminal outcome · {terminalEvent.type}</p><pre className="mt-2 whitespace-pre-wrap break-words text-xs">{JSON.stringify(safeMetadata(terminalEvent.payload), null, 2)}</pre><p className="mt-2 text-xs">Committed steps and partial output remain available below.</p></div>}
       <section aria-label="Model metrics" className="grid gap-3 sm:grid-cols-3 lg:grid-cols-5">{[
         ["Model latency", metrics.latency_ms === null ? "Unknown" : `${metrics.latency_ms.toLocaleString()} ms`],

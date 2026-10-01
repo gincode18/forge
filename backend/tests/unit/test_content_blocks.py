@@ -8,7 +8,7 @@ def test_normalized_result_persists_ordered_text_and_tool_content_blocks():
     assert "content_blocks" in asdict(result), "Normalized content blocks are missing"
     assert asdict(result)["content_blocks"] == (
         {"type": "text", "text": "Hello"},
-        {"type": "tool_call", "tool_call": {"name": "lookup", "arguments": {"q": "x"}, "id": "call-1"}},
+        {"type": "tool_call", "tool_call": {"name": "lookup", "arguments": {"q": "x"}, "id": "call-1", "thought_signature": None}},
     )
 
 

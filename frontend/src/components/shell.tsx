@@ -14,6 +14,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <Link className="hover:text-slate-950" href="/">Dashboard</Link>
             <Link className="hover:text-slate-950" href="/agents">Agents</Link>
             <Link className="hover:text-slate-950" href="/runs">Runs</Link>
+            <Link className="hover:text-slate-950" href="/tools">Tools</Link>
           </nav>
         </header>
         {children}

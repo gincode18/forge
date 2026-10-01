@@ -5,6 +5,9 @@ an agent harness. Read `scope.md` first for the purpose of the project and
 `architecture.md` for the target design. This document stays close to the code
 that exists today.
 
+For the operator walkthrough and explanations of the current UX, start with
+[`forge-user-guide.md`](forge-user-guide.md). This file is the maintainer's code tour.
+
 ## What "agent harness" means
 
 An agent harness is the controlled environment around an AI model. The model
@@ -40,7 +43,8 @@ POST /api/v1/runs/{id}/start
   -> runtime/supervisor.py       atomically claims the run and owns the task
   -> runtime/engine.py           loads the immutable version; enforces limits
   -> runtime/fake.py or gemini.py normalized streaming model response
-  -> runtime/react.py            continue, finish, or unsupported tool decision
+  -> runtime/react.py            continue, finish, or tool decision
+  -> runtime/tool_execution.py   policy, approval pause, execution, observation
   -> sqlite/repositories.py     persists transitions, steps, and events
 GET /api/v1/runs/{id}/stream
   -> routes/runs.py              replays committed events after a sequence
@@ -122,10 +126,12 @@ agent/run lifecycle.
 ## Frontend
 
 `frontend/src/app/` is the Next.js dashboard. Agents can select fake/Gemini and a
-model, create new immutable configurations, and launch no-tool runs. Runs lists
+model, enable versioned tools, create new immutable configurations, and launch runs. Runs lists
 persisted executions; `runs/[id]` displays usage, latency, estimated cost, retries,
 and safe metadata while streaming the committed
-event timeline via SSE and reloads status/steps. Disconnecting the page does
+event timeline via SSE and reloads status/steps/approvals/artifacts. Tools exposes
+the registered schemas and risks; run details offers approval and download controls.
+Disconnecting the page does
 not cancel the supervisor task. The trace remains readable after completion.
 
 ## How the current runtime fits
@@ -145,8 +151,10 @@ supervisor claims and starts run
 The fake provider makes the harness testable without a key or network. The
 `react` planner accepts plain-text final answers or explicit JSON continue/finish
 actions. Context is passed in chronological order on subsequent model turns.
-Normalized native or JSON tool requests are recorded and fail `tool_disabled`;
-tools and observations are Phase 4. Missing usage and unpriced cost remain
+Normalized native or JSON tool requests pass through Phase 4's registry and
+policy. Enabled, valid low-risk calls execute; sensitive calls pause durably for
+approval. Denied calls and execution outcomes return tool observations to the
+next model turn. Missing usage and unpriced cost remain
 unknown; enabled budgets stop instead of assuming unmetered requests are free.
 The real Google SDK also runs against a mock HTTP transport in offline tests.
 Live Gemini account/model access is a separate opt-in acceptance check; it passed
