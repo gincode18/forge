@@ -1,11 +1,11 @@
-# Graph Report - forge  (2026-10-01)
+# Graph Report - forge  (2026-09-30)
 
 ## Corpus Check
-- 131 files · ~50,074 words
+- 130 files · ~46,098 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 995 nodes · 2300 edges · 69 communities (50 shown, 19 thin omitted)
+- 958 nodes · 2260 edges · 63 communities (45 shown, 18 thin omitted)
 - Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 235 edges (avg confidence: 0.62)
 - Token cost: 0 input · 0 output
 
@@ -21,7 +21,7 @@
 - run-inspector.tsx
 - compilerOptions
 - dependencies
-- Database
+- app.py
 - routes/agents.py
 - RunRepository
 - Application Interface
@@ -40,12 +40,12 @@
 - forge-api
 - ports.py
 - test_local_cli.py
-- AgentRepository
+- test_agents_and_runs.py
 - ADR 0001: Python for the Forge control plane and runtime
 - schemas.py
 - events.py
 - test_initial_migration_upgrades_and_downgrades
-- app.py
+- Settings
 - adapters/__init__.py
 - sqlite/__init__.py
 - api/__init__.py
@@ -62,23 +62,17 @@
 - ToolRegistry
 - local_cli.py
 - 0005: Bounded no-tool planning and committed model streaming
-- Forge: how agents, tools, and runs actually work
+- routes/runs.py
 - test_invalid_limits_are_rejected
 - env.py
 - test_limits_migration_preserves_historical_versions_both_directions
-- Forge codebase guide
+- ReActPlanner
 - domain/agents.py
 - Phase 4 backend API contract
 - 0006 — Controlled local tools and durable approval pauses
-- forge-user-guide.md
+- Phase 4 verification
 - Phase 3 acceptance evidence
 - forge/__init__.py
-- 4. Your first run: use the offline demo before Gemini
-- FastAPI
-- 6. How tool access really works
-- 5. Making a real agent rather than a fake demo
-- .__init__
-- 9. One task, end to end, behind the UI
 
 ## God Nodes (most connected - your core abstractions)
 1. `execute_fake_run()` - 58 edges
@@ -112,7 +106,7 @@
 - **Inspectable Runtime Mechanisms** — architecture_runtime_execution_loop, architecture_trace_first_events, architecture_operator_dashboard, scope_explain_complexity [INFERRED 0.95]
 - **First Durable Runtime Vertical Slice** — plan_phase_1_domain_storage, plan_phase_2_fake_agent, architecture_sqlite_persistence, architecture_sse_event_delivery [INFERRED 0.85]
 
-## Communities (69 total, 19 thin omitted)
+## Communities (63 total, 18 thin omitted)
 
 ### Community 0 - "Runtime Execution Loop"
 Cohesion: 0.08
@@ -138,9 +132,9 @@ Nodes (28): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModu
 Cohesion: 0.04
 Nodes (47): @base-ui/react, class-variance-authority, clsx, eslint, eslint-config-next, dependencies, @base-ui/react, class-variance-authority (+39 more)
 
-### Community 6 - "Database"
-Cohesion: 0.14
-Nodes (11): create_database_engine(), Database, _is_sqlite(), Database engine, sessions, migration, and SQLite configuration., Create an engine with safe local SQLite defaults., Own the engine and produce short-lived transaction sessions., get_session(), Request (+3 more)
+### Community 6 - "app.py"
+Cohesion: 0.09
+Nodes (21): Compatibility entry point for ``uv run fastapi dev main.py``., create_database_engine(), Database, _is_sqlite(), Database engine, sessions, migration, and SQLite configuration., Create an engine with safe local SQLite defaults., Upgrade the configured database to the latest schema revision., Own the engine and produce short-lived transaction sessions. (+13 more)
 
 ### Community 7 - "routes/agents.py"
 Cohesion: 0.26
@@ -148,7 +142,7 @@ Nodes (16): _agent_response(), _config(), get_agent_by_id(), get_agents(), post_
 
 ### Community 8 - "RunRepository"
 Cohesion: 0.06
-Nodes (80): Session, ApprovalRecord, ArtifactRecord, Base, EventRecord, datetime, SQLAlchemy records for Forge's local durable state., RunCheckpointRecord (+72 more)
+Nodes (73): Session, AgentRecord, AgentVersionRecord, ApprovalRecord, ArtifactRecord, Base, EventRecord, datetime (+65 more)
 
 ### Community 9 - "Application Interface"
 Cohesion: 0.60
@@ -180,39 +174,39 @@ Nodes (4): Vercel Brand Identity, Minimal Geometric Brand Mark, Vercel SVG Logo,
 
 ### Community 23 - "ports.py"
 Cohesion: 0.06
-Nodes (69): FakeProvider, Scripted provider and finish-only planner for no-key runtime tests., _check_response(), _close_resources(), GeminiProvider, _metadata(), Exception, Google Gen AI adapter; secrets remain outside persisted run state. (+61 more)
+Nodes (61): FakeProvider, Scripted provider and finish-only planner for no-key runtime tests., _check_response(), _close_resources(), GeminiProvider, _metadata(), Exception, Google Gen AI adapter; secrets remain outside persisted run state. (+53 more)
 
 ### Community 24 - "test_local_cli.py"
-Cohesion: 0.23
-Nodes (15): load_cli(), parametrize, Offline tests for the root operator CLI (real child processes)., test_browser_api_hostname_is_allowed_for_remote_dashboard(), test_child_liveness_does_not_reap_group_leader(), test_configuration_resolves_root_and_wires_custom_ports(), test_failed_readiness_cleans_children(), test_matching_pid_is_not_enough_to_claim_unrelated_process() (+7 more)
+Cohesion: 0.15
+Nodes (23): offline_client(), parametrize, Gemini security boundaries, using only synthetic credentials and offline SDK…, response(), test_injected_clients_are_never_closed(), test_ordinary_sdk_failures_are_safe(), test_owned_cleanup_preserves_primary_outcome(), test_real_cancellation_and_deadline_survive_cleanup_failure() (+15 more)
 
-### Community 25 - "AgentRepository"
-Cohesion: 0.24
-Nodes (12): AgentRecord, AgentVersionRecord, AgentRepository, AgentConfig, create_agent(), create_agent_version(), get_agent(), list_agents() (+4 more)
+### Community 25 - "test_agents_and_runs.py"
+Cohesion: 0.47
+Nodes (8): create_agent(), TestClient, test_agent_versions_are_immutable_snapshots(), test_missing_agent_returns_structured_404(), test_queued_run_is_pinned_and_emits_created_event(), test_run_steps_are_persisted_and_returned_in_order(), test_steps_for_missing_run_return_structured_404(), test_validation_errors_include_request_id_header()
 
 ### Community 26 - "ADR 0001: Python for the Forge control plane and runtime"
 Cohesion: 0.33
 Nodes (5): ADR 0001: Python for the Forge control plane and runtime, Consequences, Context, Decision, Why Python is credible for agent harnesses
 
 ### Community 27 - "schemas.py"
-Cohesion: 0.14
-Nodes (25): approvals(), artifacts(), catalog(), download(), get, post, Request, SessionDependency (+17 more)
+Cohesion: 0.17
+Nodes (20): approvals(), artifacts(), catalog(), download(), get, post, Request, SessionDependency (+12 more)
 
 ### Community 29 - "events.py"
 Cohesion: 0.36
 Nodes (7): Event, BaseModel, Typed execution events persisted as the run trace., ToolBoundaryPayload, ToolOutcomePayload, ToolPolicyPayload, ToolRequestPayload
 
-### Community 31 - "app.py"
-Cohesion: 0.05
-Nodes (66): Compatibility entry point for ``uv run fastapi dev main.py``., Upgrade the configured database to the latest schema revision., run_migrations(), create_app(), FastAPI application factory and local service entry point., Create an isolated application, allowing temporary settings in tests., Path, Application configuration for the local Forge service. (+58 more)
+### Community 31 - "Settings"
+Cohesion: 0.06
+Nodes (61): create_app(), Create an isolated application, allowing temporary settings in tests., Path, Application configuration for the local Forge service., Settings loaded from ``FORGE_*`` environment variables., Return the absolute directory used for local Forge state., Return an explicit URL or the SQLite URL inside ``data_dir``., Settings (+53 more)
 
 ### Community 38 - "Backend directories"
-Cohesion: 0.25
-Nodes (8): `adapters/sqlite/`, `alembic/`, `api/`, `application/`, Backend directories, `domain/`, `runtime/`, `tests/`
+Cohesion: 0.12
+Nodes (15): A useful reading order, `adapters/sqlite/`, `alembic/`, `api/`, `application/`, Backend directories, `domain/`, Forge codebase guide (+7 more)
 
 ### Community 40 - "execute_fake_run"
-Cohesion: 0.08
-Nodes (66): execute_fake_run(), _model(), Path, Compatibility entry point for fake and real providers; no transaction spans…, FinalPlanner, ContinueAction, FinalAction, Planner (+58 more)
+Cohesion: 0.11
+Nodes (55): execute_fake_run(), _model(), Path, Compatibility entry point for fake and real providers; no transaction spans…, FinalPlanner, Path, TestClient, test_abandoned_running_run_is_interrupted_on_restart() (+47 more)
 
 ### Community 41 - "ADR 0002: Correlate HTTP requests with queued runs"
 Cohesion: 0.33
@@ -242,72 +236,52 @@ Nodes (20): child_running(), configuration(), http_ready(), launch_configuration
 Cohesion: 0.29
 Nodes (6): 0005: Bounded no-tool planning and committed model streaming, Alternatives and framework comparison, Consequences, Context, Decision, Verification
 
-### Community 49 - "Forge: how agents, tools, and runs actually work"
-Cohesion: 0.13
-Nodes (15): 10. What this UI cannot do yet, 11. Common “why is nothing happening?” cases, 12. Shortest possible summary, 1. First: why does the UX feel confusing?, 2. The mental model: six different things, 3. What each dashboard page is for, 7. Changing an agent: why versions exist, 8. How do we make a new tool? (+7 more)
+### Community 49 - "routes/runs.py"
+Cohesion: 0.24
+Nodes (17): cancel_run(), get_events(), get_run_by_id(), get_runs(), get_steps(), post_run(), get, post (+9 more)
 
 ### Community 50 - "test_invalid_limits_are_rejected"
 Cohesion: 0.50
 Nodes (4): parametrize, TestClient, test_invalid_limits_are_rejected(), test_limits_are_persisted_per_immutable_version()
 
-### Community 54 - "Forge codebase guide"
-Cohesion: 0.29
-Nodes (7): A useful reading order, Forge codebase guide, Frontend, How the current runtime fits, How to verify changes, Request flow in the current code, What "agent harness" means
+### Community 54 - "ReActPlanner"
+Cohesion: 0.19
+Nodes (11): ContinueAction, FinalAction, Planner, Protocol, ToolAction, Explicit no-tool planning protocol, without hidden-reasoning requirements., ReActPlanner, test_engine_rejects_workspace_symlink_before_creating_run_directory() (+3 more)
 
 ### Community 55 - "domain/agents.py"
 Cohesion: 0.22
 Nodes (7): AgentDefinition, AgentVersion, Agent identity and immutable executable configuration., Stable identity and human-facing metadata for an agent., Immutable configuration captured for reproducible runs., Validate budgets without assuming provider pricing., validate_run_limits()
 
 ### Community 56 - "Phase 4 backend API contract"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (7): Approvals, Artifacts, Catalog, Immutable configuration, Offline deterministic demo, Phase 4 backend API contract, Trace and SSE
 
 ### Community 57 - "0006 — Controlled local tools and durable approval pauses"
 Cohesion: 0.33
 Nodes (5): 0006 — Controlled local tools and durable approval pauses, Consequences, Decision, Filesystem controls and limitations, Schema rollback
 
-### Community 58 - "forge-user-guide.md"
-Cohesion: 0.25
+### Community 58 - "Phase 4 verification"
+Cohesion: 0.40
 Nodes (4): Automated gates, Browser and CLI acceptance, Phase 4 verification, Scope and limitations
 
 ### Community 59 - "Phase 3 acceptance evidence"
 Cohesion: 0.50
 Nodes (3): Live Gemini check — September 30, 2026, Phase 3 acceptance evidence, Phase status
 
-### Community 63 - "4. Your first run: use the offline demo before Gemini"
-Cohesion: 0.29
-Nodes (7): 4. Your first run: use the offline demo before Gemini, A different route: Queue run, Step A — Start Forge, Step B — Create an agent, Step C — Give that agent a task, Step D — Understand the pause, Step E — Inspect the result
-
-### Community 64 - "FastAPI"
-Cohesion: 0.33
-Nodes (5): get_providers(), get, Request, Local provider catalog: configuration status, never credentials or discovery., FastAPI
-
-### Community 65 - "6. How tool access really works"
-Cohesion: 0.33
-Nodes (6): 6. How tool access really works, Built-in permissions, Filesystem scope, Installed versus enabled, Subprocess is deliberately harder to enable, What approval means
-
-### Community 66 - "5. Making a real agent rather than a fake demo"
-Cohesion: 0.40
-Nodes (5): 5. Making a real agent rather than a fake demo, Agent setup, Limits in the form, Model instructions are not permissions, Provider setup
-
-### Community 68 - "9. One task, end to end, behind the UI"
-Cohesion: 0.67
-Nodes (3): 9. One task, end to end, behind the UI, Status cheat sheet, Three things on the run page that look similar
-
 ## Knowledge Gaps
-- **171 isolated node(s):** `forge-api`, `Event`, `$schema`, `style`, `rsc` (+166 more)
+- **143 isolated node(s):** `forge-api`, `Event`, `$schema`, `style`, `rsc` (+138 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `execute_fake_run()` connect `execute_fake_run` to `Database`, `RunRepository`, `ToolRegistry`, `ports.py`, `app.py`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
-- **Why does `RunRepository` connect `RunRepository` to `execute_fake_run`, `AgentRepository`, `.__init__`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `execute_fake_run()` connect `execute_fake_run` to `app.py`, `RunRepository`, `ToolRegistry`, `ReActPlanner`, `ports.py`, `Settings`?**
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **Why does `RunRepository` connect `RunRepository` to `execute_fake_run`, `routes/runs.py`, `test_agents_and_runs.py`?**
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Why does `ToolRegistry` connect `ToolRegistry` to `RunRepository`, `execute_fake_run`, `schemas.py`?**
-  _High betweenness centrality (0.024) - this node is a cross-community bridge._
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `execute_fake_run()` (e.g. with `.session()` and `.prepare()`) actually correct?**
   _`execute_fake_run()` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 12 inferred relationships involving `RunRepository` (e.g. with `AgentRecord` and `AgentVersionRecord`) actually correct?**

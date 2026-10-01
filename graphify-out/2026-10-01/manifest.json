@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1790789009.5918598,
-    "ast_hash": "1cf449bb4a2f28dce71c4a3cc0ae1baf",
+    "mtime": 1790787284.5616837,
+    "ast_hash": "b41a7743ae0bda63c79f0fbc90ba503b",
     "semantic_hash": ""
   },
   "architecture.md": {
@@ -115,7 +115,7 @@
     "semantic_hash": "074e68c45e35d78130ebc1779448d4a8"
   },
   "plan.md": {
-    "mtime": 1790848373.8773248,
+    "mtime": 1790787284.4287546,
     "ast_hash": "2987491297610faf85b3c1ad2fca8b8e",
     "semantic_hash": ""
   },
@@ -310,8 +310,8 @@
     "semantic_hash": ""
   },
   "docs/codebase-guide.md": {
-    "mtime": 1790789009.7300699,
-    "ast_hash": "90c2958ef592aa6c53f7b804858732ce",
+    "mtime": 1790764202.6658201,
+    "ast_hash": "0c5a566ee8bac9c434ea70d3d14cb7a6",
     "semantic_hash": ""
   },
   "frontend/src/app/agents/create-agent-form.tsx": {
@@ -600,8 +600,8 @@
     "semantic_hash": ""
   },
   "backend/tests/unit/test_controlled_subprocess.py": {
-    "mtime": 1790848398.200728,
-    "ast_hash": "8924d5056337ef6a9725e5b4989ba95b",
+    "mtime": 1790780499.2753694,
+    "ast_hash": "d98dd1b3a8954cb5445ae343b0372bd8",
     "semantic_hash": ""
   },
   "backend/tests/unit/test_local_cli.py": {
@@ -672,11 +672,6 @@
   "docs/phase-three-verification.md": {
     "mtime": 1790764242.1234546,
     "ast_hash": "5068b8de3fbacc88809714c70f268316",
-    "semantic_hash": ""
-  },
-  "docs/forge-user-guide.md": {
-    "mtime": 1790788966.241103,
-    "ast_hash": "90e4b189189842b9af579445afabc318",
     "semantic_hash": ""
   }
 }
