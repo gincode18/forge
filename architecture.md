@@ -538,9 +538,11 @@ subscribers.
 
 In the Phase 1 foundation, the API returns a server-generated `X-Request-ID`
 for each request and persists that value in the `run.created` event payload.
-The event's `run_id` connects the creation request to its durable trace. Full
-correlation and causation fields across runtime operations remain Phase 5 work
-(see `docs/decisions/0002-request-correlation.md`).
+The event's `run_id` connects the creation request to its durable trace. Phase 5
+adds schema-2 run correlation, semantic same-run causation, and stable trace/step
+span IDs. Historical schema-1 rows retain nullable fields rather than invented
+causal history. See `docs/decisions/0002-request-correlation.md` for transport
+identity and `docs/decisions/0007-durable-trace-observability.md` for execution.
 
 Example event families:
 
@@ -553,9 +555,20 @@ Example event families:
 - `memory.read`, `memory.written`;
 - `limit.warning`, `limit.exceeded`.
 
-Structured logs and OpenTelemetry spans should use the same run and step IDs.
-Streaming model tokens may be sent live without persisting every token as a
-separate row; the completed model response is always persisted.
+Committed events emit allowlisted JSON logs, and actual model/planner/policy/tool
+boundaries emit OpenTelemetry SDK spans with matching run/step identities.
+Each application owns its provider and drains tasks before shutdown; no network
+exporter is enabled by default. Initial sensitive authorization and resumed tool
+execution use distinct SDK spans so approval does not reuse an ended span ID.
+Streaming previews are bounded to 1 MiB and at most 128 delta events per model
+attempt; completed model responses are persisted independently.
+
+Run metrics derive from committed normalized state, preserving unknowns.
+Opt-in terminal-only retention removes content without deleting envelopes,
+causal links, diagnostics, or metrics. Recorded expired artifacts remain listed
+and return HTTP 410 on download. The inspector pages timeline DOM but still
+holds replay state; server-side pagination is not implied. Retention is not
+secure erasure or a sandbox. See `docs/phase-five-verification.md` for acceptance.
 
 ## API design
 

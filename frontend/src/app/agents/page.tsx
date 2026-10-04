@@ -18,7 +18,7 @@ export default async function AgentsPage() {
 
   return (
     <Shell>
-      <div className="mb-8"><h1 className="text-3xl font-semibold tracking-tight">Agents</h1><p className="mt-2 text-slate-600">Durable definitions and immutable configurations.</p></div>
+      <div className="mb-8"><h1 className="text-3xl font-semibold tracking-tight">Agents</h1><p className="mt-2 text-slate-600">Configure reusable agent behavior here; give each run its own task. Creating an agent or saving a version does not execute it.</p></div>
       <div className="grid items-start gap-8 lg:grid-cols-[1fr_360px]">
         <section aria-label="Saved agents" className="space-y-3">
           {unavailable ? <p role="alert" className="rounded-xl border border-amber-200 bg-amber-50 p-5 text-amber-900">Cannot load agents. Check that the Forge API is running.</p> :
@@ -28,7 +28,7 @@ export default async function AgentsPage() {
                   <p>{agent.description || "No description"}</p>
                   <p className="text-xs">Version {agent.latest_version.version} · {agent.latest_version.provider} / {agent.latest_version.model}</p>
                   <p className="break-all font-mono text-xs text-slate-500">{agent.id}</p>
-                  <LaunchRunForm agentId={agent.id} agentName={agent.name} />
+                  <LaunchRunForm agentId={agent.id} agentName={agent.name} provider={agent.latest_version.provider} />
                   <NewVersionForm agent={agent} providers={providers} />
                 </CardContent></Card>
               ))}

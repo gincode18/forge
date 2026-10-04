@@ -12,12 +12,15 @@ from forge import __version__
 from forge.adapters.sqlite.database import Database, run_migrations
 from forge.api.dependencies import SessionDependency
 from forge.api.routes.agents import router as agents_router
+from forge.api.routes.metrics import router as metrics_router
 from forge.api.routes.providers import router as providers_router
 from forge.api.routes.runs import router as runs_router
 from forge.api.schemas import ErrorResponse, HealthResponse
 from forge.application.errors import ResourceNotFoundError
+from forge.application.retention import apply_retention
 from forge.config import Settings
 from forge.domain.runs import InvalidRunTransition
+from forge.observability.telemetry import configure_telemetry
 from forge.runtime.supervisor import RunSupervisor
 
 
@@ -34,14 +37,20 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         database.ping()
         app.state.database = database
         app.state.settings = app_settings
-        supervisor = RunSupervisor(database, app_settings)
-        supervisor.recover()
+        telemetry = configure_telemetry(console_export=app_settings.telemetry_console_export)
+        app.state.telemetry = telemetry
+        supervisor = RunSupervisor(database, app_settings, telemetry_provider=telemetry.provider)
         app.state.supervisor = supervisor
         try:
+            supervisor.recover()
+            apply_retention(database, app_settings)
             yield
         finally:
-            await supervisor.close()
-            database.close()
+            try:
+                await supervisor.close()
+            finally:
+                telemetry.close()
+                database.close()
 
     application = FastAPI(
         title="Forge API",
@@ -115,6 +124,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     application.include_router(agents_router, prefix="/api/v1")
     application.include_router(runs_router, prefix="/api/v1")
+    application.include_router(metrics_router, prefix="/api/v1")
     application.include_router(providers_router, prefix="/api/v1")
     from forge.api.routes.tools import router as tools_router
     application.include_router(tools_router, prefix="/api/v1")

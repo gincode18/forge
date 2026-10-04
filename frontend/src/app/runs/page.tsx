@@ -18,7 +18,7 @@ export default async function RunsPage() {
 
   return (
     <Shell>
-      <div className="mb-8"><h1 className="text-3xl font-semibold tracking-tight">Runs</h1><p className="mt-2 text-slate-600">Persisted requests and their deterministic fake-agent traces.</p></div>
+      <div className="mb-8"><h1 className="text-3xl font-semibold tracking-tight">Runs</h1><p className="mt-2 text-slate-600">Persisted run tasks and their execution traces across providers. Queue a record here, then start it from its detail page.</p></div>
       <div className="grid items-start gap-8 lg:grid-cols-[1fr_360px]">
         <section aria-label="Saved runs" className="space-y-3">
           {unavailable ? <p role="alert" className="rounded-xl border border-amber-200 bg-amber-50 p-5 text-amber-900">Cannot load runs. Check that the Forge API is running.</p> :

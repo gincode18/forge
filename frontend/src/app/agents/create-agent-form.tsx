@@ -39,6 +39,7 @@ export function CreateAgentForm({ providers }: { providers: Provider[] }) {
 
   return (
     <form onSubmit={submit} className="space-y-4">
+      <p className="text-sm text-slate-600">Create agent saves a reusable definition and its first version. It does not execute a task. Launch a run afterward to create and start execution.</p>
       <div><label htmlFor="agent-name" className="mb-1 block text-sm font-medium">Name</label><input id="agent-name" name="name" required maxLength={120} className={fieldClass} placeholder="Home Agent" /></div>
       <div><label htmlFor="agent-description" className="mb-1 block text-sm font-medium">Description</label><input id="agent-description" name="description" className={fieldClass} placeholder="What this agent is for" /></div>
       <fieldset disabled={pending} className="space-y-4"><ConfigFields providers={providers} onToolsReady={setToolsReady} /></fieldset>

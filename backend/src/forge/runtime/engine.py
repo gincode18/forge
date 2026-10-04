@@ -3,6 +3,7 @@ import asyncio
 import json
 from contextlib import aclosing
 from dataclasses import asdict
+from io import StringIO
 from pathlib import Path
 
 from sqlalchemy.orm import Session
@@ -19,6 +20,7 @@ from forge.application.errors import ResourceNotFoundError
 from forge.domain.runs import RunStatus
 from forge.domain.steps import StepKind, StepStatus
 from forge.domain.tools import ToolContext
+from forge.observability.telemetry import boundary, safe_code
 from forge.runtime.ports import (
     ContinueAction,
     FinalAction,
@@ -36,7 +38,7 @@ from forge.runtime.tools import ToolRegistry, scoped_path
 
 def _fail_step(
     database: Database, run_id: str, step_id: str, kind: str, exc: Exception,
-    *, terminal: bool = True, reason: str | None = None,
+    *, terminal: bool = True, reason: str | None = None, duration_ms: float = 0,
 ) -> bool:
     with Session(database.engine) as session:
         runs = RunRepository(session)
@@ -49,15 +51,47 @@ def _fail_step(
         step.status = StepStatus.FAILED.value
         step.error = {
             "type": type(exc).__name__,
-            "message": str(exc) if isinstance(exc, (ProviderError, TimeoutError)) else "run execution failed",
+            "message": ("Gemini cleanup failed" if isinstance(exc, ProviderError) and exc.provider == 'gemini' and exc.code == 'cleanup_failed' else
+                        "Gemini request failed" if isinstance(exc, ProviderError) and exc.provider == 'gemini' and exc.code == 'request_failed' else
+                        "run execution failed"),
         }
         step.finished_at = utc_now()
-        runs.append_event(run_id, f"{kind}.failed", {"step_id": step_id})
+        payload = {
+            "step_id": step_id, "duration_ms": duration_ms,
+            "outcome": "timeout" if isinstance(exc, TimeoutError) else "failed",
+            "code": safe_code(exc),
+        }
+        if kind == 'tool':
+            version = session.get(AgentVersionRecord, run.agent_version_id)
+            tool_name = step.input.get('name', '')
+            key = next((key for key in version.tools if key.partition('@')[0] == tool_name), '')
+            payload = {'step_id': step_id, 'duration_ms': duration_ms, 'tool_name': tool_name,
+                       'tool_version': key.partition('@')[2], 'call_id': step.input.get('id'),
+                       'output': {'error': safe_code(exc)}}
+        runs.append_event(run_id, f"{kind}.failed", payload)
         if terminal:
             reason = reason or ("timeout" if isinstance(exc, TimeoutError) else "error")
-            runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": reason})
+            runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": reason, "step_id": step_id})
         session.commit()
         return True
+
+
+def _cancel_step(database, run_id, step_id, kind, duration_ms, *, terminal=True):
+    with Session(database.engine) as session:
+        runs = RunRepository(session)
+        run = runs.get(run_id)
+        step = session.get(StepRecord, step_id)
+        if run is None or step is None or run.status != RunStatus.RUNNING.value:
+            return
+        if not terminal:  # Supervisor shutdown preserves the step for recovery/interruption.
+            return
+        step.status = StepStatus.CANCELLED.value
+        step.finished_at = utc_now()
+        runs.append_event(run_id, f'{kind}.cancelled', {
+            'step_id': step_id, 'duration_ms': duration_ms, 'outcome': 'cancelled',
+        })
+        runs.transition(run, RunStatus.CANCELLED, 'run.cancelled', {'step_id': step_id})
+        session.commit()
 
 
 def _start_step(database, run_id, kind, input, max_steps, deadline, attempt=1):
@@ -105,15 +139,19 @@ async def _model(database, run_id, step_id, provider, instructions, input, messa
         ])
         return await provider.complete(instructions=instructions, input=context)
     response = None
-    pending = []
+    # Bound the live preview independently from the provider's normalized final.
+    # After event 127 we retain at most 1 Mi characters, not unbounded chunks.
+    pending = StringIO()
     pending_size = 0
+    preview_size = 0
     count = 0
 
     def flush(*, final=False):
         nonlocal pending_size, count
-        if pending and (count < 127 or final):
-            _delta(database, run_id, step_id, "".join(pending))
-            pending.clear()
+        if pending_size and (count < 127 or final):
+            _delta(database, run_id, step_id, pending.getvalue())
+            pending.seek(0)
+            pending.truncate(0)
             pending_size = 0
             count += 1
 
@@ -134,8 +172,10 @@ async def _model(database, run_id, step_id, provider, instructions, input, messa
                 if isinstance(item, ModelResult):
                     response = item
                 elif item.text:
-                    pending.append(item.text)
-                    pending_size += len(item.text)
+                    text = item.text[:max(0, 1024 * 1024 - preview_size)]
+                    pending.write(text)
+                    pending_size += len(text)
+                    preview_size += len(text)
                     if count == 0 or pending_size >= 1024:
                         flush()
         flush(final=True)
@@ -206,7 +246,7 @@ async def execute_fake_run(
         deadline = min(deadline, asyncio.get_running_loop().time() + pending['remaining_seconds'])
         messages = await execute_calls(database, run_id, tuple(ToolCall(**c) for c in pending['calls']), messages,
                                        enabled, registry, context, max_steps, deadline,
-                                       [total_tokens, total_cost, usage_known], tool_start, pending)
+                                       [total_tokens, total_cost, usage_known], tool_start, pending, claimed=claimed)
         if messages is None:
             return
     while True:
@@ -217,16 +257,18 @@ async def execute_fake_run(
         if step_id is None:
             return
         try:
-            async with asyncio.timeout_at(deadline):
-                output_cap = max_output_tokens
-                if max_tokens is not None:
-                    output_cap = min(output_cap, max_tokens - total_tokens)
-                response = await _model(
-                    database, run_id, step_id, provider, instructions, input, messages, output_cap, definitions,
-                )
-                if response.finish_reason not in {None, "STOP"}:
-                    raise ProviderError(response.provider, "incomplete_response", "Model response was incomplete")
+            with boundary('model', run_id, step_id, attempt=attempt) as operation:
+                async with asyncio.timeout_at(deadline):
+                    output_cap = max_output_tokens
+                    if max_tokens is not None:
+                        output_cap = min(output_cap, max_tokens - total_tokens)
+                    response = await _model(
+                        database, run_id, step_id, provider, instructions, input, messages, output_cap, definitions,
+                    )
+                    if response.finish_reason not in {None, "STOP"}:
+                        raise ProviderError(response.provider, "incomplete_response", "Model response was incomplete")
         except asyncio.CancelledError:
+            _cancel_step(database, run_id, step_id, 'model', operation.duration_ms, terminal=not claimed)
             raise
         except Exception as exc:
             retry = isinstance(exc, ProviderError) and exc.retryable and attempt <= max_retries
@@ -236,7 +278,8 @@ async def execute_fake_run(
                 # Failed requests have no normalized usage; never assume they were free.
                 retry = False
                 reason = "usage_unavailable"
-            if not _fail_step(database, run_id, step_id, "model", exc, terminal=not retry, reason=reason):
+            if not _fail_step(database, run_id, step_id, "model", exc, terminal=not retry,
+                              reason=reason, duration_ms=operation.duration_ms):
                 raise
             if not retry:
                 raise
@@ -250,7 +293,7 @@ async def execute_fake_run(
                     session.commit()
                     return
                 runs.append_event(run_id, "model.retry", {
-                    "step_id": step_id, "attempt": attempt + 1, "code": exc.code,
+                    "step_id": step_id, "attempt": attempt + 1, "code": safe_code(exc),
                 })
                 session.commit()
             try:
@@ -287,23 +330,24 @@ async def execute_fake_run(
             step.finished_at = utc_now()
             runs.append_event(run_id, "model.completed", {
                 "step_id": step_id, **normalized,
+                "duration_ms": operation.duration_ms, "outcome": "completed",
                 "total_tokens": total_tokens if usage_known else None,
                 "total_cost_usd": total_cost if usage_known and input_rate is not None and output_rate is not None else None,
             })
             if response.usage is not None and response.usage.output_tokens > max_output_tokens:
-                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "max_output_tokens"})
+                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "max_output_tokens", "step_id": step_id})
                 session.commit()
                 return
             if response.usage is None and (max_tokens is not None or max_cost is not None):
-                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "usage_unavailable"})
+                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "usage_unavailable", "step_id": step_id})
                 session.commit()
                 return
             if max_cost is not None and total_cost >= max_cost:
-                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "max_cost_usd"})
+                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "max_cost_usd", "step_id": step_id})
                 session.commit()
                 return
             if max_tokens is not None and total_tokens >= max_tokens:
-                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "max_tokens"})
+                runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "max_tokens", "step_id": step_id})
                 session.commit()
                 return
             session.commit()
@@ -313,12 +357,18 @@ async def execute_fake_run(
         if planner_step_id is None:
             return
         try:
-            action = (ToolAction(response.tool_calls[0].name, response.tool_calls[0].arguments)
-                      if response.tool_calls else planner.decide(response.text))
-            if asyncio.get_running_loop().time() >= deadline:
-                raise TimeoutError("run wall-clock limit exceeded")
+            with boundary('planner', run_id, planner_step_id) as operation:
+                action = (ToolAction(response.tool_calls[0].name, response.tool_calls[0].arguments)
+                          if response.tool_calls else planner.decide(response.text))
+                if asyncio.get_running_loop().time() >= deadline:
+                    raise TimeoutError("run wall-clock limit exceeded")
+        except asyncio.CancelledError:
+            _cancel_step(database, run_id, planner_step_id, 'planner',
+                         operation.duration_ms, terminal=not claimed)
+            raise
         except Exception as exc:
-            _fail_step(database, run_id, planner_step_id, "planner", exc)
+            _fail_step(database, run_id, planner_step_id, "planner", exc,
+                       duration_ms=operation.duration_ms)
             raise
         with Session(database.engine) as session:
             runs = RunRepository(session)
@@ -331,7 +381,10 @@ async def execute_fake_run(
                         "continue" if isinstance(action, ContinueAction) else "finish")
             step.output = {"action": decision, **asdict(action)}
             step.finished_at = utc_now()
-            runs.append_event(run_id, "planner.decided", {"step_id": planner_step_id, "action": decision})
+            runs.append_event(run_id, "planner.decided", {
+                "step_id": planner_step_id, "action": decision,
+                "duration_ms": operation.duration_ms, "outcome": "completed",
+            })
             if isinstance(action, FinalAction):
                 runs.transition(run, RunStatus.COMPLETED, "run.completed", {"result": action.text})
             session.commit()
@@ -341,7 +394,7 @@ async def execute_fake_run(
             calls = response.tool_calls or (ToolCall(action.name, action.arguments),)
             messages += (ModelMessage('assistant', response.text, calls),)
             messages = await execute_calls(database, run_id, calls, messages, enabled, registry, context,
-                                           max_steps, deadline, [total_tokens, total_cost, usage_known], tool_start)
+                                           max_steps, deadline, [total_tokens, total_cost, usage_known], tool_start, claimed=claimed)
             if messages is None:
                 return
             attempt = 1

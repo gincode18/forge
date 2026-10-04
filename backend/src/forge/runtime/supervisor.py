@@ -2,6 +2,8 @@
 import asyncio
 import logging
 import os
+from contextlib import nullcontext
+from datetime import UTC
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -10,6 +12,7 @@ from forge.adapters.sqlite.database import Database
 from forge.adapters.sqlite.models import (
     AgentVersionRecord,
     ApprovalRecord,
+    EventRecord,
     RunCheckpointRecord,
     RunRecord,
     StepRecord,
@@ -21,19 +24,29 @@ from forge.application.errors import ResourceNotFoundError
 from forge.config import Settings
 from forge.domain.runs import InvalidRunTransition, RunStatus
 from forge.domain.steps import StepStatus
+from forge.domain.trace import span_id_for_step, trace_id_for_run
+from forge.observability.telemetry import safe_code, use_provider
 from forge.runtime.engine import execute_fake_run
 from forge.runtime.fake import FakeProvider
 from forge.runtime.gemini import GeminiProvider
-from forge.runtime.ports import ModelProvider, ProviderError
+from forge.runtime.ports import ModelProvider
 from forge.runtime.react import ReActPlanner
 
 logger = logging.getLogger(__name__)
 
 
+def _duration(step: StepRecord) -> float | None:
+    if step.started_at is None or step.finished_at is None:
+        return None
+    return max(0, (step.finished_at.replace(tzinfo=UTC) -
+                   step.started_at.replace(tzinfo=UTC)).total_seconds() * 1000)
+
+
 class RunSupervisor:
-    def __init__(self, database: Database, settings: Settings | None = None) -> None:
+    def __init__(self, database: Database, settings: Settings | None = None, *, telemetry_provider=None) -> None:
         self.database = database
         self.settings = settings
+        self.telemetry_provider = telemetry_provider
         self.tasks: dict[str, asyncio.Task[None]] = {}
         self.provider = FakeProvider()
         self.planner = ReActPlanner()
@@ -85,8 +98,11 @@ class RunSupervisor:
             for step in active:
                 step.status = StepStatus.CANCELLED.value
                 step.finished_at = utc_now()
-                runs.append_event(run_id, f"{step.kind}.cancelled", {"step_id": step.id})
-            runs.transition(run, RunStatus.CANCELLED, "run.cancelled")
+                runs.append_event(run_id, f"{step.kind}.cancelled", {
+                    "step_id": step.id, "duration_ms": _duration(step), "outcome": "cancelled",
+                })
+            runs.transition(run, RunStatus.CANCELLED, "run.cancelled",
+                            {'step_id': active[0].id} if len(active) == 1 else {})
             for approval in session.scalars(select(ApprovalRecord).where(ApprovalRecord.run_id == run_id, ApprovalRecord.status == 'pending')):
                 approval.status = 'cancelled'
                 approval.resolved_at = utc_now()
@@ -118,26 +134,36 @@ class RunSupervisor:
 
     async def _execute(self, run_id: str, provider: ModelProvider) -> None:
         try:
-            await execute_fake_run(
-                self.database, run_id, provider, self.planner,
-                timeout_seconds=self.timeout_seconds, claimed=True,
-                workspace_root=self.settings.resolved_data_dir / 'workspaces' if self.settings else None,
-                subprocess_allowlist=tuple(tuple(argv) for argv in self.settings.subprocess_allowlist) if self.settings else (),
-            )
-        except Exception as exc:
+            with use_provider(self.telemetry_provider) if self.telemetry_provider else nullcontext():
+                await execute_fake_run(
+                    self.database, run_id, provider, self.planner,
+                    timeout_seconds=self.timeout_seconds, claimed=True,
+                    workspace_root=self.settings.resolved_data_dir / 'workspaces' if self.settings else None,
+                    subprocess_allowlist=tuple(tuple(argv) for argv in self.settings.subprocess_allowlist) if self.settings else (),
+                )
+        except Exception as exc:  # noqa: BLE001 - normalize untrusted boundary failures, never traceback.
             # Never render arbitrary SDK exception chains or transport headers.
-            safe = RuntimeError(str(exc) if isinstance(exc, ProviderError) else "run execution failed")
-            logger.error("Run failed: %s", run_id, exc_info=(RuntimeError, safe, None))
             with Session(self.database.engine) as session:
                 runs = RunRepository(session)
                 run = runs.get(run_id)
                 if run is not None and run.status == RunStatus.RUNNING.value:
-                    self._close_steps(runs, run_id, "failed", "RuntimeError")
-                    runs.transition(run, RunStatus.FAILED, "run.failed", {"reason": "error"})
+                    step_id = self._close_steps(runs, run_id, "failed", "RuntimeError")
+                    runs.transition(run, RunStatus.FAILED, "run.failed", {
+                        "reason": "error", **({'step_id': step_id} if step_id else {}),
+                    })
                     session.commit()
+                terminal = session.scalar(select(EventRecord).where(
+                    EventRecord.run_id == run_id, EventRecord.type == 'run.failed',
+                ).order_by(EventRecord.sequence.desc()).limit(1))
+                step_id = terminal.payload.get('step_id') if terminal else None
+            logger.error("Run execution failed", extra={
+                'run_id': run_id, 'trace_id': trace_id_for_run(run_id),
+                'step_id': step_id, 'span_id': span_id_for_step(step_id) if step_id else None,
+                'outcome': 'failed', 'code': safe_code(exc),
+            })
 
     @staticmethod
-    def _close_steps(runs: RunRepository, run_id: str, event: str, error: str) -> None:
+    def _close_steps(runs: RunRepository, run_id: str, event: str, error: str) -> str | None:
         active = runs.session.scalars(select(StepRecord).where(
             StepRecord.run_id == run_id, StepRecord.status == StepStatus.RUNNING.value
         )).all()
@@ -145,15 +171,17 @@ class RunSupervisor:
             step.status = StepStatus.FAILED.value
             step.error = {"type": error, "message": "run execution stopped"}
             step.finished_at = utc_now()
-            payload = {'step_id': step.id}
+            payload = {'step_id': step.id, 'duration_ms': _duration(step), 'outcome': event}
             if step.kind == 'tool' and event == 'failed':
+                payload.pop('outcome')  # Typed tool outcomes derive this from event type.
                 run = runs.get(run_id)
                 version = runs.session.get(AgentVersionRecord, run.agent_version_id)
                 tool_name = step.input.get('name', '')
                 token = next((key for key in version.tools if key.split('@')[0] == tool_name), '')
                 payload.update(tool_name=tool_name, tool_version=token.partition('@')[2],
-                               call_id=step.input.get('id'), output={'error': 'run_execution_stopped'}, duration_ms=0)
+                               call_id=step.input.get('id'), output={'error': 'run_execution_stopped'})
             runs.append_event(run_id, f"{step.kind}.{event}", payload)
+        return active[0].id if len(active) == 1 else None
 
     def recover(self, *, resume: bool = True) -> None:
         """Resume only undispatched decisions; interrupt uncertain side effects."""
@@ -171,8 +199,9 @@ class RunSupervisor:
                         and approval and approval.status in ('approved', 'rejected')):
                     ready.append(run.id)
                     continue
-                self._close_steps(runs, run.id, "interrupted", "Interrupted")
-                runs.transition(run, RunStatus.INTERRUPTED, "run.interrupted")
+                step_id = self._close_steps(runs, run.id, "interrupted", "Interrupted")
+                runs.transition(run, RunStatus.INTERRUPTED, "run.interrupted",
+                                {'step_id': step_id} if step_id else {})
             session.commit()
         if resume:
             for run_id in ready:

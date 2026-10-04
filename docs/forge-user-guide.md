@@ -2,7 +2,8 @@
 
 > Start here if the dashboard feels confusing.
 >
-> This guide describes what exists after Phase 4, not the future product.
+> This guide describes the implemented Phase 4 tools and Phase 5 observability,
+> not the future product.
 > Read sections 1–6 to use Forge. Read sections 7–10 to understand or extend it.
 
 ## 1. First: why does the UX feel confusing?
@@ -21,9 +22,10 @@ In particular:
 - A **fake** provider is a test simulator, not an intelligent model.
 - A new **version** preserves old configurations; it is not an edit-in-place.
 
-Those are real distinctions, but the UI should make them much more obvious.
-Some copy still mentions only fake/no-tool runs even though Gemini and tool runs
-are supported. The interface is implemented; its onboarding and wording need work.
+The UI now explains these distinctions alongside configuration and task forms.
+It also identifies the fake simulator, shows a scripted example for fake agents,
+and explains that the tool catalog is read-only. It remains an operator dashboard,
+not a conversational product.
 
 **The ordinary journey should be understood as:**
 
@@ -538,6 +540,75 @@ execution path.
 
 One step can produce several events. You usually read the result and approval
 controls first, then expand steps/events when something goes wrong.
+
+### Reading the inspector
+
+- **Run workspace:** shows `workspaces/<run_id>` under the operator's data
+  directory. Artifacts list recorded writes, not every file in that directory.
+- **Run summary:** elapsed start-to-finish duration includes approval waits,
+  excludes queue time, and stays Unknown until finished with valid timestamps.
+  Completed, denied, and failed tool counts are separate; cost can be Unknown.
+- **Event timeline:** All, Models, Planner, Tools, Approvals, and Errors filters
+  change the view, not execution. Events stay in committed sequence order;
+  safe raw payloads remain expandable. The latest 100 appear initially; earlier
+  events load into bounded pages (up to 500 plus one pinned expanded event).
+- **Run diagnosis:** explains failed/cancelled/interrupted outcomes and a next
+  action. When the runtime explicitly identifies a failed step, it is named,
+  linked, highlighted, and opened automatically. A denied/failed tool can recover;
+  the inspector does not assume it caused a later terminal failure.
+- Historical traces without explicit failure references cannot identify an exact
+  causal step. The **Causal chain** follows recorded predecessor links, not a
+  guess based on the last error. Links open the event or step; missing history
+  and cycles are called out rather than hidden. Raw details include correlation,
+  causation, trace, and span IDs. Legacy rows need not have these fields.
+- **Expired content:** a retention notice means some historical content was
+  removed. Execution status and measurements remain; they do not restore output.
+  An expired artifact has no download link and its API download returns 410.
+
+### Logs, spans, metrics, and retention
+
+Committed events also produce safe structured JSON logs through `forge.events`.
+They contain IDs, event type/outcome, and available duration—not prompts, tool
+arguments/results, credentials, or arbitrary tracebacks. Use `./forge logs
+--service api --follow` for the operator log; the inspector is the durable trace.
+
+Real OpenTelemetry spans measure model, planner, policy, and tool boundaries.
+No telemetry is sent over the network by default. Set
+`FORGE_TELEMETRY_CONSOLE_EXPORT=true` before starting the API to print SDK spans
+locally. With no exporter, spans are ephemeral; SQLite events still persist.
+Approval authorization and later execution use distinct SDK spans, linked by
+the same run and tool step. Spans are not reconstructed after restart.
+
+`GET /api/v1/runs/<run_id>/metrics` returns aggregate timing, token usage, cost,
+retries, failures, and separate completed/denied/failed tool counts. A denial is
+not an execution failure. If any contributing model attempt is unmetered,
+cumulative usage/cost stays Unknown rather than treating the missing value as 0.
+
+Retention is **off by default**. These optional positive day counts apply only
+to old terminal runs:
+
+| Setting | Content removed |
+| --- | --- |
+| `FORGE_EVENT_RETENTION_DAYS` | Event payload content; envelopes/diagnostics stay |
+| `FORGE_MESSAGE_RETENTION_DAYS` | Run input, step/context/approval content, and duplicated event content |
+| `FORGE_ARTIFACT_RETENTION_DAYS` | Safely resolved recorded artifact files; metadata stays |
+
+The configured policy runs at API startup. For a manual preview, from `backend/`:
+
+```bash
+uv run python -m forge.application.retention
+# Review the counts before removing content:
+uv run python -m forge.application.retention --apply
+```
+
+The command uses your configured data directory/database. Active and
+approval-waiting runs are skipped. Cleanup preserves event IDs, sequence,
+causal links, diagnostic fields, metrics, and original timestamps. There is no
+automatic periodic cleanup scheduler yet. This is not secure erasure: backups,
+external log captures, and immutable agent-version configuration remain outside
+the retention policy. Workspace controls are still not an OS sandbox.
+
+See [Phase 5 verification](phase-five-verification.md) for tested guarantees.
 
 ### Status cheat sheet
 
