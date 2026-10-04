@@ -8,6 +8,8 @@ from sqlalchemy.orm import Session, selectinload
 from forge.adapters.sqlite.models import (
     AgentRecord,
     AgentVersionRecord,
+    ApprovalRecord,
+    ArtifactRecord,
     EventRecord,
     RunRecord,
     StepRecord,
@@ -16,6 +18,8 @@ from forge.adapters.sqlite.models import (
 from forge.domain.events import TOOL_EVENT_PAYLOADS
 from forge.domain.runs import InvalidRunTransition, Run, RunStatus
 from forge.domain.steps import StepKind, StepStatus
+from forge.domain.trace import span_id_for_step, trace_id_for_run
+from forge.observability.logging import queue_event_log
 
 
 class AgentRepository:
@@ -155,18 +159,11 @@ class RunRepository:
             created_at=now,
             updated_at=now,
         )
-        run.events.append(
-            EventRecord(
-                id=str(uuid4()),
-                sequence=1,
-                type="run.created",
-                payload={"status": RunStatus.QUEUED.value, "request_id": request_id},
-                schema_version=1,
-                created_at=now,
-            )
-        )
         self.session.add(run)
         self.session.flush()
+        self.append_event(run.id, "run.created", {
+            "status": RunStatus.QUEUED.value, "request_id": request_id,
+        })
         return run
 
     def list_all(self) -> list[RunRecord]:
@@ -197,24 +194,137 @@ class RunRepository:
         )
 
     def append_event(
-        self, run_id: str, type: str, payload: dict[str, object]
+        self, run_id: str, type: str, payload: dict[str, object],
+        *, causation_id: str | None = None,
     ) -> EventRecord:
         if type in TOOL_EVENT_PAYLOADS:
             payload = TOOL_EVENT_PAYLOADS[type].model_validate(payload).model_dump(mode='json')
         last_sequence = self.session.scalar(
             select(func.max(EventRecord.sequence)).where(EventRecord.run_id == run_id)
         )
+        step_id = payload.get("step_id")
+        step_id = step_id if isinstance(step_id, str) else None
+        if step_id is None and type.startswith("approval."):
+            approval = self.session.get(ApprovalRecord, payload.get("approval_id"))
+            if approval is not None and approval.run_id == run_id:
+                step_id = approval.step_id
+        if causation_id is not None:
+            predecessor = self.session.get(EventRecord, causation_id)
+            if predecessor is None or predecessor.run_id != run_id:
+                raise ValueError("causation_id must identify a prior event in this run")
+        else:
+            predecessor = self._predecessor(run_id, type, payload, step_id)
+        if step_id is None and type in {"artifact.created", "artifact.expired"} and predecessor:
+            step_id = predecessor.step_id
         event = EventRecord(
             id=str(uuid4()),
             run_id=run_id,
             sequence=(last_sequence or 0) + 1,
             type=type,
             payload=payload,
-            schema_version=1,
+            schema_version=2,
+            correlation_id=run_id,
+            causation_id=predecessor.id if predecessor else None,
+            trace_id=trace_id_for_run(run_id),
+            span_id=span_id_for_step(step_id) if step_id else None,
+            step_id=step_id,
         )
         self.session.add(event)
+        if step_id and type in {"model.requested", "planner.started", "tool.requested"}:
+            step = self.session.get(StepRecord, step_id)
+            if step is not None and step.correlation_id is not None:
+                step.causation_id = event.causation_id
         self.session.flush()
+        has_step_timing = type.rsplit(".", 1)[-1] in {
+            "completed", "decided", "failed", "denied", "cancelled", "interrupted",
+        }
+        queue_event_log(
+            self.session, event,
+            step=self.session.get(StepRecord, step_id) if step_id and has_step_timing else None,
+            run=self.get(run_id) if type in {"run.completed", "run.failed", "run.cancelled", "run.interrupted"} else None,
+        )
         return event
+
+    def _predecessor(self, run_id, type, payload, step_id):
+        """Select only known semantic edges, never the last chronological event."""
+        families = {
+            "run.started": {"run.created"},
+            "model.requested": {"run.started", "planner.decided", "tool.completed", "tool.failed", "tool.denied", "model.retry"},
+            "model.delta": {"model.requested"},
+            "model.completed": {"model.requested"},
+            "model.failed": {"model.requested"},
+            "model.retry": {"model.failed"},
+            "planner.started": {"model.completed"},
+            "planner.decided": {"planner.started"},
+            "planner.failed": {"planner.started"},
+            "tool.requested": {"planner.decided"},
+            "tool.policy": {"tool.requested"},
+            "approval.requested": {"tool.policy"},
+            "approval.resolved": {"approval.requested"},
+            "approval.cancelled": {"approval.requested"},
+            "tool.started": {"tool.policy", "approval.resolved"},
+            "tool.completed": {"tool.started"},
+            "tool.failed": {"tool.started", "tool.policy", "approval.resolved"},
+            "tool.denied": {"tool.policy", "approval.resolved"},
+            "run.paused": {"approval.requested"},
+            "run.resumed": {"approval.resolved"},
+            "run.completed": {"planner.decided"},
+            "run.failed": {"model.failed", "planner.failed", "tool.failed", "tool.denied", "model.completed", "planner.decided"} if step_id else set(),
+            "model.cancelled": {"model.requested"},
+            "model.interrupted": {"model.requested"},
+            "planner.cancelled": {"planner.started"},
+            "planner.interrupted": {"planner.started"},
+            "tool.cancelled": {"tool.started", "approval.requested", "tool.requested"},
+            "tool.interrupted": {"tool.started", "approval.requested", "tool.requested"},
+            "run.cancelled": {"model.cancelled", "planner.cancelled", "tool.cancelled"} if step_id else {"run.created"},
+            "run.interrupted": {"model.interrupted", "planner.interrupted", "tool.interrupted"} if step_id else set(),
+            "artifact.created": {"tool.completed"},
+            "artifact.expired": {"artifact.created"},
+        }
+        same_step = type in {
+            "model.delta", "model.completed", "model.failed", "model.retry",
+            "planner.decided", "planner.failed", "tool.policy", "approval.requested",
+            "approval.resolved", "approval.cancelled", "tool.started", "tool.completed",
+            "tool.failed", "tool.denied", "run.failed", "model.cancelled", "model.interrupted",
+            "planner.cancelled", "planner.interrupted", "tool.cancelled", "tool.interrupted",
+            "run.interrupted",
+        }
+        same_step = same_step or (type == "run.cancelled" and step_id is not None)
+        candidates = families.get(type, set())
+        if not candidates:
+            return None
+        statement = select(EventRecord).where(
+            EventRecord.run_id == run_id, EventRecord.type.in_(candidates),
+        ).order_by(EventRecord.sequence.desc())
+        for event in self.session.scalars(statement):
+            event_step = event.step_id or event.payload.get("step_id")
+            if same_step and (step_id is None or event_step != step_id):
+                continue
+            if (type.startswith("approval.") and event.type.startswith("approval.")
+                    and payload.get("approval_id") != event.payload.get("approval_id")):
+                continue
+            if (type.startswith("tool.") and type not in {"tool.cancelled", "tool.interrupted"}
+                    and same_step and event.type.startswith("tool.")
+                    and payload.get("call_id") != event.payload.get("call_id")):
+                continue
+            if (type in {"tool.failed", "tool.denied"} and event.type == "tool.policy"
+                    and event.payload.get("decision") != "deny"):
+                continue
+            if type == "tool.requested" and event.payload.get("action") != "tool":
+                continue
+            if type == "model.requested" and event.type == "planner.decided" and event.payload.get("action") != "continue":
+                continue
+            if type == "run.completed" and event.payload.get("action") != "finish":
+                continue
+            if type == "artifact.created":
+                artifact = self.session.get(ArtifactRecord, payload.get("id"))
+                output = event.payload.get("output", {})
+                if artifact is None or artifact.run_id != run_id or event.payload.get("tool_name") != "filesystem_write" or output.get("path") != artifact.path:
+                    continue
+            if type == "artifact.expired" and event.payload.get("id") != payload.get("id"):
+                continue
+            return event
+        return None
 
     def transition(
         self,
@@ -256,8 +366,12 @@ class RunRepository:
         next_sequence = self.session.scalar(
             select(func.max(StepRecord.sequence)).where(StepRecord.run_id == run_id)
         )
+        step_id = str(uuid4())
         step = StepRecord(
-            id=str(uuid4()),
+            id=step_id,
+            correlation_id=run_id,
+            trace_id=trace_id_for_run(run_id),
+            span_id=span_id_for_step(step_id),
             run_id=run_id,
             sequence=(next_sequence or 0) + 1,
             kind=kind.value,

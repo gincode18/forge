@@ -115,6 +115,11 @@ class EventResponse(BaseModel):
     payload: dict[str, Any]
     schema_version: int
     created_at: datetime
+    correlation_id: str | None = None
+    causation_id: str | None = None
+    trace_id: str | None = None
+    span_id: str | None = None
+    step_id: str | None = None
 
 
 class StepResponse(BaseModel):
@@ -123,6 +128,10 @@ class StepResponse(BaseModel):
     id: str
     run_id: str
     sequence: int
+    correlation_id: str | None = None
+    causation_id: str | None = None
+    trace_id: str | None = None
+    span_id: str | None = None
     kind: str
     status: str
     input: dict[str, Any]
@@ -181,3 +190,4 @@ class ArtifactResponse(BaseModel):
     size_bytes: int
     media_type: str
     created_at: datetime
+    expired: bool = False

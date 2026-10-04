@@ -16,6 +16,11 @@ class Event:
     payload: dict[str, Any]
     schema_version: int
     created_at: datetime
+    correlation_id: str | None = None
+    causation_id: str | None = None
+    trace_id: str | None = None
+    span_id: str | None = None
+    step_id: str | None = None
 
 
 class ToolBoundaryPayload(BaseModel):

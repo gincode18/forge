@@ -171,7 +171,7 @@ def test_gemini_failure_never_persists_or_logs_credentials(client, monkeypatch, 
     from forge.runtime.supervisor import logger
 
     # Migration logging configuration may disable existing loggers. Capture the
-    # actual supervisor traceback, not a vacuous assertion over an empty log.
+    # actual supervisor structured record, not a vacuous empty-log assertion.
     monkeypatch.setattr(logger, "disabled", False)
     monkeypatch.setattr(logger, "propagate", True)
     caplog.set_level(logging.ERROR, logger=logger.name)
@@ -224,11 +224,17 @@ def test_gemini_failure_never_persists_or_logs_credentials(client, monkeypatch, 
     assert any(event["type"] == "model.failed" for event in events)
     assert key not in json.dumps({"run": run, "steps": steps, "events": events})
     assert key not in caplog.text
-    assert any(
-        record.name == logger.name and record.exc_info
-        and record.getMessage() == f"Run failed: {run_id}"
-        for record in caplog.records
-    )
+    failures = [record for record in caplog.records if record.name == logger.name]
+    assert len(failures) == 1
+    record = failures[0]
+    assert record.exc_info is None
+    assert record.getMessage() == 'Run execution failed'
+    assert record.run_id == run_id
+    assert record.step_id == steps[0]['id']
+    assert record.trace_id == steps[0]['trace_id']
+    assert record.span_id == steps[0]['span_id']
+    assert record.outcome == 'failed'
+    assert record.code in {'request_failed', 'cleanup_failed'}
     for record in caplog.records:
         assert key not in record.getMessage()
         if record.exc_info:

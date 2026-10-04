@@ -2,9 +2,9 @@
 
 ## Current position
 
-**Current phase: Phase 4 complete — controlled local tools verified offline.**
+**Current phase: Phase 5 in progress — Phase 4 remains complete.**
 
-**Current slice: controlled tool execution, durable approvals, and unified local startup delivered.**
+**Current slice: operator guidance and the first trace-inspector slice delivered and verified offline.**
 
 The repository now contains a packaged FastAPI service, Alembic-managed SQLite
 persistence, durable agent definitions and immutable versions, queued run and
@@ -27,6 +27,15 @@ operator CLI. Parent verification passed 269 backend tests, 16 frontend tests,
 lint/build, and browser create/launch/approve/download/replay acceptance through
 the CLI with isolated offline data. Restart preserved the completed trace and
 artifact. See `docs/phase-four-verification.md`; local controls are not a sandbox.
+
+Phase 5's first slice adds operator guidance, event filters and friendly details,
+honest run/tool summaries, workspace explanations, and explicit terminal
+model/planner failure-step links with highlighted error details. Combined checks
+passed 272 backend tests, 30 frontend tests, lint/build, and offline browser/CLI
+acceptance covering approvals, rejection, recovered tool errors, terminal errors,
+budget limits, cancellation, historical replay, and restart read-back. See
+`docs/phase-five-first-slice-verification.md`. Correlation/causation, structured
+logging/spans, retention, and full causal-chain coverage remain outstanding.
 
 This plan is organized around working vertical slices rather than dates. A phase
 is complete only when its exit criteria pass. We should not start several future
@@ -56,7 +65,7 @@ the current phase has at least one real implementation and the boundary matters.
 | 2. End-to-end fake agent | Create and run a deterministic agent through the UI | Complete |
 | 3. Real model runtime | Provider adapter, streaming, planner loop, limits | Complete |
 | 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Complete |
-| 5. Trace-first observability | Complete live run inspector and failure debugging | Planned |
+| 5. Trace-first observability | Complete live run inspector and failure debugging | In progress — first inspector slice verified |
 | 6. Conversation and memory | Threads, context building, working memory | Planned |
 | 7. Durable workflows | Checkpoints, retries, pause/resume, branches | Planned |
 | 8. Dogfood deployment | Scheduled Home Agent running continuously on Raspberry Pi | Planned |
@@ -280,6 +289,24 @@ agent.
 
 ## Phase 5 — Trace-first observability
 
+### Delivered and verified
+
+Operator guidance, sequence-ordered event filters, friendly labels/timestamps,
+expandable safe payloads, elapsed duration and disjoint tool outcomes, and
+explicit model/planner failure-step diagnosis are implemented. Linked failure
+details open automatically; unlinked budget stops and recovered tool denials do
+not invent causal steps. Workspace help distinguishes recorded artifacts from
+all workspace files. See `docs/phase-five-first-slice-verification.md`.
+
+The complete phase now includes schema-2 correlation/causation, committed safe
+JSON logs, real application-owned OpenTelemetry SDK spans, aggregate metrics,
+opt-in content retention, explicit causal-chain navigation, and bounded timeline
+pages. Migration roundtrips, credential-safe failures, SDK lifecycle/approval
+resume, and offline browser/restart acceptance are independently verified.
+See `docs/phase-five-verification.md` and ADR `0007` for evidence and limits.
+Remote collectors, periodic retention scheduling, server-side pagination, and
+conversation/memory are not claimed as part of this local-first delivery.
+
 ### Concepts to learn
 
 - Correlated events, logs, and spans.
@@ -304,10 +331,10 @@ agent.
 
 ### Exit criteria
 
-- [ ] A failed run can be diagnosed from its run page alone.
-- [ ] Every external call has timing and outcome data.
-- [ ] Logs, spans, steps, and events share correlation identifiers.
-- [ ] Streaming does not create an unbounded event row per token.
+- [x] A failed run can be diagnosed from its run page alone; missing history is explicit.
+- [x] Invoked model/tool calls have timing and outcome data; unknowns remain explicit.
+- [x] Logs, spans, steps, and new events share correlation identifiers.
+- [x] Streaming does not create an unbounded event row per token.
 
 ## Phase 6 — Conversation and memory
 

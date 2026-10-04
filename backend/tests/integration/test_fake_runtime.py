@@ -229,14 +229,14 @@ def test_provider_error_after_cancellation_cannot_overwrite_terminal_trace(clien
 def test_wall_clock_limit_also_covers_planner(client: TestClient) -> None:
     class SlowPlanner:
         def decide(self, response: str) -> FinalAction:
-            time.sleep(0.02)
+            time.sleep(0.3)
             return FinalAction(text=response)
 
     agent = client.post("/api/v1/agents", json={"name": "Planner time", "instructions": "Go."}).json()
     run_id = client.post("/api/v1/runs", json={"agent_id": agent["id"], "input": "Hi"}).json()["id"]
     with pytest.raises(TimeoutError):
         asyncio.run(execute_fake_run(
-            client.app.state.database, run_id, FakeProvider(), SlowPlanner(), timeout_seconds=0.01
+            client.app.state.database, run_id, FakeProvider(), SlowPlanner(), timeout_seconds=0.2
         ))
     assert client.get(f"/api/v1/runs/{run_id}").json()["status"] == "failed"
     assert client.get(f"/api/v1/runs/{run_id}/steps").json()[-1]["error"]["type"] == "TimeoutError"

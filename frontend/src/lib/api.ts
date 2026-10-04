@@ -16,7 +16,7 @@ export type Approval = {
 };
 export type Artifact = {
   id: string; run_id: string; path: string; size_bytes: number;
-  media_type: string; created_at: string;
+  media_type: string; created_at: string; expired?: boolean;
 };
 
 export function artifactDownloadUrl(runId: string, artifactId: string): string {
@@ -42,15 +42,30 @@ export type Run = {
   input: string;
   status: string;
   created_at: string;
+  updated_at?: string;
 };
-export type RunEvent = {
+export type TraceIdentity = {
+  correlation_id?: string | null;
+  causation_id?: string | null;
+  trace_id?: string | null;
+  span_id?: string | null;
+  step_id?: string | null;
+};
+export type RunEvent = TraceIdentity & {
   id: string;
+  run_id?: string;
+  created_at?: string;
+  schema_version?: number;
   sequence: number;
   type: string;
   payload: Record<string, unknown>;
 };
-export type RunStep = {
+export type RunStep = TraceIdentity & {
   id: string;
+  run_id?: string;
+  created_at?: string;
+  started_at?: string | null;
+  finished_at?: string | null;
   sequence: number;
   attempt: number;
   kind: string;

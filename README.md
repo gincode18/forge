@@ -16,6 +16,8 @@ Local-first runtime and engineering platform for AI agents.
 - [`plan.md`](plan.md) — phased implementation roadmap and current position.
 - [`docs/codebase-guide.md`](docs/codebase-guide.md) — plain-English tour of the
   code and agent harness.
+- [`docs/phase-five-verification.md`](docs/phase-five-verification.md)
+  — completed observability phase, test/browser evidence, and deliberate limits.
 - [`docs/decisions/`](docs/decisions/) — architecture decisions and tradeoffs.
 
 ## Run locally

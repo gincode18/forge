@@ -27,6 +27,7 @@ def test_downgrade_refuses_live_approval_checkpoint_without_losing_diagnostics(c
     before_approvals = client.get(f'/api/v1/runs/{run_id}/approvals').json()
     with engine.connect() as connection:
         checkpoint = connection.execute(text('SELECT payload FROM run_checkpoints')).scalar_one()
+        before_revision = connection.execute(text('SELECT version_num FROM alembic_version')).scalar_one()
     with pytest.raises(RuntimeError, match='Cannot downgrade.*approval'):
         command.downgrade(config, '0003')
     assert {'approvals', 'artifacts', 'run_checkpoints'}.issubset(inspect(engine).get_table_names())
@@ -34,7 +35,7 @@ def test_downgrade_refuses_live_approval_checkpoint_without_losing_diagnostics(c
     assert client.get(f'/api/v1/runs/{run_id}/events').json() == before_events
     assert client.get(f'/api/v1/runs/{run_id}/approvals').json() == before_approvals
     with engine.connect() as connection:
-        assert connection.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0004'
+        assert connection.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == before_revision
         assert connection.execute(text('SELECT payload FROM run_checkpoints')).scalar_one() == checkpoint
         assert connection.execute(text('PRAGMA foreign_key_check')).all() == []
 
