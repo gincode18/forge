@@ -66,7 +66,7 @@ the current phase has at least one real implementation and the boundary matters.
 | 3. Real model runtime | Provider adapter, streaming, planner loop, limits | Complete |
 | 4. Controlled tool execution | Tool registry, policy, approval, workspace controls | Complete |
 | 5. Trace-first observability | Complete live run inspector and failure debugging | In progress — first inspector slice verified |
-| 6. Conversation and memory | Threads, context building, working memory | Planned |
+| 6. Chat-first conversations and memory | Usable agent chat, durable threads, bounded context, then memory | Planned |
 | 7. Durable workflows | Checkpoints, retries, pause/resume, branches | Planned |
 | 8. Dogfood deployment | Scheduled Home Agent running continuously on Raspberry Pi | Planned |
 | 9. SDK and plugins | External agent definitions and extension loading | Planned |
@@ -336,35 +336,122 @@ conversation/memory are not claimed as part of this local-first delivery.
 - [x] Logs, spans, steps, and new events share correlation identifiers.
 - [x] Streaming does not create an unbounded event row per token.
 
-## Phase 6 — Conversation and memory
+## Phase 6 — Chat-first conversations and memory
+
+### Goal
+
+Make communicating with an agent the normal user workflow: select an agent,
+open a conversation, send a task, watch its response and tool activity, and send
+follow-ups without manually launching unrelated runs. Deliver usable chat before
+advanced memory, summarization, or retrieval. This phase is planned, not implemented.
 
 ### Concepts to learn
 
-- Context-window construction and token budgeting.
+- A conversation contains multiple user turns; each accepted turn has its own
+  run and execution trace. A run may contain multiple model/planner/tool steps.
+- Durable message history versus run-local model/tool context.
+- Context-window construction, deterministic ordering, and token budgeting.
 - The difference between conversation, working, and long-term memory.
-- Summarization and retrieval tradeoffs.
+- Summarization and retrieval tradeoffs after the chat workflow is usable.
 
-### Build
+### Execution contract
 
-1. Add threads and persisted conversation messages.
-2. Implement a context builder with deterministic ordering and token limits.
-3. Add explicit working-memory records scoped to a thread or agent.
-4. Add summarization when conversation context exceeds its budget.
-5. Define the long-term memory port without requiring a vector database.
-6. Add one simple SQLite-backed text retrieval implementation.
+- Chat is an operator interface over the existing runtime, not a second model
+  execution host. HTTP handlers and Next.js do not execute agent/tool work.
+- A thread records its agent and selected immutable executable version. Initial
+  delivery pins that version for the conversation; agent edits do not silently
+  change later turns. A different version starts a new conversation initially.
+- Persist each accepted user message and its run association atomically, then
+  schedule through the existing supervisor. Submission retries must not create
+  duplicate messages/runs. Initially allow only one active turn per thread,
+  including approval-waiting turns, with server-side enforcement.
+- Persist authoritative assistant replies linked to their runs. Stream previews
+  remain provisional: failed/cancelled partial output must not become a successful
+  reply or silently enter the next turn's context.
+- Reuse committed-event delivery, bounded streaming, run limits, tool policy,
+  approval resolution, cancellation, safe errors, and exact trace identities.
+  Approval in chat does not grant capabilities beyond the selected version.
+- Build subsequent context only from the selected thread and explicitly scoped
+  memory. Display omitted, summarized, or expired history honestly; extend the
+  retention contract to canonical conversation messages without resurrecting
+  content from stale run previews or duplicated events.
+- Preserve per-run workspace isolation. File-based follow-ups need an explicit,
+  validated handoff of selected prior artifacts, not implicit shared paths or
+  access to arbitrary host files. Expired artifacts remain unavailable.
 
-### UI slice
+### Phase 6A — First delivery: durable agent chat
 
-- Continue a conversation across multiple runs.
-- Inspect which memories were read and why.
-- View and remove explicit working-memory items.
-- Show the final context assembled for a model turn.
+Build in small API-to-UI vertical slices with failing tests first:
 
-### Exit criteria
+1. Add SQLite-backed threads, ordered user/assistant messages, and message-to-run
+   associations. Test schema upgrade/downgrade and history preservation.
+2. Add application use cases and HTTP APIs to create/list/reopen conversations,
+   read history, and submit an idempotent user turn using the existing runtime.
+   Test version pinning, thread isolation, and concurrent/duplicate submissions.
+3. Add a minimal context builder that combines immutable instructions, prior
+   authoritative conversation history, and the new task in deterministic order.
+   Enforce configured input/output token budgets; disclose omitted history and
+   reject oversized input clearly rather than silently exceeding limits.
+4. Link committed assistant replies and failed/cancelled/interrupted outcomes to
+   their turns. Preserve ordering and reconstruct history/live state correctly
+   after reload, reconnect, approval resume, and process restart.
+5. Add an agent entry point such as "Chat with agent", a conversation list,
+   message history, and a composer. Sending a message starts a normal run;
+   follow-ups remain in the same conversation.
+6. Render streamed replies, tool activity, pending approval cards, and cancellation
+   in chat. Every turn links to its existing run inspector for full diagnosis.
+7. Show which context was supplied for a turn and the boundaries of artifact
+   reuse. Keep task-based run launch and queue controls available for operators.
 
-- [ ] Conversation continuity survives restarts.
-- [ ] The context builder stays within a configured budget.
-- [ ] Memory reads and writes are visible in the trace.
+### Phase 6B — Follow-on delivery: inspectable memory
+
+Start this slice only after the chat acceptance gate passes; completion of 6A
+alone does not mark all of Phase 6 complete.
+
+1. Add explicit working-memory records scoped to a thread or agent, with visible
+   reads/writes and user controls to view and remove items.
+2. Add summarization when conversation context exceeds its budget. Persist
+   provenance and show which messages a summary replaces; never present it as
+   the original transcript or as hidden executable instructions.
+3. Define the long-term memory port without requiring a vector database, then
+   implement one simple SQLite-backed text retrieval path.
+4. Integrate selected memory into the bounded context builder and show what was
+   read, why it was selected, and its scope. Memory cannot broaden tool permissions.
+
+### UI acceptance workflow
+
+Select an agent → open a conversation → send a task → watch the streamed reply
+and tool activity → review any approval → send a contextual follow-up → reopen
+the conversation after restart. Open any turn's run inspector when debugging.
+An offline simulator remains explicitly a simulator, not a reasoning chat model.
+
+### Exit criteria — 6A chat gate
+
+- [ ] A user can select an agent, start a conversation, and send a task from chat.
+- [ ] A follow-up supplies prior authoritative thread history to the next run;
+      users need not copy earlier messages into a new task manually.
+- [ ] Thread history, turn order, run links, and version pinning survive restarts.
+- [ ] Each accepted turn has one traceable run; duplicate submissions and
+      concurrent sends do not create unintended overlapping execution.
+- [ ] Streaming, tool activity, approvals, cancellation, and failures are usable
+      from chat, with a link to the exact turn's detailed run inspector.
+- [ ] Failed/cancelled previews, expired content, and other threads' messages do
+      not silently contaminate subsequent context.
+- [ ] The context builder stays within its configured budget and exposes the
+      actual selected context and any omissions.
+- [ ] Chat preserves existing permissions and per-run workspace boundaries;
+      artifact handoffs are explicit and validated, not implicit file sharing.
+- [ ] Offline API/browser acceptance covers sending, follow-ups, reload/reconnect,
+      approval, failure/cancel, duplicate sends, and restart continuity. Tests
+      inspect provider inputs rather than assuming Fake reasons about language.
+
+### Exit criteria — 6B memory and full Phase 6
+
+- [ ] The 6A chat gate remains passing after memory integration.
+- [ ] Working-memory items can be inspected and removed; reads/writes and
+      retrieval choices are visible in the trace and context view.
+- [ ] Summaries retain provenance and preserve the configured context budget.
+- [ ] Memory is scoped and does not broaden capabilities or leak across threads.
 - [ ] The runtime does not assume that all memory uses embeddings.
 
 ## Phase 7 — Durable workflows
